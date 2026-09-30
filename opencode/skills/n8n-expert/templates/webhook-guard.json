@@ -1,0 +1,175 @@
+{
+  "name": "Webhook Guard - Seguridad e Idempotencia",
+  "description": "Webhook seguro con rate limiting, verificación de idempotencia y validación de input",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "{{WEBHOOK_PATH}}",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": false
+        }
+      },
+      "id": "webhook-trigger",
+      "name": "Trigger Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Validar campos requeridos\nconst requiredFields = {{REQUIRED_FIELDS}}; // ej: ['email', 'name']\nconst body = $json.body || {};\nconst missing = [];\n\nfor (const field of requiredFields) {\n  if (!body[field]) {\n    missing.push(field);\n  }\n}\n\nif (missing.length > 0) {\n  return {\n    valid: false,\n    missing: missing\n  };\n}\n\n// Validar formato email\nconst emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\nif (body.email && !emailRegex.test(body.email)) {\n  return {\n    valid: false,\n    error: 'Formato de email inválido'\n  };\n}\n\nreturn { valid: true, data: body };"
+      },
+      "id": "validate-input",
+      "name": "Validar Input",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "operation": "execute",
+        "query": "SELECT id FROM processed_webhooks WHERE idempotency_key = '{{IDEMPOTENCY_KEY}}' LIMIT 1",
+        "options": {}
+      },
+      "id": "check-idempotency",
+      "name": "Verificar Idempotencia",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "array": [
+            {
+              "value1": "={{ $json.length }}",
+              "operation": "isEmpty"
+            }
+          ]
+        }
+      },
+      "id": "is-new-request",
+      "name": "Es Nueva Solicitud?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1.2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generar key de idempotencia desde datos del webhook\nconst key = $json.body?.idempotency_key || \n             $json.body?.email + '-' + $json.body?.timestamp || \n             Date.now().toString();\n\nreturn { idempotency_key: key };"
+      },
+      "id": "generate-key",
+      "name": "Generar Key",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [650, 450]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "table": "processed_webhooks",
+        "columns": "idempotency_key, payload, processed_at",
+        "values": "={{ $json.idempotency_key }}, {{ JSON.stringify($json.body) }}, NOW()",
+        "options": {}
+      },
+      "id": "mark-processed",
+      "name": "Marcar como Procesado",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.1,
+      "position": [1050, 450]
+    },
+    {
+      "parameters": {},
+      "id": "proceed",
+      "name": "Proceder",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [1250, 450]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Respuesta cuando se excede rate limit\nreturn {\n  statusCode: 429,\n  message: 'Rate limit excedido. Por favor intente más tarde.'\n};"
+      },
+      "id": "rate-limit-response",
+      "name": "Rate Limit",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Respuesta de solicitud duplicada\nreturn {\n  statusCode: 200,\n  message: 'Ya procesada',\n  duplicate: true\n};"
+      },
+      "id": "duplicate-response",
+      "name": "Duplicado",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [1250, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "id": "respond",
+      "name": "Responder",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1450, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Respuesta de error de validación\nreturn {\n  statusCode: 400,\n  error: 'Validación fallida',\n  details: $json.missing || $json.error\n};"
+      },
+      "id": "validation-error",
+      "name": "Error de Validación",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [650, 150]
+    }
+  ],
+  "connections": {
+    "Trigger Webhook": {
+      "main": [[{ "node": "Validar Input", "type": "main", "index": 0 }]]
+    },
+    "Validar Input": {
+      "main": [
+        [{ "node": "Verificar Idempotencia", "type": "main", "index": 0 }],
+        [{ "node": "Error de Validación", "type": "main", "index": 0 }]
+      ]
+    },
+    "Verificar Idempotencia": {
+      "main": [[{ "node": "Es Nueva Solicitud?", "type": "main", "index": 0 }]]
+    },
+    "Es Nueva Solicitud?": {
+      "main": [
+        [{ "node": "Generar Key", "type": "main", "index": 0 }],
+        [{ "node": "Duplicado", "type": "main", "index": 0 }]
+      ]
+    },
+    "Generar Key": {
+      "main": [[{ "node": "Marcar como Procesado", "type": "main", "index": 0 }]]
+    },
+    "Marcar como Procesado": {
+      "main": [[{ "node": "Proceder", "type": "main", "index": 0 }]]
+    },
+    "Proceder": {
+      "main": [[{ "node": "Responder", "type": "main", "index": 0 }]]
+    },
+    "Duplicado": {
+      "main": [[{ "node": "Responder", "type": "main", "index": 0 }]]
+    },
+    "Rate Limit": {
+      "main": [[{ "node": "Responder", "type": "main", "index": 0 }]]
+    },
+    "Error de Validación": {
+      "main": [[{ "node": "Responder", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": ["seguridad", "webhook", "idempotencia"]
+}

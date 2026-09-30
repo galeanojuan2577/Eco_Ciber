@@ -1,0 +1,71 @@
+name: ECC Ecosystem CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check ECC structure
+        run: |
+          for dir in agents skills commands hooks rules scripts; do
+            if [ -d "ecc/$dir" ]; then
+              echo "OK ecc/$dir ($(ls ecc/$dir | wc -l) items)"
+            else
+              echo "MISSING ecc/$dir"
+            fi
+          done
+
+      - name: Validate opencode.json
+        run: |
+          if [ ! -f "opencode/opencode.json" ]; then
+            echo "MISSING opencode.json"
+            exit 1
+          fi
+          echo "OK opencode.json exists"
+
+      - name: Verify skills registered
+        run: |
+          python3 .github/check_skills.py
+
+      - name: No hardcoded paths in opencode/
+        run: |
+          FOUND=$(grep -rn '/home/diego' opencode/ --include='*.md' --include='*.json' --include='*.sh' --include='*.ts' --include='*.py' 2>/dev/null || true)
+          if [ -n "$FOUND" ]; then echo "FAIL: hardcoded paths found:"; echo "$FOUND"; exit 1; fi
+          echo "OK: no hardcoded /home/diego paths in opencode/"
+
+      - name: Placeholder integrity
+        run: |
+          grep -q '__ECC_ROOT__' opencode/opencode.json || { echo "FAIL: __ECC_ROOT__ missing"; exit 1; }
+          grep -q '__OPENCODE_ROOT__' opencode/opencode.json || { echo "FAIL: __OPENCODE_ROOT__ missing"; exit 1; }
+          grep -q '__HOME__' opencode/opencode.json || { echo "FAIL: __HOME__ missing"; exit 1; }
+          echo "OK: all 4 placeholders present in opencode.json"
+
+      - name: Test install.sh (sandbox)
+        run: python3 .github/check_install.py
+
+      - name: Check AGENTS.md
+        run: |
+          if [ ! -f "AGENTS.md" ]; then
+            echo "MISSING AGENTS.md"
+            exit 1
+          fi
+          echo "OK AGENTS.md found"
+
+      - name: Summary
+        run: |
+          echo "========================"
+          echo " ECC Ecosystem CI - PASSED"
+          echo "========================"
+          echo " ecc/     : $(find ecc -type f | wc -l) files"
+          echo " opencode/: $(find opencode -type f | wc -l) files"
+          echo " agents   : $(ls ecc/agents 2>/dev/null | wc -l)"
+          echo " skills   : $(ls ecc/skills 2>/dev/null | wc -l)"
+          echo " commands : $(ls ecc/commands 2>/dev/null | wc -l)"
+          echo "========================"

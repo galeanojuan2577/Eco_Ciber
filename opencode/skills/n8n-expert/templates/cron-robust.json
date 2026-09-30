@@ -1,0 +1,92 @@
+{
+  "name": "Pattern - Cron Robust",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "1",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [400, 300]
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "key": "last_run_timestamp",
+        "options": {}
+      },
+      "id": "2",
+      "name": "Get Last Run",
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [620, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const lastRun = $json.value;\nconst now = Date.now();\nconst oneHour = 3600000;\n\n// Si la última ejecución fue hace más de 1h 10m, algo falló\nreturn {\n  missed: lastRun && (now - lastRun > oneHour * 1.1),\n  lastRunDate: new Date(lastRun).toISOString(),\n  now: new Date(now).toISOString()\n};"
+      },
+      "id": "3",
+      "name": "Validate Execution Health",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [840, 300]
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "last_run_timestamp",
+        "value": "={{ Date.now() }}",
+        "options": {}
+      },
+      "id": "4",
+      "name": "Update Last Run",
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [1060, 300]
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get Last Run",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Last Run": {
+      "main": [
+        [
+          {
+            "node": "Validate Execution Health",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Execution Health": {
+      "main": [
+        [
+          {
+            "node": "Update Last Run",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

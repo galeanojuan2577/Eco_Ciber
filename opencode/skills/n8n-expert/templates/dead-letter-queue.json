@@ -1,0 +1,62 @@
+{
+  "name": "Pattern - Dead Letter Queue",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "1",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [400, 300]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "sheetId": "{{GOOGLE_SHEET_ID}}",
+        "range": "A:A",
+        "options": {}
+      },
+      "id": "2",
+      "name": "Log to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [620, 300]
+    },
+    {
+      "parameters": {
+        "channel": "{{SLACK_CHANNEL}}",
+        "text": "=❌ *Item Fallido detectado en {{WORKFLOW_NAME}}*\n\nID Item: {{$json[\"execution\"][\"id\"]}}\nError: {{$json[\"error\"][\"message\"]}}\nDatos: {{$json[\"item\"]}}",
+        "otherOptions": {}
+      },
+      "id": "3",
+      "name": "Notify Admin",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2,
+      "position": [840, 300]
+    }
+  ],
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Log to Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log to Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Notify Admin",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

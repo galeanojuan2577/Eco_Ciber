@@ -1,0 +1,10 @@
+node_modules/
+__pycache__/
+*.pyc
+*.bak
+.backups/
+ecc-status.html
+.env
+*.log
+.DS_Store
+.opencode/dist/

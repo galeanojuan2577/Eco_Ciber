@@ -1,0 +1,147 @@
+{
+  "name": "[ERROR] {{WORKFLOW_NAME}}",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "errors": true,
+          "errorTriggerType": "anyError"
+        }
+      },
+      "id": "error-trigger",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "errorMessage",
+              "value": "={{ $json.error.message }}"
+            },
+            {
+              "name": "errorNode",
+              "value": "={{ $json.error.node.name }}"
+            },
+            {
+              "name": "workflowId",
+              "value": "={{ $json.workflow.id }}"
+            },
+            {
+              "name": "workflowName",
+              "value": "={{ $json.workflow.name }}"
+            },
+            {
+              "name": "executionId",
+              "value": "={{ $json.execution.id }}"
+            },
+            {
+              "name": "timestamp",
+              "value": "={{ $now.toISO() }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-error-data",
+      "name": "Configurar Datos de Error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "sheetId": "{{GOOGLE_SHEET_ID}}",
+        "range": "A:G",
+        "options": {
+          "valueInputMode": "USER_ENTERED"
+        }
+      },
+      "id": "log-to-sheet",
+      "name": "Log en Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.3,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "channel": "{{SLACK_CHANNEL}}",
+        "text": "🚨 *Error en Workflow:* {{WORKFLOW_NAME}}\n\n*Error:* {{errorMessage}}\n*Nodo:* {{errorNode}}\n*Hora:* {{timestamp}}\n\n[Ver en n8n]({{N8N_URL}}/execution/{{executionId}})",
+        "attachments": [],
+        "otherOptions": {}
+      },
+      "id": "slack-alert",
+      "name": "Alerta Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 3.2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "subject": "❌ Error: {{WORKFLOW_NAME}}",
+        "to": "{{ALERT_EMAIL}}",
+        "body": "<h2>Error en Workflow</h2>\n<p><strong>Workflow:</strong> {{WORKFLOW_NAME}}</p>\n<p><strong>Error:</strong> {{errorMessage}}</p>\n<p><strong>Nodo:</strong> {{errorNode}}</p>\n<p><strong>Hora:</strong> {{timestamp}}</p>\n<p><a href=\"{{N8N_URL}}/execution/{{executionId}}\">Ver Ejecución</a></p>",
+        "options": {
+          "fromEmail": "{{SENDER_EMAIL}}",
+          "fromName": "n8n Alertas"
+        }
+      },
+      "id": "email-alert",
+      "name": "Alerta Email",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.4,
+      "position": [850, 450]
+    }
+  ],
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Configurar Datos de Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Configurar Datos de Error": {
+      "main": [
+        [
+          {
+            "node": "Log en Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log en Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Alerta Slack",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Alerta Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": ["manejo-de-errores", "alertas", "produccion"],
+  "active": true
+}

@@ -1,0 +1,9 @@
+{
+  "snapshot_date": "2026-07-10T01:05:09-05:00",
+  "agents": { "total": 67, "registered": 68, "drift": -1 },
+  "skills": { "ecc": 272, "local": 13 },
+  "commands": { "total": 92, "registered": 119 },
+  "hooks": 1,
+  "mcp_enabled": 5,
+  "drift_detected": 0
+}

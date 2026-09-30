@@ -1,0 +1,145 @@
+{
+  "name": "Patron de Reintento con Circuit Breaker",
+  "description": "Template mostrando lógica de reintento con exponential backoff y patrón circuit breaker",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Inicializar estado de reintento\nconst MAX_RETRIES = 3;\nconst attempt = $json.attempt || 0;\n\nif (attempt >= MAX_RETRIES) {\n  return null; // Detener reintentos\n}\n\n// Calcular delay con exponential backoff\nconst baseDelay = 1000; // 1 segundo\nconst delay = baseDelay * Math.pow(2, attempt);\n\nreturn {\n  attempt: attempt + 1,\n  delay: delay,\n  shouldRetry: true\n};"
+      },
+      "id": "init-retry",
+      "name": "Inicializar Reintento",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "amount": 1,
+        "unit": "seconds",
+        "release": true
+      },
+      "id": "wait",
+      "name": "Esperar",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "url": "{{API_URL}}",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{API_KEY}}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": []
+        },
+        "options": {
+          "timeout": 30000,
+          "retry": {
+            "maxRetries": 0,
+            "retryWait": "retryFixedWait"
+          }
+        }
+      },
+      "id": "http-request",
+      "name": "Solicitud API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $response.statusCode }}",
+              "operation": "insideBreadcrumb",
+              "value2": [200, 299]
+            }
+          ]
+        }
+      },
+      "id": "check-success",
+      "name": "Verificar Exito",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1.2,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Manejar fallo - registrar y notificar\nreturn {\n  success: false,\n  error: $json.error?.message || 'Error desconocido',\n  attempt: $json.attempt,\n  timestamp: new Date().toISOString()\n};"
+      },
+      "id": "handle-failure",
+      "name": "Manejar Fallo",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [1250, 300]
+    },
+    {
+      "parameters": {},
+      "id": "success-end",
+      "name": "Exito",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [1250, 150]
+    },
+    {
+      "parameters": {},
+      "id": "final-failure",
+      "name": "Fallo Final",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [1450, 300]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [[{ "node": "Inicializar Reintento", "type": "main", "index": 0 }]]
+    },
+    "Inicializar Reintento": {
+      "main": [[{ "node": "Esperar", "type": "main", "index": 0 }]]
+    },
+    "Esperar": {
+      "main": [[{ "node": "Solicitud API", "type": "main", "index": 0 }]]
+    },
+    "Solicitud API": {
+      "main": [[{ "node": "Verificar Exito", "type": "main", "index": 0 }]]
+    },
+    "Verificar Exito": {
+      "main": [
+        [{ "node": "Exito", "type": "main", "index": 0 }],
+        [{ "node": "Manejar Fallo", "type": "main", "index": 0 }]
+      ]
+    },
+    "Manejar Fallo": {
+      "main": [
+        [{ "node": "Inicializar Reintento", "type": "main", "index": 0 }],
+        [{ "node": "Fallo Final", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": ["reintento", "circuit-breaker", "resiliencia"]
+}
