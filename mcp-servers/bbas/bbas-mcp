@@ -1,0 +1,4 @@
+#!/bin/bash
+# BBAS MCP Server wrapper para opencode
+export PYTHONPATH="/root/.config/bbas${PYTHONPATH:+:$PYTHONPATH}"
+exec python3 -m bbas_mcp.mcp_server

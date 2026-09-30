@@ -1,0 +1,15 @@
+{
+  "updated": "2026-09-06T18:00:00",
+  "project": "Optus",
+  "note": "Legacy directory \u2014 project data in archived/. Created for scope-validate consistency.",
+  "targets": [
+    {
+      "target": "nasa.gov",
+      "type": "all",
+      "since": "2026-09-06T17:59:14",
+      "until": "pentest-20260906_175914",
+      "note": "autorizado por usuario"
+    }
+  ],
+  "excluded": true
+}

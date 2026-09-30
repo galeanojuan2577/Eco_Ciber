@@ -1,0 +1,68 @@
+{
+  "updated": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+  "project": "optus",
+  "program": "https://bugcrowd.com/engagements/optus-mbb-og",
+  "note": "Optus Managed Bug Bounty - SingTel. Scope registrado tras autorización explícita. Rewards doubled until 2026-03-23. Priority: IDOR/BOLA, APIs, GraphQL, JWT, LLM prompt injection. Testing con headers: BUGCROWD: username. Rate limits respected.",
+  "targets": [
+    {
+      "target": "au.com.optus.selfservice",
+      "type": "mobile-app",
+      "since": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+      "note": "Optus Android App - Self Service en Google Play"
+    },
+    {
+      "target": "id503716230",
+      "type": "mobile-app",
+      "since": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+      "note": "Optus iOS App - My Optus en App Store"
+    },
+    {
+      "target": "*.optus.com.au",
+      "type": "web",
+      "since": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+      "note": "Sitios web de Optus (portal, eCare, prepaid, etc.)"
+    },
+    {
+      "target": "gateway.optus.com.au",
+      "type": "api",
+      "since": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+      "note": "Optus AI Search API endpoint - Generative AI based search"
+    },
+    {
+      "target": "www.outsourcing.optus.net.au",
+      "type": "web",
+      "since": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+      "note": "EFRAMS - Formulario de gestión médica"
+    },
+    {
+      "target": "www.outsourcing2.optus.net.au",
+      "type": "web",
+      "since": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+      "note": "EFRAMS2 - Segunda versión del formulario médico"
+    },
+    {
+      "target": "www.optus.com.au/osp-ecare",
+      "type": "web",
+      "since": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+      "note": "OB PORTAL - Atención al cliente y soporte"
+    },
+    {
+      "target": "203.13.127.0/24",
+      "type": "network",
+      "since": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+      "note": "Network Testing - rango IPv4 Optus (severidad 20 en bugcrowd)"
+    },
+    {
+      "target": "203.13.98.0/26",
+      "type": "network",
+      "since": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+      "note": "Network Testing - rango IPv4 Optus"
+    },
+    {
+      "target": "203.13.128.128/27",
+      "type": "network",
+      "since": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+      "note": "Network Testing - rango IPv4 Optus"
+    }
+  ]
+}

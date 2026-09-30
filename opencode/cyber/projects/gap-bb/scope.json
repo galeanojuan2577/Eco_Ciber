@@ -1,0 +1,50 @@
+{
+  "updated": "2026-08-17T19:03:04",
+  "project": "gap-bb",
+  "program": "https://bugcrowd.com/engagements/gapinc",
+  "note": "Creado con authorize.sh init. REGISTRAR TARGETS ANTES DE ATACAR.",
+  "targets": [
+    {
+      "target": "*.gap.com",
+      "type": "all",
+      "since": "2026-08-17T19:03:18",
+      "until": "",
+      "note": "VDP Gap - wildcard web oficial (gap.com, Old Navy, Banana Republic, Athleta). SOLO testing manual"
+    },
+    {
+      "target": "gap.com",
+      "type": "all",
+      "since": "2026-08-17T19:03:18",
+      "until": "",
+      "note": "VDP Gap - dominio raiz"
+    },
+    {
+      "target": "secure-www.gap.com",
+      "type": "all",
+      "since": "2026-08-17T19:03:18",
+      "until": "",
+      "note": "VDP Gap - checkout place-order + endpoints xapi"
+    },
+    {
+      "target": "api.gap.com",
+      "type": "all",
+      "since": "2026-08-17T19:03:18",
+      "until": "",
+      "note": "VDP Gap - API + credit_cards/v1"
+    },
+    {
+      "target": "gap.com/shopping-bag",
+      "type": "all",
+      "since": "2026-08-17T19:03:18",
+      "until": "",
+      "note": "VDP Gap - shopping bag (NextJS)"
+    },
+    {
+      "target": "gap.com/checkout",
+      "type": "all",
+      "since": "2026-08-17T19:03:18",
+      "until": "",
+      "note": "VDP Gap - checkout"
+    }
+  ]
+}

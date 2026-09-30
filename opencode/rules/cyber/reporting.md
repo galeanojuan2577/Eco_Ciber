@@ -30,15 +30,26 @@ Para cada hallazgo (ID):
 - Impacto
 - Remediación recomendada
 - Referencias (CWE/CVE si aplica)
+- **MITRE ATT&CK**: technique ID (ej: T1190 - Exploitation for Initial Access)
+- **NIST CSF 2.0**: category (ej: DE.CM-01 - Networks and Environment)
 
 ## 4. Matriz de Severidad
 | ID | Severidad | Estado (abierto/remediado) |
 
-## 5. Recomendaciones Priorizadas
+## 5. Framework Coverage Matrix
+| Framework | Tactics/Functions Cubiertos | Skills Utilizados |
+|-----------|---------------------------|-------------------|
+| MITRE ATT&CK v19.1 | TA0001, TA0002, TA0003... | scanning-web-applications-with-nikto, ... |
+| NIST CSF 2.0 | DE.CM-01, RS.AN-03... | ... |
+| MITRE ATLAS | AML.T0047... | (si aplica AI/ML) |
+| MITRE D3FEND | D3-NTA... | (contramedidas recomendadas) |
+
+## 6. Recomendaciones Priorizadas
 1. ...
-## 6. Anexos
+## 7. Anexos
 - Comandos utilizados (audit log)
 - Notas de alcance
+- Skills ACS utilizados (lista completa)
 ```
 
 ## 2. Reglas de Reporte

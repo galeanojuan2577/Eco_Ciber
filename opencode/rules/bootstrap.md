@@ -1,45 +1,38 @@
-# ECC Auto-Bootstrap Instructions
+# Auto-Bootstrap Instructions
 
+## Language (Always On)
 ⚠️ **IDIOMA**: Siempre responder en **español**. Sin excepción.
 
-## ⚡ ARRANQUE OBLIGATORIO — EJECUTAR SIEMPRE
+## Pentest Workflow
+Before starting any pentest engagement:
+1. **Read `pentest-flow-detail.md`** — full pentest reference
+2. **Authorize** — `authorize.sh` + SoW before any offensive action
+3. **Scope check** — `check-scope.sh <target>` before acting
+4. **Use subagents** — delegate to specialized agents (recon-agent, scanner-agent, etc.)
 
-**PASO 1:** Ejecuta `bash __OPENCODE_ROOT__/tools/ecc-init.sh`
-**PASO 2:** Lee COMPLETAMENTE su output (contiene: security scan, project-detect, learnings, health)
-**PASO 3:** Usa el tool `skill` para cargar CADA UNA de las skills listadas en "SKILLS_TO_LOAD"
-**PASO 4:** Lee `__OPENCODE_ROOT__/_data/learnings/mistakes-log.md`
-**PASO 5:** Lee `__OPENCODE_ROOT__/_data/learnings/patterns-log.md`
+## Agent Routing
+| Task | Agent |
+|---|---|
+| Recon/OSINT | `recon-agent` |
+| Vulnerability scan | `scanner-agent` |
+| Enum/web/API fuzz | `enumerator-agent` or `web-tester` or `api-tester` |
+| Exploitation | `exploiter-agent` |
+| Post-exploit | `post-exploit-agent` |
+| Report | `report-agent` |
+| Orchestrate full pentest | `red-team-lead` |
+| OpSec/review | `opsec-agent` |
+| Code review | `code-reviewer` |
+| Fix verification | `pentest-verification` |
 
-NO CONTINUAR SIN COMPLETAR ESTOS 5 PASOS.
+## Token Optimization
+- Ultra-short responses, no preambles
+- Don't repeat existing code — only show changes with `edit`
+- No code comments unless necessary
+- After each milestone, suggest `/compact`
 
-## Auto-Carga Reactiva
-
-Tu system prompt lista todas las skills disponibles con descripciones. Cuando detectes que la conversación coincide con la descripción de alguna skill, USA el tool `skill` para cargarla automáticamente antes de continuar. Sé proactivo, no esperes a que el usuario la pida.
-
-## Optimización de Tokens (SIEMPRE ACTIVA)
-- Respuestas ultracortas, sin preámbulos, sin resúmenes, sin explicaciones
-- No repetir código existente — solo mostrar cambios con `edit`
-- No añadir comentarios al código a menos que sean necesarios
-- Skills del stack actual tienen prioridad sobre skills genéricas
-- Después de cada hito, sugerir `/compact`
-
-## 🔁 AUTO-EVALUACIÓN OBLIGATORIA (NO OPCIONAL)
-
-**Antes de CADA tarea no-trivial:**
-1. Lee mistakes-log.md y patterns-log.md
-2. Verifica que no vas a repetir un error pasado
-
-**Después de CADA tarea no-trivial:**
-1. Ejecuta `bash __OPENCODE_ROOT__/tools/session-review.sh`
-2. Si hubo error → REGÍSTRALO en mistakes-log.md con causa raíz + fix + gatillo
-3. Si hubo acierto repetible → REGÍSTRALO en patterns-log.md
-4. Si el mismo error ocurre 2+ veces → AGREGA instrucción permanente aquí mismo
-
-Sin excepción. Sin olvido. Sin autoengaño.
-
-## Auto-Mantenimiento
-- `ecc-test` — suite de pruebas completa (25 tests)
-- `ecosystem-health` — auditoría completa del ecosistema
-- `config-heal fix` — repara drift automáticamente (agentes, comandos, SOUL.md)
-- `backup-config` — backup timestamped de opencode.json (guarda últimos 10)
-- `ecc-status.html` — dashboard visual en __OPENCODE_ROOT__/ecc-status.html
+## Rules (Pentest-Specific)
+- `rules/cyber/authorization.md` — Authorization & Scope (MANDATORY)
+- `rules/cyber/pentest-flow-detail.md` — Full pentest flow reference
+- `rules/cyber/reporting.md` — Pentest reporting
+- `rules/cyber/cleanup.md` — Post-engagement cleanup
+- `rules/cyber/project-isolation.md` — Per-project isolation

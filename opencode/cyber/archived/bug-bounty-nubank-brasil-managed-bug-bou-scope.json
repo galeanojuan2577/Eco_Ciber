@@ -1,0 +1,106 @@
+{
+  "updated": "2026-08-25T22:02:17",
+  "project": "bug-bounty-nubank-brasil-managed-bug-bou",
+  "program": "https://bugcrowd.com/engagements/nubank",
+  "note": "Creado con authorize.sh init. REGISTRAR TARGETS ANTES DE ATACAR.",
+  "targets": [
+    {
+      "target": "https://play.google.com/store/apps/details?id=com.nu.production&hl=pt_br&gl=us&pli=1",
+      "type": "all",
+      "since": "2026-08-25T22:02:17",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "https://apps.apple.com/br/app/nubank-conta-e-cart%c3%a3o/id814456780",
+      "type": "all",
+      "since": "2026-08-25T22:02:17",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "*.nu.com.mx",
+      "type": "all",
+      "since": "2026-08-25T22:02:18",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "*.nu.com.co",
+      "type": "all",
+      "since": "2026-08-25T22:02:18",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "https://nubank.com.br",
+      "type": "all",
+      "since": "2026-08-25T22:02:18",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "https://nubank.com.mx",
+      "type": "all",
+      "since": "2026-08-25T22:02:18",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "https://nubank.com.co",
+      "type": "all",
+      "since": "2026-08-25T22:02:18",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "*.nuinvest.com.br",
+      "type": "all",
+      "since": "2026-08-25T22:02:18",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "https://www.nuinvest.com.br",
+      "type": "all",
+      "since": "2026-08-25T22:02:18",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "*.nubank.com.mx",
+      "type": "all",
+      "since": "2026-08-25T22:02:18",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "*.nubank.com.com",
+      "type": "all",
+      "since": "2026-08-25T22:02:18",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "prod-.nubank.com.br",
+      "type": "all",
+      "since": "2026-08-25T22:02:19",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "prod-.nubank.com.mx",
+      "type": "all",
+      "since": "2026-08-25T22:02:19",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "*.nubank.com.br",
+      "type": "all",
+      "since": "2026-08-25T22:02:19",
+      "until": "",
+      "note": "autorizado por usuario"
+    }
+  ]
+}

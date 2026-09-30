@@ -1,0 +1,96 @@
+daemon:
+  host: 127.0.0.1
+  port: 9000
+  workers: 4
+  log_level: INFO
+queue:
+  backend: sqlite
+  sqlite_path: ~/.config/bbas/bbas.db
+  redis_url: redis://localhost:6379/0
+  max_retries: 3
+  retry_delay: 30
+  checkpoint_interval: 50
+scanner:
+  rate_limit: 10
+  request_timeout: 30
+  target_timeout: 300
+  user_agent: BBAS/1.0 (Bug Bounty Analysis System)
+  wordlists:
+    subdomains: ~/.config/bbas/wordlists/subdomains.txt
+    directories: ~/.config/bbas/wordlists/directories.txt
+    parameters: ~/.config/bbas/wordlists/parameters.txt
+  nuclei:
+    templates_path: ~/.config/bbas/nuclei-templates
+    severity:
+    - critical
+    - high
+    - medium
+    tags:
+    - exposures
+    - default-login
+    - misconfig
+    - cves
+    - takeover
+    rate_limit: 100
+  tools:
+    subfinder: ''
+    httpx: /usr/local/bin/httpx-pd
+    nuclei: ''
+    amass: ''
+    gobuster: ''
+    ffuf: ''
+    zaproxy: ''
+    nikto: ''
+    nmap: ''
+    dnsrecon: ''
+    theharvester: ''
+auto_update:
+  enabled: true
+  schedule: 0 3 * * 0
+  components:
+    nuclei_templates: true
+    wordlists: true
+    nuclei_engine: true
+    subfinder: true
+    httpx: true
+    amass: true
+    gobuster: true
+    ffuf: true
+    zap: false
+    nikto: false
+    bbas_core: true
+    attack_patterns: true
+health_monitor:
+  enabled: true
+  interval: 900
+  checks:
+    disk_space_gb: 5
+    tools:
+    - subfinder
+    - nuclei
+    - httpx
+    - amass
+    - zaproxy
+    - nikto
+    scope_valid: true
+    queue_stuck_minutes: 30
+  alerts:
+  - log
+  - desktop
+plugins:
+  enabled: true
+  directory: ~/.config/bbas/plugins
+  auto_load: true
+attack_patterns:
+  enabled: true
+  source: github:bbas-community/attack-patterns
+  sync_schedule: 0 4 * * 0
+mcp:
+  enabled: true
+  host: 127.0.0.1
+  port: 8081
+web_ui:
+  enabled: true
+  host: 127.0.0.1
+  port: 9000
+  serve_static: true

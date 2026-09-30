@@ -1,0 +1,428 @@
+{
+  "updated": "2026-08-25T21:47:27",
+  "project": "bug-bounty-optus-managed-bug-bounty",
+  "program": "https://bugcrowd.com/engagements/optus-mbb-og",
+  "note": "Creado con authorize.sh init. REGISTRAR TARGETS ANTES DE ATACAR.",
+  "targets": [
+    {
+      "target": "https://play.google.com/store/apps/details?id=au.com.optus.selfservice&hl=en_au&gl=us",
+      "type": "all",
+      "since": "2026-08-25T21:47:27",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "https://webmail.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:27",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "https://apps.apple.com/au/app/my-optus/id503716230",
+      "type": "all",
+      "since": "2026-08-25T21:47:27",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "*.optus.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:27",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "https://www.outsourcing.optus.net.au/eframs3",
+      "type": "all",
+      "since": "2026-08-25T21:47:27",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "https://www.outsourcing2.optus.net.au/eframs3",
+      "type": "all",
+      "since": "2026-08-25T21:47:27",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "https://www.optus.com.au/osp-ecare",
+      "type": "all",
+      "since": "2026-08-25T21:47:27",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "https://optus.my.site.com/myhub/s",
+      "type": "all",
+      "since": "2026-08-25T21:47:28",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "https://www.optus.com.au/prepaid/activate",
+      "type": "all",
+      "since": "2026-08-25T21:47:28",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "vpn01.syd.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:28",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "58.108.136.4",
+      "type": "all",
+      "since": "2026-08-25T21:47:28",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "172.24.250.128",
+      "type": "all",
+      "since": "2026-08-25T21:47:28",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "198.142.65.253",
+      "type": "all",
+      "since": "2026-08-25T21:47:28",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "naasapi.optus.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:28",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "ras1.optus.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:28",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "203.13.98.3",
+      "type": "all",
+      "since": "2026-08-25T21:47:29",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "ns1.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:29",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "203.2.75.2",
+      "type": "all",
+      "since": "2026-08-25T21:47:29",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "ns2.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:29",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "203.2.75.12",
+      "type": "all",
+      "since": "2026-08-25T21:47:29",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "dns0.optus.net.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:29",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "198.142.231.61",
+      "type": "all",
+      "since": "2026-08-25T21:47:29",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "dns1.optus.net.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:30",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "198.142.231.63",
+      "type": "all",
+      "since": "2026-08-25T21:47:30",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "ddosportal.optus.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:30",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "https://ddosportal.optus.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:30",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "10.192.203.150",
+      "type": "all",
+      "since": "2026-08-25T21:47:30",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "172.26.39.9",
+      "type": "all",
+      "since": "2026-08-25T21:47:30",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "172.26.2.133",
+      "type": "all",
+      "since": "2026-08-25T21:47:30",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "211.28.90.133",
+      "type": "all",
+      "since": "2026-08-25T21:47:30",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "211.28.90.134",
+      "type": "all",
+      "since": "2026-08-25T21:47:31",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "211.28.90.148",
+      "type": "all",
+      "since": "2026-08-25T21:47:31",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "211.28.90.164",
+      "type": "all",
+      "since": "2026-08-25T21:47:31",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "211.28.90.196",
+      "type": "all",
+      "since": "2026-08-25T21:47:31",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "https://ogws.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:31",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "https://oes.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:31",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "speedtest-sydney.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:31",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "speedtest-newcastle.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:32",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "speedtest-blacktown.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:32",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "speedtest-melbourne.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:32",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "speedtest-geelong.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:32",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "speedtest-hobart.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:32",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "speedtest-perth.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:32",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "speedtest-broome.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:32",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "speedtest-rockingham.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:33",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "speedtest-eastburwood.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:33",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "speedtest-brisbane.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:33",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "speedtest-goldcoast.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:33",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "speedtest-townsville.optusnet.com.au",
+      "type": "all",
+      "since": "2026-08-25T21:47:33",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "202.139.138.208/28",
+      "type": "all",
+      "since": "2026-08-25T21:47:33",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "203.13.127.0/24",
+      "type": "all",
+      "since": "2026-08-25T21:47:33",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "203.13.128.128/27",
+      "type": "all",
+      "since": "2026-08-25T21:47:34",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "203.13.129.0/24",
+      "type": "all",
+      "since": "2026-08-25T21:47:34",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "203.16.75.0/24",
+      "type": "all",
+      "since": "2026-08-25T21:47:34",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "203.13.98.0/26",
+      "type": "all",
+      "since": "2026-08-25T21:47:34",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "203.13.98.144/28",
+      "type": "all",
+      "since": "2026-08-25T21:47:34",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "203.13.98.253/32",
+      "type": "all",
+      "since": "2026-08-25T21:47:34",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "203.13.98.254/32",
+      "type": "all",
+      "since": "2026-08-25T21:47:34",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "203.13.125.32/27",
+      "type": "all",
+      "since": "2026-08-25T21:47:34",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "203.13.128.0/27",
+      "type": "all",
+      "since": "2026-08-25T21:47:35",
+      "until": "",
+      "note": "autorizado por usuario"
+    }
+  ]
+}

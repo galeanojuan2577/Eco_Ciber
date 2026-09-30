@@ -1,0 +1,50 @@
+{
+  "updated": "2026-08-17T16:18:05",
+  "project": "nasa-vdp",
+  "program": "https://bugcrowd.com/engagements/nasa-vdp",
+  "note": "Creado con authorize.sh init. REGISTRAR TARGETS ANTES DE ATACAR.",
+  "targets": [
+    {
+      "target": "nasa.gov",
+      "type": "recon",
+      "since": "2026-08-17T16:18:08",
+      "until": "VDP NASA - dominio raiz + subdominios en scope (testing manual)",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "*.nasa.gov",
+      "type": "recon",
+      "since": "2026-08-17T16:18:08",
+      "until": "VDP NASA - subdominios wildcard",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "usgeo.gov",
+      "type": "recon",
+      "since": "2026-08-17T16:18:08",
+      "until": "VDP NASA - usgeo.gov en scope",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "globe.gov",
+      "type": "recon",
+      "since": "2026-08-17T16:18:08",
+      "until": "VDP NASA - globe.gov en scope",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "*.globe.gov",
+      "type": "recon",
+      "since": "2026-08-17T16:30:17",
+      "until": "VDP NASA - subdominios globe.gov (brief: listed target + subdomains)",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "*.usgeo.gov",
+      "type": "recon",
+      "since": "2026-08-17T16:30:17",
+      "until": "VDP NASA - subdominios usgeo.gov (brief: listed target + subdomains)",
+      "note": "autorizado por usuario"
+    }
+  ]
+}

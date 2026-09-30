@@ -1,0 +1,24 @@
+[Unit]
+Description=BBAS Daemon - Bug Bounty Analysis System
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/.config/bbas
+Environment=PYTHONPATH=/root/.config/bbas
+ExecStart=/usr/bin/python3 -m uvicorn core.api.main:app --host 127.0.0.1 --port 8080 --workers 1
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Security
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/root/.config/bbas /root/Bugbonty
+
+[Install]
+WantedBy=multi-user.target

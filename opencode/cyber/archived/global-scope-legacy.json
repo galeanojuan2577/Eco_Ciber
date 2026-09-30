@@ -1,0 +1,152 @@
+{
+  "updated": "2026-08-13T13:20:42.837104",
+  "targets": [
+    {
+      "target": "login.mdoutdoors.maryland.gov",
+      "type": "exploit",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "IDOR PoC pre-auth"
+    },
+    {
+      "target": "mdfssadmin.maryland.gov",
+      "type": "exploit",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada A - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "federalsurplus.maryland.gov",
+      "type": "recon",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada B/C - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "account.paidleave.maryland.gov",
+      "type": "exploit",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada A - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "assessments.msde.maryland.gov",
+      "type": "recon",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada B/C - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "mcap.msde.maryland.gov",
+      "type": "recon",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada B/C - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "cpanel.goccp.maryland.gov",
+      "type": "recon",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada B/C - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "webmail.goccp.maryland.gov",
+      "type": "recon",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada B/C - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "ftp.mgaleg.maryland.gov",
+      "type": "recon",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada B/C - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "sbe-vpn.elections.maryland.gov",
+      "type": "recon",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada B/C - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "abc.mva.maryland.gov",
+      "type": "recon",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada B/C - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "domesticforfeiture.dat.maryland.gov",
+      "type": "exploit",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada A - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "pprextensions.dat.maryland.gov",
+      "type": "exploit",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada A - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "campaignfinance.maryland.gov",
+      "type": "exploit",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada A - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "efds.ethics.maryland.gov",
+      "type": "exploit",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada A - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "mdoutdoors.maryland.gov",
+      "type": "exploit",
+      "since": "2026-08-13T13:36:01",
+      "until": "90d",
+      "note": "IDOR PoC minima pre-auth - Maryland VDP autorizado por usuario"
+    },
+    {
+      "target": "staging-api.bany.dev",
+      "type": "all",
+      "since": "2026-08-13T15:41:26",
+      "until": "2026-08-13T23:59:59",
+      "note": "YNAB Bug Bounty - API staging (Bugcrowd, autorizado)"
+    },
+    {
+      "target": "staging-app.bany.dev",
+      "type": "all",
+      "since": "2026-08-13T15:41:26",
+      "until": "2026-08-13T23:59:59",
+      "note": "YNAB Bug Bounty - SPA staging (Bugcrowd, autorizado)"
+    },
+    {
+      "target": "www.ynab.com",
+      "type": "recon",
+      "since": "2026-08-13T15:41:26",
+      "until": "2026-08-13T23:59:59",
+      "note": "YNAB Bug Bounty - marketing site (Bugcrowd, solo recon)"
+    },
+    {
+      "target": "api.ynab.com",
+      "type": "recon",
+      "since": "2026-08-13T15:41:26",
+      "until": "2026-08-13T23:59:59",
+      "note": "YNAB Bug Bounty - public API doc ref (Bugcrowd, solo recon)"
+    },
+    {
+      "target": "www.victoriassecret.com",
+      "type": "exploit",
+      "since": "2026-08-13T16:20:32",
+      "until": "",
+      "note": "VDP Victoria's Secret - pre-auth no destructivo, testing SMS/email OTP, cuentas propias +vs1/+vs2/+vs3. Autorizado por Galeano2577 el 2026-08-13"
+    }
+  ]
+}

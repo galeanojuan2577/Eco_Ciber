@@ -1,0 +1,107 @@
+{
+  "updated": "2026-08-13T22:22:27.765891",
+  "project": "chime-bb",
+  "program": "https://bugcrowd.com/engagements/chime",
+  "rewards": {
+    "P1_critical": "$20,000 - $40,000 (Primary) / $9,000 - $14,000 (Secondary)",
+    "P2_high": "no publicado en vivo",
+    "P3_medium": "no publicado en vivo",
+    "P4_low": "no publicado en vivo",
+    "validacion": "15 dias"
+  },
+  "status": "EN SCOPE (Managed Bug Bounty, ongoing desde 2025-05-06; Hackersgiving Challenge rewards duplicados)",
+  "wildcards": [
+    "*.chime.com",
+    "*.chimepayments.com",
+    "*.1debit.com",
+    "*.chimecard.com",
+    "*.chmfin.com",
+    "*.chimebank.com"
+  ],
+  "targets": [
+    {
+      "target": "*.chime.com",
+      "type": "all",
+      "since": "2026-08-13T22:18:00",
+      "until": "",
+      "note": "Primary - wildcard oficial (incl. www.chime.com, app.chime.com)"
+    },
+    {
+      "target": "*.chimepayments.com",
+      "type": "all",
+      "since": "2026-08-13T22:18:00",
+      "until": "",
+      "note": "Primary - wildcard oficial payments"
+    },
+    {
+      "target": "*.1debit.com",
+      "type": "all",
+      "since": "2026-08-13T22:18:00",
+      "until": "",
+      "note": "Primary - wildcard oficial"
+    },
+    {
+      "target": "*.chimecard.com",
+      "type": "all",
+      "since": "2026-08-13T22:18:00",
+      "until": "",
+      "note": "Primary - wildcard oficial"
+    },
+    {
+      "target": "*.chmfin.com",
+      "type": "all",
+      "since": "2026-08-13T22:18:00",
+      "until": "",
+      "note": "Primary - wildcard oficial (assets, galileo, custodian)"
+    },
+    {
+      "target": "*.chimebank.com",
+      "type": "all",
+      "since": "2026-08-13T22:18:00",
+      "until": "",
+      "note": "Primary - wildcard oficial"
+    },
+    {
+      "target": "member-qa.chime.com",
+      "type": "exploit",
+      "since": "2026-08-13T22:18:00",
+      "until": "",
+      "note": "Enrollment QA - http://member-qa.chime.com/enroll (OBJETIVO PRINCIPAL)"
+    },
+    {
+      "target": "app-qa.chime.com",
+      "type": "exploit",
+      "since": "2026-08-13T22:18:00",
+      "until": "",
+      "note": "Sign In QA - http://app-qa.chime.com/users/sign_in + /graphql (OBJETIVO PRINCIPAL)"
+    },
+    {
+      "target": "wp-qa.chime.com",
+      "type": "enumerate",
+      "since": "2026-08-13T22:18:00",
+      "until": "",
+      "note": "WordPress QA - JSON API /wp-json/ expuesto (secundario)"
+    },
+    {
+      "target": "*.saltlabs.com",
+      "type": "all",
+      "since": "2026-08-13T22:18:00",
+      "until": "",
+      "note": "Secondary target - Salt Labs (app.saltlabs.com, staging)"
+    }
+  ],
+  "out_of_scope": [
+    "chime.financial",
+    "chimescholars.org",
+    "chimescholarsfoundation.my.site.com",
+    "Non-Chime-owned assets (ver lista oficial en programa)",
+    "Cuentas/miembros de terceros (solo cuentas propias)",
+    "www.chimetrumpaccounts.com (dominio externo)"
+  ],
+  "focus_areas": [
+    "GraphQL",
+    "Mobile iOS/Android",
+    "Member data",
+    "Money movement (race conditions, double-spend)"
+  ]
+}

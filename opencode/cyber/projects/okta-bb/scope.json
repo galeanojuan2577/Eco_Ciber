@@ -1,0 +1,155 @@
+{
+  "project_id": "okta-bb",
+  "name": "Okta Bug Bounty (Bugcrowd)",
+  "program_url": "https://bugcrowd.com/engagements/okta",
+  "status": "active",
+  "started": "2026-08-14",
+  "researcher": "Galeano2577@bugcrowdninja.com",
+  "test_phone": "+573332445457",
+  "rules": {
+    "automated_scanning": false,
+    "allow_dos": false,
+    "allow_phishing": false,
+    "must_be_manual": true,
+    "no_customer_data": true,
+    "no_pivot_if_compromise": true
+  },
+  "targets": [
+    {
+      "target": "bugcrowd-pam-###.oktapreview.com",
+      "type": "all",
+      "since": "2026-08-14",
+      "until": "",
+      "note": "Okta OIE org (wildcard)"
+    },
+    {
+      "target": "bugcrowd-pam-###-admin.oktapreview.com",
+      "type": "all",
+      "since": "2026-08-14",
+      "until": "",
+      "note": "Okta OIE admin (wildcard)"
+    },
+    {
+      "target": "bugcrowd-pam-###.workflows.oktapreview.com",
+      "type": "all",
+      "since": "2026-08-14",
+      "until": "",
+      "note": "Okta Workflows (wildcard)"
+    },
+    {
+      "target": "bugcrowd-pam-###.pam.oktapreview.com",
+      "type": "all",
+      "since": "2026-08-14",
+      "until": "",
+      "note": "Okta Privileged Access (wildcard)"
+    },
+    {
+      "target": "bugcrowd-pam-###.at.oktapreview.com",
+      "type": "all",
+      "since": "2026-08-14",
+      "until": "",
+      "note": "AtSpoke Access Requests (wildcard)"
+    },
+    {
+      "target": "support.okta.com",
+      "type": "all",
+      "since": "2026-08-14",
+      "until": "",
+      "note": "Okta Support Portal"
+    },
+    {
+      "target": "app.scaleft.com",
+      "type": "all",
+      "since": "2026-08-14",
+      "until": "",
+      "note": "Advanced Server Access"
+    },
+    {
+      "target": "personal.trexcloud.com",
+      "type": "all",
+      "since": "2026-08-14",
+      "until": "",
+      "note": "Okta Personal (verificar alcance)"
+    },
+    {
+      "target": "bugcrowd-pam-5453.oktapreview.com",
+      "type": "all",
+      "since": "2026-08-14",
+      "until": "",
+      "note": "Org 5453 concreta"
+    },
+    {
+      "target": "bugcrowd-pam-5453-admin.oktapreview.com",
+      "type": "all",
+      "since": "2026-08-14",
+      "until": "",
+      "note": "Org 5453 admin"
+    },
+    {
+      "target": "bugcrowd-pam-5453.workflows.oktapreview.com",
+      "type": "all",
+      "since": "2026-08-14",
+      "until": "",
+      "note": "Org 5453 workflows"
+    },
+    {
+      "target": "bugcrowd-pam-5453.at.oktapreview.com",
+      "type": "all",
+      "since": "2026-08-14",
+      "until": "",
+      "note": "Org 5453 AtSpoke"
+    },
+    {
+      "target": "bugcrowd-pam-5454.oktapreview.com",
+      "type": "all",
+      "since": "2026-08-14",
+      "until": "",
+      "note": "Org 5454 concreta"
+    },
+    {
+      "target": "bugcrowd-pam-5454-admin.oktapreview.com",
+      "type": "all",
+      "since": "2026-08-14",
+      "until": "",
+      "note": "Org 5454 admin"
+    },
+    {
+      "target": "bugcrowd-pam-5454.workflows.oktapreview.com",
+      "type": "all",
+      "since": "2026-08-14",
+      "until": "",
+      "note": "Org 5454 workflows"
+    },
+    {
+      "target": "bugcrowd-pam-5454.at.oktapreview.com",
+      "type": "all",
+      "since": "2026-08-14",
+      "until": "",
+      "note": "Org 5454 AtSpoke"
+    },
+    {
+      "name": "Okta Verify (iOS/Android)",
+      "type": "all",
+      "since": "2026-08-14",
+      "until": "",
+      "note": "Requiere m\u00f3vil f\u00edsico"
+    },
+    {
+      "name": "Okta Browser Plugin",
+      "type": "all",
+      "since": "2026-08-14",
+      "until": "",
+      "note": "Revisar API usage"
+    }
+  ],
+  "out_of_scope": [
+    "*.okta.com",
+    "login.okta.com",
+    "pages.okta.com",
+    "developer.okta.com",
+    "trust.okta.com",
+    "www.okta.com",
+    "github.com/oktadev"
+  ],
+  "notes": "Proyecto TOTALMENTE independiente de chime-bb. Solo testing manual. Bonus $500k por RCE/SQLi."
+}

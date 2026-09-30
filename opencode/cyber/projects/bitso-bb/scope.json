@@ -1,0 +1,113 @@
+{
+  "updated": "2026-08-19T17:42:45",
+  "project": "bitso-bb",
+  "program": "https://bugcrowd.com/engagements/bitso-mbb-og",
+  "note": "Bitso MBB. Scope: bitso.com+nvio.mx+nvio.ar+4 apps. OOS blindado (19). Cuenta de test autorizada: Galeano2577@bugcrowdninja.com (self-provisioned @bugcrowdninja). Hunting autenticado: IDOR/BOLA, 2FA, business logic, race conditions.",
+  "targets": [
+    {
+      "target": "bitso.com",
+      "type": "scan",
+      "since": "2026-08-19T17:43:16",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "nvio.mx",
+      "type": "scan",
+      "since": "2026-08-19T17:43:16",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "nvio.ar",
+      "type": "scan",
+      "since": "2026-08-19T17:43:16",
+      "until": "",
+      "note": "autorizado por usuario"
+    },
+    {
+      "target": "*.bitso.com",
+      "type": "recon",
+      "since": "2026-08-19T17:42:45",
+      "until": "",
+      "note": "Bitso MBB - wildcard/raiz web en scope (bitso.com + nvio)"
+    },
+    {
+      "target": "*.bitso.com",
+      "type": "scan",
+      "since": "2026-08-19T17:42:45",
+      "until": "",
+      "note": "Bitso MBB - wildcard/raiz web en scope (bitso.com + nvio)"
+    },
+    {
+      "target": "bitso.com",
+      "type": "recon",
+      "since": "2026-08-19T17:42:45",
+      "until": "",
+      "note": "Bitso MBB - wildcard/raiz web en scope (bitso.com + nvio)"
+    },
+    {
+      "target": "*.nvio.mx",
+      "type": "recon",
+      "since": "2026-08-19T17:42:45",
+      "until": "",
+      "note": "Bitso MBB - wildcard/raiz web en scope (bitso.com + nvio)"
+    },
+    {
+      "target": "*.nvio.mx",
+      "type": "scan",
+      "since": "2026-08-19T17:42:45",
+      "until": "",
+      "note": "Bitso MBB - wildcard/raiz web en scope (bitso.com + nvio)"
+    },
+    {
+      "target": "nvio.mx",
+      "type": "recon",
+      "since": "2026-08-19T17:42:45",
+      "until": "",
+      "note": "Bitso MBB - wildcard/raiz web en scope (bitso.com + nvio)"
+    },
+    {
+      "target": "*.nvio.ar",
+      "type": "recon",
+      "since": "2026-08-19T17:42:45",
+      "until": "",
+      "note": "Bitso MBB - wildcard/raiz web en scope (bitso.com + nvio)"
+    },
+    {
+      "target": "*.nvio.ar",
+      "type": "scan",
+      "since": "2026-08-19T17:42:45",
+      "until": "",
+      "note": "Bitso MBB - wildcard/raiz web en scope (bitso.com + nvio)"
+    },
+    {
+      "target": "nvio.ar",
+      "type": "recon",
+      "since": "2026-08-19T17:42:45",
+      "until": "",
+      "note": "Bitso MBB - wildcard/raiz web en scope (bitso.com + nvio)"
+    }
+  ],
+  "excluded": [
+    "help.bitso.com",
+    "status.bitso.com",
+    "dev.bitso.com",
+    "blog.bitso.com",
+    "stage.bitso.com",
+    "landing.bitso.com",
+    "devmalta.bitso.com",
+    "edu.bitso.com",
+    "sandbox.bitso.com",
+    "api-dev.bitso.com",
+    "api-stage.bitso.com",
+    "api-sandbox.bitso.com",
+    "stagemalta.bitso.com",
+    "*.otc.bitso.com",
+    "*.efx.bitso.com",
+    "quetzal.bitso.com",
+    "login.bitso.io",
+    "bitsohelp.zendesk.com",
+    "support.bitso.com"
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "updated": "2026-08-13T22:17:43.816109",
+  "project": "maryland-vdp",
+  "program": "Maryland VDP (finalizado)",
+  "note": "Historial de aprendizaje - proyecto finalizado 2026-08-13",
+  "targets": [
+    {
+      "target": "login.mdoutdoors.maryland.gov",
+      "type": "exploit",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "IDOR PoC pre-auth"
+    },
+    {
+      "target": "mdfssadmin.maryland.gov",
+      "type": "exploit",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada A - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "federalsurplus.maryland.gov",
+      "type": "recon",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada B/C - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "account.paidleave.maryland.gov",
+      "type": "exploit",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada A - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "assessments.msde.maryland.gov",
+      "type": "recon",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada B/C - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "mcap.msde.maryland.gov",
+      "type": "recon",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada B/C - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "cpanel.goccp.maryland.gov",
+      "type": "recon",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada B/C - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "webmail.goccp.maryland.gov",
+      "type": "recon",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada B/C - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "ftp.mgaleg.maryland.gov",
+      "type": "recon",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada B/C - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "sbe-vpn.elections.maryland.gov",
+      "type": "recon",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada B/C - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "abc.mva.maryland.gov",
+      "type": "recon",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada B/C - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "domesticforfeiture.dat.maryland.gov",
+      "type": "exploit",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada A - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "pprextensions.dat.maryland.gov",
+      "type": "exploit",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada A - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "campaignfinance.maryland.gov",
+      "type": "exploit",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada A - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "efds.ethics.maryland.gov",
+      "type": "exploit",
+      "since": "2026-08-13T13:33:24",
+      "until": "90d",
+      "note": "Oleada A - Maryland VDP pre-auth no destructivo"
+    },
+    {
+      "target": "mdoutdoors.maryland.gov",
+      "type": "exploit",
+      "since": "2026-08-13T13:36:01",
+      "until": "90d",
+      "note": "IDOR PoC minima pre-auth - Maryland VDP autorizado por usuario"
+    }
+  ]
+}

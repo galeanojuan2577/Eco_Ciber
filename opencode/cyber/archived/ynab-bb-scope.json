@@ -1,0 +1,39 @@
+{
+  "updated": "2026-08-19T16:24:46.482007",
+  "project": "ynab-bb",
+  "targets": [
+    {
+      "target": "staging-api.bany.dev",
+      "type": "all",
+      "since": "2026-08-13T15:41:26",
+      "until": "2026-08-13T23:59:59",
+      "note": "YNAB Bug Bounty - API staging (Bugcrowd, autorizado)",
+      "project": "ynab"
+    },
+    {
+      "target": "staging-app.bany.dev",
+      "type": "all",
+      "since": "2026-08-13T15:41:26",
+      "until": "2026-08-13T23:59:59",
+      "note": "YNAB Bug Bounty - SPA staging (Bugcrowd, autorizado)",
+      "project": "ynab"
+    },
+    {
+      "target": "www.ynab.com",
+      "type": "recon",
+      "since": "2026-08-13T15:41:26",
+      "until": "2026-08-13T23:59:59",
+      "note": "YNAB Bug Bounty - marketing site (Bugcrowd, solo recon)",
+      "project": "ynab"
+    },
+    {
+      "target": "api.ynab.com",
+      "type": "recon",
+      "since": "2026-08-13T15:41:26",
+      "until": "2026-08-13T23:59:59",
+      "note": "YNAB Bug Bounty - public API doc ref (Bugcrowd, solo recon)",
+      "project": "ynab"
+    }
+  ],
+  "note": "Historial de aprendizaje - proyecto finalizado 2026-08-19 (targets vencidos, archivado por usuario)"
+}

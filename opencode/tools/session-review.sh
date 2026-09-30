@@ -1,18 +1,31 @@
-#!/bin/bash
-# ECC Session Review
-# Auto-evaluación post-tarea: revisa qué salió bien/mal y registra lecciones
-# Se ejecuta después de cada tarea no-trivial
+#!/usr/bin/env bash
+# session-review.sh — Post-session review and learning capture
+set -euo pipefail
 
-echo "🧬 ECC Session Review"
-echo "━━━━━━━━━━━━━━━━━━━━"
-echo "1. Revisa mistakes-log.md para evitar errores previos"
-echo "2. Auto-evalúa la tarea completada (5 ejes)"
-echo "3. Si hay error → registra en mistakes-log.md"
-echo "4. Si hay patrón exitoso → registra en patterns-log.md"
-echo "━━━━━━━━━━━━━━━━━━━━"
-echo ""
-echo "📖 Logs disponibles:"
-echo "  Errores:   __OPENCODE_ROOT__/_data/learnings/mistakes-log.md"
-echo "  Patrones:  __OPENCODE_ROOT__/_data/learnings/patterns-log.md"
-echo ""
-echo "💡 El AI DEBE leer ambos logs antes de cada tarea."
+REVIEW_DIR="/root/.config/opencode/cyber/learnings"
+mkdir -p "$REVIEW_DIR"
+
+DATE=$(date +"%Y-%m-%d")
+SESSION_FILE="$REVIEW_DIR/session-$DATE.md"
+
+cat > "$SESSION_FILE" << EOF
+# Session Review: $DATE
+
+## What was done
+<!-- Describe activities -->
+
+## What worked
+<!-- Patterns to reuse -->
+
+## What failed
+<!-- Mistakes to avoid -->
+
+## Lessons learned
+<!-- New insights -->
+
+## Improvements for next time
+<!-- Actionable changes -->
+EOF
+
+echo "[+] Session review template created: $SESSION_FILE"
+echo "Edit it to capture your session learnings."

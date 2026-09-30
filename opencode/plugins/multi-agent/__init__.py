@@ -11,7 +11,7 @@ from typing import Optional, Dict, Any, List
 import re
 
 # Directorio del proyecto
-PROJECT_DIR = Path("__HOME__/Eco_program/external/sistema-multi-agente")
+PROJECT_DIR = Path("/root/Eco_program/external/sistema-multi-agente")
 
 # Cargar variables de entorno
 def load_env():

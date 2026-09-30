@@ -36,7 +36,7 @@ El plugin expone el comando `/agent` con los siguientes subcomandos:
 
 Las API keys se cargan desde:
 ```
-__HOME__/Eco_program/external/sistema-multi-agente/.env
+/root/Eco_program/external/sistema-multi-agente/.env
 ```
 
 ## Ejemplo de Uso
