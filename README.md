@@ -121,9 +121,33 @@ Estado actual: **105/106** — la única ausente es `wapiti`, descartada a prop�
 | Subagente cyber real (`recon-agent`) | ejecutado: gate exit 0 desde subagente, toolchain 8/8 |
 | `recon 127.0.0.1 -l 1 --ecc` | exit 0 · informes MD + JSON + HTML |
 
-**Sin probar de forma headless:** la invocación en TUI de los 11 comandos `/pentest/*` (sólo se valida su existencia y frontmatter), y el coste real de contexto de 81 agentes + 437 skills en una sesión larga.
+**Sin probar de forma headless:** la invocación en TUI de los 11 comandos `/pentest/*` (sólo se valida su existencia y frontmatter).
 
-Coste de contexto estimado: `AGENTS.md` ≈ 2,600 tokens (siempre presente) + lista de skills ≈ 39,100 tokens. Los prompts de los 81 agentes suman ≈ 109,000 tokens, pero **sólo se inyecta el agente activo** (mediana ≈ 4,400 caracteres).
+### Coste de contexto (medido, no estimado)
+
+Suelo de tokens por turno (`tokens_input + tokens_cache_read` de `session_v2` en `opencode.db`, mediana de 3 sesiones headless `opencode run "ok"`):
+
+| Escenario | Suelo/turno | Δ |
+|---|---|---|
+| Baseline (antes de compactar) | **44.736 tok** | — |
+| Tras compactar (Fases 1-5) | **39.412 tok** | **−5.324 (−11,9 %)** |
+
+Desglose del suelo compactado (aislado midiendo con `skills` y `AGENTS.md` fuera):
+
+- Base irrenunciable (system prompt + tools nativas + comandos + proveedor): **≈ 22.498 tok**
+- Índice de skills (437 `name`+`description`): **≈ 14.192 tok**
+- `AGENTS.md`: **≈ 2.722 tok**
+- Catálogo MCP: **0 tok en headless** — sólo cuesta en sesiones interactivas; por eso los 3 MCP de contexto (`agent-browser`, `chrome-devtools`, `filesystem`) están con `enabled: false` (ahorro ≈ 27.000 caracteres de esquemas ≈ 7.000 tok en TUI), conservando `playwright`, `memory`, `sequential-thinking` y `context7`.
+
+Qué se hizo (reversible, nada borrado):
+
+1. `enabled: false` en 3 MCPs de contexto (los 7 siguen declarados; CLI vía shell disponible).
+2. `description` de skills a ≤200 car (166 reescritas, detalle migrado al cuerpo bajo `## Detalle de la descripción` — sólo carga al invocar el skill). Índice: 92.411 → 53.185 car.
+3. `AGENTS.md` §10 (tabla de enrutamiento redundante con las descripciones que inyecta el harness) y §2 comprimidos; §3 (gate de autorización) intacto.
+4. `description` de agentes a ≤150 car (64 reescritas).
+5. `compaction: {auto, prune, tail_turns: 4}` + `tool_output: {max_lines: 800, max_bytes: 20000}`.
+
+El objetivo de 20.000 tok/turno era inalcanzable sin perder cobertura: la base del propio OpenCode ya son ≈22.500 tok. Anclajes de regresión: `verify-ecosystem.sh` valida ≤200/≤150, los 3 MCP desactivados y la config de compaction (74/74 en modo instalado).
 
 ---
 

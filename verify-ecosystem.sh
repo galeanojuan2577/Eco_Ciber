@@ -106,6 +106,16 @@ check "7 MCPs declarados" \
   "python3 -c 'import json,sys;d=json.load(open(sys.argv[1]));m=d.get(\"mcp\") or {};sys.exit(0 if len(m)==7 else 1)' '$OPENCODE_DIR/opencode.json'"
 check "los 7 MCPs esperados" \
   "python3 -c 'import json,sys;d=json.load(open(sys.argv[1]));m=set(d.get(\"mcp\") or {});e={\"sequential-thinking\",\"memory\",\"filesystem\",\"playwright\",\"agent-browser\",\"chrome-devtools\",\"context7\"};sys.exit(0 if m==e else 1)' '$OPENCODE_DIR/opencode.json'"
+check "3 MCPs de contexto desactivados (agent-browser, chrome-devtools, filesystem)" \
+  "python3 -c 'import json,sys;d=json.load(open(sys.argv[1]));m=d.get(\"mcp\") or {};e={\"agent-browser\",\"chrome-devtools\",\"filesystem\"};sys.exit(0 if all(m.get(k,{}).get(\"enabled\") is False for k in e) else 1)' '$OPENCODE_DIR/opencode.json'"
+check "4 MCPs activos (playwright, memory, sequential-thinking, context7)" \
+  "python3 -c 'import json,sys;d=json.load(open(sys.argv[1]));m=d.get(\"mcp\") or {};e={\"playwright\",\"memory\",\"sequential-thinking\",\"context7\"};sys.exit(0 if all(m.get(k,{}).get(\"enabled\", True) is True for k in e) else 1)' '$OPENCODE_DIR/opencode.json'"
+check "compaction+tool_output activos (auto/prune/tail_turns/max_bytes)" \
+  "python3 -c 'import json,sys;d=json.load(open(sys.argv[1]));c=d.get(\"compaction\") or {};t=d.get(\"tool_output\") or {};sys.exit(0 if c.get(\"auto\") is True and c.get(\"prune\") is True and c.get(\"tail_turns\")==4 and t.get(\"max_lines\")==800 and t.get(\"max_bytes\")==20000 else 1)' '$OPENCODE_DIR/opencode.json'"
+check "ninguna description de skill >200 car" \
+  "python3 '$REPO_DIR/verify-descriptions.py' skill '$OPENCODE_DIR/skills' '$OPENCODE_DIR/skills-ecc' '$REPO_DIR/ecc/skills'"
+check "ninguna description de agente >150 car" \
+  "python3 '$REPO_DIR/verify-descriptions.py' agent '$OPENCODE_DIR/agents'"
 check "todas las claves raíz existen en el esquema V2" \
   "python3 -c 'import json,sys;d=json.load(open(sys.argv[1]));k={\"agent\",\"attachment\",\"autoshare\",\"autoupdate\",\"command\",\"compaction\",\"default_agent\",\"disabled_providers\",\"enabled_providers\",\"enterprise\",\"experimental\",\"formatter\",\"instructions\",\"layout\",\"logLevel\",\"lsp\",\"mcp\",\"mode\",\"model\",\"permission\",\"plugin\",\"provider\",\"reference\",\"references\",\"server\",\"share\",\"shell\",\"skills\",\"small_model\",\"snapshot\",\"subagent_depth\",\"tool_output\",\"tools\",\"username\",\"watcher\"};k.add(chr(36)+\"schema\");x=set(d)-k;sys.exit(0 if not x else 1)' '$OPENCODE_DIR/opencode.json'"
 
