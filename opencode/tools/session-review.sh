@@ -2,7 +2,7 @@
 # session-review.sh — Post-session review and learning capture
 set -euo pipefail
 
-REVIEW_DIR="/root/.config/opencode/cyber/learnings"
+REVIEW_DIR="__OPENCODE_ROOT__/cyber/learnings"
 mkdir -p "$REVIEW_DIR"
 
 DATE=$(date +"%Y-%m-%d")
