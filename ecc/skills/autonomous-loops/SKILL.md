@@ -1,8 +1,6 @@
 ---
 name: autonomous-loops
-description: "Patterns and architectures for autonomous Claude Code loops — from simple
-metadata:
-  origin: ECC
+description: '"Patterns and architectures for autonomous Claude Code loops — from simple metadata:   origin: ECC'
 ---
 
 # Autonomous Loops Skill

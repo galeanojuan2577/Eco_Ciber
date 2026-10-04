@@ -1,6 +1,6 @@
 ---
 name: performing-physical-intrusion-assessment
-description: Conduct authorized physical penetration testing against facilities, server rooms, and restricted areas using tailgating, RFID badge cloning, lock bypassing, rogue network device deployment, and security-guard procedure testing. Use as part of a full-scope red team engagement to evaluate physical security controls and their path to network access, always under signed client authorization.
+description: 'Conduct authorized physical penetration testing against facilities, server rooms, and restricted areas using tailgating, RFID badge Use as part of a full-scope red team engagement to'
 domain: cybersecurity
 subdomain: red-teaming
 tags:
@@ -220,3 +220,7 @@ Search external waste containers and recycling bins for:
 - NIST SP 800-116 Rev. 1: Smart Card PIV guidelines
 - Deviant Ollam - Physical Security Assessment methodology
 - MITRE ATT&CK T1200: https://attack.mitre.org/techniques/T1200/
+
+## Detalle de la descripción
+
+cloning, lock bypassing, rogue network device deployment, and security-guard procedure testing. evaluate physical security controls and their path to network access, always under signed client authorization.

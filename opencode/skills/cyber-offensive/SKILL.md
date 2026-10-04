@@ -1,6 +1,6 @@
 ---
 name: cyber-offensive
-description: Metodología completa de pentesting y hacking ético (recon → scan → enumeración → explotación → post-explotación → DoS testing → phishing sim → reporting). ALWAYS requires explicit authorization (autorización + consentimiento del usuario). Mapea las herramientas reales de Kali Linux.
+description: 'Metodología completa de pentesting y hacking ético (recon → scan → enumeración → explotación → post-explotación → DoS testing → phishing sim → reporting). ALWAYS requires explicit authorization'
 ---
 
 # Skill: Cyber Offensive — Metodología de Pentesting Ético
@@ -122,3 +122,7 @@ Si una técnica falla: documentar en `/tmp/opencode/skills/learning-logs/cyber-o
 
 ---
 **Generado por:** Ecosistema de Ciberseguridad (skill `cyber-offensive`)
+
+## Detalle de la descripción
+
+(autorización + consentimiento del usuario). Mapea las herramientas reales de Kali Linux.

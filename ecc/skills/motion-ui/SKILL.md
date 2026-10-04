@@ -1,8 +1,6 @@
 ---
 name: motion-ui
-description: "Production-ready UI motion system for React/Next.js. Use when implementing
-metadata:
-  origin: ECC
+description: '"Production-ready UI motion system for React/Next.js. Use when implementing metadata:   origin: ECC'
 ---
 
 # Motion System v4.2

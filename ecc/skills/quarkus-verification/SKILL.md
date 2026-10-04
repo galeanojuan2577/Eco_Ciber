@@ -1,8 +1,6 @@
 ---
 name: quarkus-verification
-description: "Verification loop for Quarkus projects: build, static analysis, tests with
-metadata:
-  origin: ECC
+description: '"Verification loop for Quarkus projects: build, static analysis, tests with metadata:   origin: ECC'
 ---
 
 # Quarkus Verification Loop

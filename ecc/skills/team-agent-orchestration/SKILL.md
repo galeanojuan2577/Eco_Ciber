@@ -1,8 +1,6 @@
 ---
 name: team-agent-orchestration
-description: "Run team-based orchestration for agent squads using work items, ownership,
-metadata:
-  origin: ECC
+description: '"Run team-based orchestration for agent squads using work items, ownership, metadata:   origin: ECC'
 ---
 
 # Team Agent Orchestration

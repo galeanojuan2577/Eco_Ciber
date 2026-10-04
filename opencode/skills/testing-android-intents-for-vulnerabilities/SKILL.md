@@ -1,13 +1,6 @@
 ---
 name: testing-android-intents-for-vulnerabilities
-description: 'Tests Android inter-process communication (IPC) through intents for
-  vulnerabilities including intent injection, unauthorized component access, broadcast
-  sniffing, pending intent hijacking, and content provider data leakage. Use when
-  assessing Android app attack surface through exported components, testing intent-based
-  data flows, or evaluating IPC security. Activates for requests involving Android
-  intent security, IPC testing, exported component analysis, or Drozer assessment.
-
-  '
+description: 'Tests Android inter-process communication (IPC) through intents for vulnerabilities including intent injection, unauthorized component Use when assessing Android app attack surface through'
 domain: cybersecurity
 subdomain: mobile-security
 author: mahipal
@@ -192,3 +185,7 @@ run app.service.send com.target.app com.target.app.MessengerService \
 - **Permission-protected components**: An exported component may still require a permission. Test with and without the required permission.
 - **Implicit intents vs explicit**: Only implicit intents (action-based) are interceptable by other apps. Explicit intents (specifying target) are secure.
 - **Custom permissions**: Apps can define custom permissions with different protection levels (normal, dangerous, signature). Signature-level permissions are only grantable to apps signed with the same certificate.
+
+## Detalle de la descripción
+
+access, broadcast sniffing, pending intent hijacking, and content provider data leakage. exported components, testing intent-based data flows, or evaluating IPC security. Activates for requests involving Android intent security, IPC testing, exported component analysis, or Drozer assessment.

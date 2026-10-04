@@ -1,15 +1,6 @@
 ---
 name: blueprint
-description: >-
-  Turn a one-line objective into a step-by-step construction plan for
-  multi-session, multi-agent engineering projects. Each step has a
-  self-contained context brief so a fresh agent can execute it cold.
-  Includes adversarial review gate, dependency graph, parallel step
-  detection, anti-pattern catalog, and plan mutation protocol.
-  TRIGGER when: user requests a plan, blueprint, or roadmap for a
-  complex multi-PR task, or describes work that needs multiple sessions.
-  DO NOT TRIGGER when: task is completable in a single PR or fewer
-  than 3 tool calls, or user says "just do it".
+description: 'Turn a one-line objective into a step-by-step construction plan for multi-session, multi-agent engineering projects. TRIGGER when: user requests a plan, blueprint, or roadmap for a complex multi-PR'
 metadata:
   origin: community
 ---
@@ -104,3 +95,7 @@ If you are vendoring only this skill outside the full ECC install, copy the revi
 ## Source
 
 Inspired by antbotlab/blueprint — upstream project and reference design.
+
+## Detalle de la descripción
+
+Each step has a self-contained context brief so a fresh agent can execute it cold. Includes adversarial review gate, dependency graph, parallel step detection, anti-pattern catalog, and plan mutation protocol. task, or describes work that needs multiple sessions. DO NOT TRIGGER when: task is completable in a single PR or fewer than 3 tool calls, or user says "just do it".

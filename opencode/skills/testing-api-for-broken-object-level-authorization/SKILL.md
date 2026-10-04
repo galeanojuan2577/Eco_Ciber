@@ -1,13 +1,6 @@
 ---
 name: testing-api-for-broken-object-level-authorization
-description: 'Tests REST and GraphQL APIs for Broken Object Level Authorization (BOLA/IDOR,
-  OWASP API1:2023) by intercepting API calls, identifying object ID parameters (numeric
-  IDs, UUIDs, slugs), and systematically substituting IDs belonging to other users
-  to check whether the server enforces per-object authorization. Use when asked to
-  test BOLA or IDOR in an API, verify object-level authorization, or assess an API
-  for access control bypass.
-
-  '
+description: 'Tests REST and GraphQL APIs for Broken Object Level Authorization (BOLA/IDOR, OWASP API1:2023) by intercepting API calls, identifying Use when asked to test BOLA or IDOR in an API, verify'
 domain: cybersecurity
 subdomain: api-security
 tags:
@@ -390,3 +383,7 @@ enumeration trivial.
 4. Add authorization tests to the CI/CD pipeline for every endpoint that accepts object IDs
 5. Implement rate limiting per user to slow enumeration attempts
 ```
+
+## Detalle de la descripción
+
+object ID parameters (numeric IDs, UUIDs, slugs), and systematically substituting IDs belonging to other users to check whether the server enforces per-object authorization. object-level authorization, or assess an API for access control bypass.

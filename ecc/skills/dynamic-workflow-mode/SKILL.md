@@ -1,8 +1,6 @@
 ---
 name: dynamic-workflow-mode
-description: "Design task-local harnesses, eval gates, and reusable skill extraction for
-metadata:
-  origin: ECC
+description: '"Design task-local harnesses, eval gates, and reusable skill extraction for metadata:   origin: ECC'
 ---
 
 # Dynamic Workflow Mode

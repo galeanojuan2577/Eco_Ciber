@@ -1,13 +1,6 @@
 ---
 name: scanning-network-with-nmap-advanced
-description: 'Performs advanced network recon using Nmap''s Scripting Engine (NSE),
-  timing controls, firewall/IDS evasion, and structured output parsing to discover
-  hosts, enumerate service versions, detect vulnerabilities, and fingerprint OSes.
-  Use during authorized penetration tests or enterprise asset-discovery assessments
-  needing scan evasion, NSE vulnerability checks, or output fed into a vulnerability
-  management pipeline.
-
-  '
+description: 'Performs advanced network recon using Nmap''s Scripting Engine (NSE), timing controls, firewall/IDS evasion, and structured output parsing Use during authorized penetration tests or enterprise'
 domain: cybersecurity
 subdomain: network-security
 tags:
@@ -213,3 +206,7 @@ nmap-parse-output full_tcp_scan.xml csv > scan_results.csv
 3. Upgrade MySQL to 8.0.x on 10.10.12.5 and restrict bind address
 4. Change SNMP community strings from "public" on 10.10.3.77
 ```
+
+## Detalle de la descripción
+
+to discover hosts, enumerate service versions, detect vulnerabilities, and fingerprint OSes. asset-discovery assessments needing scan evasion, NSE vulnerability checks, or output fed into a vulnerability management pipeline.

@@ -1,8 +1,6 @@
 ---
 name: continuous-learning
-description: "[DEPRECATED - use continuous-learning-v2] Legacy v1 stop-hook skill extractor.
-metadata:
-  origin: ECC
+description: '"[DEPRECATED - use continuous-learning-v2] Legacy v1 stop-hook skill extractor. metadata:   origin: ECC'
 ---
 
 # Continuous Learning Skill - DEPRECATED

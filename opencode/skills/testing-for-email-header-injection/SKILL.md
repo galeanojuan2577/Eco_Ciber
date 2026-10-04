@@ -1,10 +1,6 @@
 ---
 name: testing-for-email-header-injection
-description: Tests web application email functionality (contact forms, password reset,
-  newsletter subscriptions) for CRLF/SMTP header injection using Burp Suite and OWASP ZAP,
-  checking whether attackers can inject headers, modify recipients, or abuse forms for
-  spam relay. Use when testing any user-input-driven email-sending feature during a
-  penetration test.
+description: 'Tests web application email functionality (contact forms, password reset, newsletter subscriptions) for CRLF/SMTP header injection using Use when testing any user-input-driven email-sending'
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -232,3 +228,7 @@ curl -X POST http://target.com/api/send-email \
 - Use parameterized email APIs that separate headers from data
 - Implement rate limiting on email-sending functionality
 ```
+
+## Detalle de la descripción
+
+Burp Suite and OWASP ZAP, checking whether attackers can inject headers, modify recipients, or abuse forms for spam relay. feature during a penetration test.

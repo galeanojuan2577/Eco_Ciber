@@ -1,15 +1,6 @@
 ---
 name: performing-lateral-movement-detection
-description: 'Detects lateral movement techniques including Pass-the-Hash, PsExec,
-  WMI execution, RDP pivoting, and SMB-based spreading by correlating Windows Security/Sysmon
-  event logs, network flow data (NetFlow/Zeek), and endpoint telemetry in a SIEM,
-  mapped to MITRE ATT&CK Lateral Movement (TA0008) techniques with sample SPL detection
-  queries. Use when a SOC team needs to detect attackers pivoting between internal
-  systems after initial compromise, trace an attacker''s movement path during an
-  incident investigation, or build detection engineering rules for TA0008; not for
-  detecting initial access or external attacks.
-
-  '
+description: 'Detects lateral movement techniques including Pass-the-Hash, PsExec, WMI execution, RDP pivoting, and SMB-based spreading by correlating Use when a SOC team needs to detect attackers pivoting'
 domain: cybersecurity
 subdomain: soc-operations
 tags:
@@ -318,3 +309,7 @@ Affected Systems: 5 hosts across 2 network segments
 User Account:     admin_compromised (Domain Admin)
 Containment:      All 5 hosts isolated at 14:45 UTC
 ```
+
+## Detalle de la descripción
+
+Windows Security/Sysmon event logs, network flow data (NetFlow/Zeek), and endpoint telemetry in a SIEM, mapped to MITRE ATT&CK Lateral Movement (TA0008) techniques with sample SPL detection queries. between internal systems after initial compromise, trace an attacker's movement path during an incident investigation, or build detection engineering rules for TA0008; not for detecting initial access or external attacks.

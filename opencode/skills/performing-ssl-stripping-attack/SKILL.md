@@ -1,12 +1,6 @@
 ---
 name: performing-ssl-stripping-attack
-description: >-
-  Simulates SSL stripping / HTTPS downgrade attacks using sslstrip, Bettercap,
-  and mitmproxy in authorized lab environments to test HSTS enforcement,
-  certificate validation, and HTTPS upgrade mechanisms. Use when performing an
-  authorized penetration test to validate HSTS preloading and TLS certificate
-  handling, demonstrate downgrade-attack risk to stakeholders, or train SOC
-  teams to detect SSL stripping indicators in network traffic.
+description: 'Simulates SSL stripping / HTTPS downgrade attacks using sslstrip, Bettercap, and mitmproxy in authorized lab environments to test HSTS Use when performing an authorized penetration test to'
 domain: cybersecurity
 subdomain: network-security
 tags:
@@ -268,3 +262,7 @@ ping -c 1 192.168.1.1
 3. Add Content-Security-Policy: upgrade-insecure-requests header
 4. Implement certificate transparency monitoring for the domain
 ```
+
+## Detalle de la descripción
+
+enforcement, certificate validation, and HTTPS upgrade mechanisms. validate HSTS preloading and TLS certificate handling, demonstrate downgrade-attack risk to stakeholders, or train SOC teams to detect SSL stripping indicators in network traffic.

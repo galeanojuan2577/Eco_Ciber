@@ -1,8 +1,6 @@
 ---
 name: openclaw-persona-forge
-description: "为 OpenClaw AI Agent 锻造完整的龙虾灵魂方案。根据用户偏好或随机抽卡，
-metadata:
-  origin: community
+description: '"为 OpenClaw AI Agent 锻造完整的龙虾灵魂方案。根据用户偏好或随机抽卡， metadata:   origin: community'
 ---
 
 # 龙虾灵魂锻造炉

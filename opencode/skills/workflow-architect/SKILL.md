@@ -1,6 +1,6 @@
 ---
 name: workflow-architect
-description: Imponer la metodología agéntica obligatoria (brainstorming, spec, plan, TDD/verificación, act, review) en tareas no triviales de desarrollo de software, automatizaciones y diseño. Prohíbe ir directo al código y exige plan mode para tareas complejas.
+description: 'Imponer la metodología agéntica obligatoria (brainstorming, spec, plan, TDD/verificación, act, review) en tareas no triviales de desarrollo Prohíbe ir directo al código y exige plan mode para tareas'
 domain: engineering
 subdomain: methodology
 tags:
@@ -28,3 +28,7 @@ Para cualquier tarea no trivial, ejecutar estrictamente:
 ## Mandatos
 - NUNCA saltar directamente al código.
 - Obligatorio uso de 'enter_plan_mode' para tareas complejas.
+
+## Detalle de la descripción
+
+de software, automatizaciones y diseño. complejas.

@@ -1,8 +1,6 @@
 ---
 name: opensource-pipeline
-description: "Open-source pipeline: fork, sanitize, and package private projects for safe
-metadata:
-  origin: ECC
+description: '"Open-source pipeline: fork, sanitize, and package private projects for safe metadata:   origin: ECC'
 ---
 
 # Open-Source Pipeline Skill

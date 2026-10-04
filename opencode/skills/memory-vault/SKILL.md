@@ -1,6 +1,6 @@
 ---
 name: memory-vault
-description: Gestionar la memoria a largo plazo del agente: persistir decisiones arquitectónicas, lecciones aprendidas y hechos técnicos entre sesiones con la herramienta save_memory, y recuperarlos antes de arrancar un proyecto nuevo. Protocolo de escritura, formato del hecho y criterios de cuándo consultar la memoria.
+description: 'Gestionar la memoria a largo plazo del agente: persistir decisiones arquitectónicas, lecciones aprendidas y hechos técnicos entre sesiones Protocolo de escritura, formato del hecho y criterios de'
 domain: engineering
 subdomain: agent-memory
 tags:
@@ -20,3 +20,7 @@ Gestionar la memoria a largo plazo del agente, permitiendo persistir decisiones 
 - **Persistencia**: Toda decisión técnica mayor debe registrarse mediante `save_memory`.
 - **Recuperación**: Antes de iniciar un nuevo proyecto, consultar la memoria para aplicar lecciones aprendidas previas.
 - **Formato**: Fact: "Descripción técnica concisa del problema y solución encontrada."
+
+## Detalle de la descripción
+
+con la herramienta save_memory, y recuperarlos antes de arrancar un proyecto nuevo. cuándo consultar la memoria.

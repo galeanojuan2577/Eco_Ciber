@@ -1,14 +1,6 @@
 ---
 name: performing-dynamic-analysis-of-android-app
-description: 'Performs runtime dynamic analysis of Android applications using Frida,
-  Objection, and Android Debug Bridge to observe application behavior during execution,
-  intercept function calls, modify runtime values, and identify vulnerabilities that
-  static analysis misses. Use when testing Android apps for runtime security flaws,
-  hooking sensitive methods, bypassing client-side protections, or analyzing obfuscated
-  applications. Activates for requests involving Android dynamic analysis, runtime
-  hooking, Frida Android instrumentation, or live app behavior analysis.
-
-  '
+description: 'Performs runtime dynamic analysis of Android applications using Frida, Objection, and Android Debug Bridge to observe application behavior Use when testing Android apps for runtime security flaws'
 domain: cybersecurity
 subdomain: mobile-security
 author: mahipal
@@ -251,3 +243,7 @@ memory search "api_key" --string
 - **Anti-Frida detection**: Some apps detect Frida by checking for the Frida server process, scanning memory for Frida signatures, or monitoring `/proc/self/maps`. Use Frida Gadget injection or custom server builds.
 - **Obfuscated class names**: When ProGuard/R8 is applied, class and method names are shortened (e.g., `a.b.c.d()`). Use `android hooking search classes` to discover actual runtime names.
 - **Multi-DEX apps**: Large apps split across multiple DEX files may not have all classes loaded at startup. Hook class loaders or use `Java.enumerateLoadedClasses()` after app is fully initialized.
+
+## Detalle de la descripción
+
+during execution, intercept function calls, modify runtime values, and identify vulnerabilities that static analysis misses. flaws, hooking sensitive methods, bypassing client-side protections, or analyzing obfuscated applications. Activates for requests involving Android dynamic analysis, runtime hooking, Frida Android instrumentation, or live app behavior analysis.

@@ -1,9 +1,6 @@
 ---
 name: performing-cloud-asset-inventory-with-cartography
-description: Run Cartography to sync AWS, GCP, or Azure resources into a Neo4j graph database,
-  mapping relationships such as IAM permission chains, network paths, and cross-account trust.
-  Use when building a cloud asset inventory, querying the graph to identify attack paths, or
-  generating security reports across multi-cloud infrastructure.
+description: 'Run Cartography to sync AWS, GCP, or Azure resources into a Neo4j graph database, mapping relationships such as IAM permission chains Use when building a cloud asset inventory, querying the'
 domain: cybersecurity
 subdomain: cloud-security
 tags:
@@ -254,3 +251,7 @@ volumes:
 - Cartography Documentation: https://cartography.dev
 - CNCF Sandbox Project
 - Neo4j Cypher Query Language Reference
+
+## Detalle de la descripción
+
+chains, network paths, and cross-account trust. graph to identify attack paths, or generating security reports across multi-cloud infrastructure.

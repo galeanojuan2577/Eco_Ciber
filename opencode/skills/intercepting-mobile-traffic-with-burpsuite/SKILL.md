@@ -1,13 +1,6 @@
 ---
 name: intercepting-mobile-traffic-with-burpsuite
-description: 'Intercepts and analyzes HTTP/HTTPS traffic from mobile applications
-  using Burp Suite proxy to identify insecure API communications, authentication flaws,
-  data leakage, and server-side vulnerabilities. Use when performing mobile application
-  penetration testing, assessing API security, or evaluating client-server communication
-  patterns. Activates for requests involving mobile traffic interception, Burp Suite
-  mobile proxy, API security testing, or mobile HTTPS analysis.
-
-  '
+description: 'Intercepts and analyzes HTTP/HTTPS traffic from mobile applications using Burp Suite proxy to identify insecure API communications Use when performing mobile application penetration'
 domain: cybersecurity
 subdomain: mobile-security
 author: mahipal
@@ -200,3 +193,7 @@ android sslpinning disable
 - **Certificate transparency**: Some apps use Certificate Transparency logs to detect MITM. Check for CT enforcement in the app.
 - **Non-HTTP protocols**: Burp Suite only handles HTTP/HTTPS. Use Wireshark for WebSocket, MQTT, gRPC, or custom binary protocols.
 - **VPN-based apps**: Apps using VPN tunnels bypass device proxy settings. May need iptables rules on a rooted device to redirect traffic.
+
+## Detalle de la descripción
+
+communications, authentication flaws, data leakage, and server-side vulnerabilities. testing, assessing API security, or evaluating client-server communication patterns. Activates for requests involving mobile traffic interception, Burp Suite mobile proxy, API security testing, or mobile HTTPS analysis.

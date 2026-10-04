@@ -1,10 +1,6 @@
 ---
 name: conducting-man-in-the-middle-attack-simulation
-description: 'Simulates man-in-the-middle attacks using Ettercap, mitmproxy, and Bettercap
-  in authorized environments to intercept, analyze, and modify network traffic for
-  testing encryption enforcement, certificate validation, and detection capabilities.
-
-  '
+description: 'Simulates man-in-the-middle attacks using Ettercap, mitmproxy, and Bettercap in authorized environments to intercept, analyze, and modify network traffic for testing encryption enforcement'
 domain: cybersecurity
 subdomain: network-security
 tags:
@@ -293,3 +289,7 @@ sha256sum mitm_capture.flow mitm_evidence.pcapng >> mitm_report.txt
 3. Enable DAI on access-layer switches for Layer 2 protection
 4. Configure application to reject connections from non-pinned certificates
 ```
+
+## Detalle de la descripción
+
+enforcement, certificate validation, and detection capabilities.

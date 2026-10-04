@@ -1,6 +1,6 @@
 ---
 name: performing-network-packet-capture-analysis
-description: Perform forensic analysis of network packet captures (PCAP/PCAPNG) using Wireshark, tshark, and tcpdump to reconstruct network communications, extract transferred files, identify malicious traffic, and establish evidence of data exfiltration or command-and-control activity. Use when a PCAP file from an incident needs to be examined to prove lateral movement, malware delivery, or unauthorized access.
+description: 'Perform forensic analysis of network packet captures (PCAP/PCAPNG) using Wireshark, tshark, and tcpdump to reconstruct network Use when a PCAP file from an incident needs to be examined'
 domain: cybersecurity
 subdomain: digital-forensics
 tags:
@@ -262,3 +262,7 @@ if __name__ == "__main__":
 - PCAP Analysis Mastery: https://insanecyber.com/mastering-pcap-review/
 - SANS Network Forensics: https://www.sans.org/cyber-security-courses/network-forensics/
 - Public PCAPs for Practice: https://www.netresec.com/?page=PcapFiles
+
+## Detalle de la descripción
+
+communications, extract transferred files, identify malicious traffic, and establish evidence of data exfiltration or command-and-control activity. to prove lateral movement, malware delivery, or unauthorized access.

@@ -1,10 +1,6 @@
 ---
 name: conducting-social-engineering-penetration-test
-description: Ejecuta un pentest de ingeniería social autorizado (phishing con GoPhish, vishing
-  con guion, pretexting y vectores físicos) con gate de autorización tipo phishing obligatorio,
-  OSINT con theHarvester/subfinder/recon-ng, métricas agregadas de riesgo humano, límites
-  éticos estrictos (nunca phishing real sin autorización escrita) e informe de concienciación.
-  Use en engagements de red team cuando se necesite medir la susceptibilidad humana.
+description: 'Ejecuta un pentest de ingeniería social autorizado (phishing con GoPhish, vishing con guion, pretexting y vectores físicos) con gate de Use en engagements de red team cuando se necesite medir la'
 domain: cybersecurity
 subdomain: red-teaming
 tags:
@@ -224,3 +220,7 @@ Ruta: `__HOME__/BugBounty/<proyecto>/reports/<fecha>_<target>_social-engineering
 - OWASP Cheat Sheet — Phishing: https://cheatsheetseries.owasp.org/
 - NIST SP 800-50 — Building an IT Security Awareness Program: https://csrc.nist.gov/publications/detail/sp/800-50/final
 - MITRE ATT&CK — Phishing (T1566): https://attack.mitre.org/techniques/T1566/
+
+## Detalle de la descripción
+
+autorización tipo phishing obligatorio, OSINT con theHarvester/subfinder/recon-ng, métricas agregadas de riesgo humano, límites éticos estrictos (nunca phishing real sin autorización escrita) e informe de concienciación. susceptibilidad humana.

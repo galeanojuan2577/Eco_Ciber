@@ -1,8 +1,6 @@
 ---
 name: conducting-internal-network-penetration-test
-description: Execute an internal network penetration test simulating an insider threat
-  or post-breach attacker to identify lateral movement paths, privilege escalation
-  vectors, and sensitive data exposure within the corporate network.
+description: 'Execute an internal network penetration test simulating an insider threat or post-breach attacker to identify lateral movement paths, privilege escalation vectors, and sensitive data exposure within'
 domain: cybersecurity
 subdomain: penetration-testing
 tags:
@@ -312,3 +310,7 @@ Attack Path 1: Domain Compromise via LLMNR Poisoning
 - PTES: http://www.pentest-standard.org/
 - Impacket: https://github.com/fortra/impacket
 - BloodHound: https://github.com/BloodHoundAD/BloodHound
+
+## Detalle de la descripción
+
+the corporate network.

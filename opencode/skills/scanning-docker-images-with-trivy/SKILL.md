@@ -1,14 +1,6 @@
 ---
 name: scanning-docker-images-with-trivy
-description: >-
-  Scans a Docker image with Trivy for vulnerabilities in OS packages and language
-  dependencies, misconfiguration, exposed secrets, and licence violations, emitting SARIF,
-  CycloneDX, or SPDX output. Use when scanning or gating a specific image, wiring an image
-  scan into CI/CD, or checking an image during an incident investigation. Keywords: Trivy,
-  image scan, --severity, --exit-code, SARIF, ignore file, .trivyignore. Do not use for
-  cluster-wide scanning or non-image targets - use
-  performing-container-security-scanning-with-trivy; when the toolchain is Grype use
-  scanning-container-images-with-grype.
+description: 'Scans a Docker image with Trivy for vulnerabilities in OS packages and language dependencies, misconfiguration, exposed secrets, and Use when scanning or gating a specific image, wiring an'
 domain: cybersecurity
 subdomain: container-security
 tags:
@@ -272,3 +264,7 @@ echo "Exit code: $?"  # 0 = no vulns, 1 = vulns found
 - [Trivy GitHub Repository](https://github.com/aquasecurity/trivy)
 - [Trivy GitHub Action](https://github.com/aquasecurity/trivy-action)
 - [Aqua Security - Trivy Scanner Guide](https://www.aquasec.com/products/trivy/)
+
+## Detalle de la descripción
+
+licence violations, emitting SARIF, CycloneDX, or SPDX output. image scan into CI/CD, or checking an image during an incident investigation. Keywords: Trivy, image scan, --severity, --exit-code, SARIF, ignore file, .trivyignore. Do not use for cluster-wide scanning or non-image targets - use performing-container-security-scanning-with-trivy; when the toolchain is Grype use scanning-container-images-with-grype.

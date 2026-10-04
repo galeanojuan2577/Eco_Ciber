@@ -1,10 +1,6 @@
 ---
 name: performing-http-parameter-pollution-attack
-description: Executes HTTP Parameter Pollution attacks that inject duplicate request
-  parameters to bypass input validation, WAF rules, and other security controls when
-  front-end and back-end systems parse duplicate parameters differently. Use during
-  web application penetration testing to test for parameter parsing inconsistencies
-  or WAF/validation bypass.
+description: 'Executes HTTP Parameter Pollution attacks that inject duplicate request parameters to bypass input validation, WAF rules, and other Use during web application penetration testing to test for'
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -209,3 +205,7 @@ python3 hpp_tester.py --url http://target.com/api/action \
 - Apply WAF rules that detect duplicate parameter patterns
 - Validate all parameters server-side regardless of client-side checks
 ```
+
+## Detalle de la descripción
+
+security controls when front-end and back-end systems parse duplicate parameters differently. parameter parsing inconsistencies or WAF/validation bypass.

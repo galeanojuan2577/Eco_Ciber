@@ -1,10 +1,6 @@
 ---
 name: testing-oauth2-implementation-flaws
-description: Tests OAuth 2.0 and OpenID Connect implementations for authorization code
-  interception, redirect URI manipulation, CSRF in OAuth flows, token leakage, scope
-  escalation, and PKCE bypass, using Burp Suite Professional and the EsPReSSO extension
-  to probe the authorization server, client, and token handling. Use when assessing OAuth2/OIDC
-  flows or SSO systems for misconfigurations enabling account takeover.
+description: 'Tests OAuth 2.0 and OpenID Connect implementations for authorization code interception, redirect URI manipulation, CSRF in OAuth flows Use when assessing OAuth2/OIDC flows or SSO systems for'
 domain: cybersecurity
 subdomain: api-security
 tags:
@@ -403,3 +399,7 @@ resources the OAuth scope grants access to.
 5. Enforce single-use authorization codes with a short TTL (max 60 seconds)
 6. Validate the audience (aud) claim in tokens before accepting them
 ```
+
+## Detalle de la descripción
+
+flows, token leakage, scope escalation, and PKCE bypass, using Burp Suite Professional and the EsPReSSO extension to probe the authorization server, client, and token handling. misconfigurations enabling account takeover.

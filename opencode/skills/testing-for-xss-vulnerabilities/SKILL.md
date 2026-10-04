@@ -1,10 +1,6 @@
 ---
 name: testing-for-xss-vulnerabilities
-description: Tests web applications for reflected, stored, and DOM-based Cross-Site
-  Scripting by injecting JavaScript payloads with Burp Suite (XSS extensions, Active
-  Scan++) and browser tools, then bypassing sanitization and CSP to demonstrate session
-  hijacking and user impersonation. Use for OWASP WSTG client-side injection testing or
-  when evaluating input sanitization and output encoding coverage.
+description: 'Tests web applications for reflected, stored, and DOM-based Cross-Site Scripting by injecting JavaScript payloads with Burp Suite (XSS Use for OWASP WSTG client-side injection testing or when'
 domain: cybersecurity
 subdomain: penetration-testing
 tags:
@@ -199,3 +195,7 @@ refunds, and modify orders. Affects all 23 support agents who view customer tick
 3. Set HttpOnly flag on session cookies to prevent JavaScript access
 4. Sanitize HTML input server-side using a whitelist approach (allow only safe tags)
 ```
+
+## Detalle de la descripción
+
+extensions, Active Scan++) and browser tools, then bypassing sanitization and CSP to demonstrate session hijacking and user impersonation. evaluating input sanitization and output encoding coverage.

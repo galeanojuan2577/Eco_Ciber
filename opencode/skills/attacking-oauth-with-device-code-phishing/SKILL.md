@@ -1,10 +1,6 @@
 ---
 name: attacking-oauth-with-device-code-phishing
-description: Run OAuth 2.0 device-code and illicit-consent phishing attacks against
-  Microsoft Entra ID, using TokenTactics-style tooling to steal access and refresh
-  tokens, bypass MFA, and pivot across Microsoft 365 services. Use for authorized
-  red-team engagements simulating device-code or consent-grant phishing against a
-  tenant you have explicit written permission to test.
+description: 'Run OAuth 2.0 device-code and illicit-consent phishing attacks against Microsoft Entra ID, using TokenTactics-style tooling to steal access Use for authorized red-team engagements simulating'
 domain: cybersecurity
 subdomain: identity-access-management
 tags:
@@ -243,3 +239,7 @@ Instead of device-code, register a malicious multi-tenant app and phish the vict
 - [ ] Illicit-consent variant tested or documented as out of scope
 - [ ] Accessible resources enumerated with ROADtools and recorded
 - [ ] Remediation recommendations (CA device-code block, FIDO2, consent restrictions) delivered
+
+## Detalle de la descripción
+
+and refresh tokens, bypass MFA, and pivot across Microsoft 365 services. device-code or consent-grant phishing against a tenant you have explicit written permission to test.

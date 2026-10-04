@@ -1,8 +1,6 @@
 ---
 name: plankton-code-quality
-description: "Write-time code quality enforcement using Plankton — auto-formatting, linting,
-metadata:
-  origin: community
+description: '"Write-time code quality enforcement using Plankton — auto-formatting, linting, metadata:   origin: community'
 ---
 
 # Plankton Code Quality Skill

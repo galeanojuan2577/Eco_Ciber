@@ -1,10 +1,6 @@
 ---
 name: testing-for-business-logic-vulnerabilities
-description: Manually identifies flaws in application business logic - price manipulation,
-  multi-step workflow bypass, and privilege escalation - by intercepting and modifying
-  requests with Burp Suite, going beyond what automated vulnerability scanners detect.
-  Use for e-commerce checkout/cart flows, voucher and rewards systems, or any assessment
-  where scanners find little but business rules need scrutiny.
+description: 'Manually identifies flaws in application business logic - price manipulation, multi-step workflow bypass, and privilege escalation - by Use for e-commerce checkout/cart flows, voucher and'
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -361,3 +357,7 @@ The password reset flow generates a one-time token but does not invalidate it af
 4. Implement idempotency keys to prevent duplicate transaction processing
 5. Rate-limit and log coupon applications, referral submissions, and transfers
 ```
+
+## Detalle de la descripción
+
+intercepting and modifying requests with Burp Suite, going beyond what automated vulnerability scanners detect. rewards systems, or any assessment where scanners find little but business rules need scrutiny.

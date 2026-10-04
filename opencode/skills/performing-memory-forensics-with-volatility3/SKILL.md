@@ -1,11 +1,6 @@
 ---
 name: performing-memory-forensics-with-volatility3
-description: Adquiere y analiza volúmenes de memoria con Volatility 3 (vol) para incidentes
-  de seguridad: cadena de custodia, plugins de procesos, red, registro, credenciales y
-  código inyectado en Windows y Linux, interpretación de artefactos y reporte forense.
-  Use cuando una imagen de memoria necesite ser examinada para probar inyección de código,
-  dump de credenciales, persistencia o actividad de C2. Requiere instalar volatility3 si
-  `vol -h` no está disponible.
+description: 'Adquiere y analiza volúmenes de memoria con Volatility 3 (vol) para incidentes de seguridad: cadena de custodia, plugins de procesos, red Use cuando una imagen de memoria necesite ser examinada'
 domain: cybersecurity
 subdomain: digital-forensics
 tags:
@@ -238,3 +233,7 @@ Ruta: `__HOME__/BugBounty/<proyecto>/reports/<fecha>_<target>_memory-forensics-r
 - LiME (Linux Memory Extractor): https://github.com/504ensicsLabs/LiME
 - MITRE ATT&CK — T1003 OS Credential Dumping: https://attack.mitre.org/techniques/T1003/
 - NIST SP 800-86 — Guide to Integrating Forensic Techniques: https://csrc.nist.gov/publications/detail/sp/800-86/final
+
+## Detalle de la descripción
+
+red, registro, credenciales y código inyectado en Windows y Linux, interpretación de artefactos y reporte forense. para probar inyección de código, dump de credenciales, persistencia o actividad de C2. Requiere instalar volatility3 si `vol -h` no está disponible.

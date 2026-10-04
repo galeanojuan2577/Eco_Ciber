@@ -1,9 +1,6 @@
 ---
 name: gan-style-harness
-description: "GAN-inspired Generator-Evaluator agent harness for building high-quality
-metadata:
-  origin: ECC-community
-tools: Read, Write, Edit, Bash, Grep, Glob, Task
+description: '"GAN-inspired Generator-Evaluator agent harness for building high-quality metadata:   origin: ECC-community tools: Read, Write, Edit, Bash, Grep, Glob, Task'
 ---
 
 # GAN-Style Harness Skill

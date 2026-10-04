@@ -1,10 +1,6 @@
 ---
 name: performing-dns-enumeration-and-zone-transfer
-description: 'Enumerates DNS records, attempts zone transfers, brute-forces subdomains,
-  and maps DNS infrastructure during authorized reconnaissance to identify attack
-  surface, misconfigurations, and information disclosure in target domains.
-
-  '
+description: 'Enumerates DNS records, attempts zone transfers, brute-forces subdomains, and maps DNS infrastructure during authorized reconnaissance to identify attack surface, misconfigurations, and information'
 domain: cybersecurity
 subdomain: network-security
 tags:
@@ -273,3 +269,7 @@ cat all_subdomains.txt | httpx -screenshot -o screenshots/
 4. **Missing DMARC Policy** (Medium): No DMARC record found, enabling email spoofing
 5. **Weak SPF Record** (Low): SPF uses ~all (soft fail) instead of -all (hard fail)
 ```
+
+## Detalle de la descripción
+
+disclosure in target domains.

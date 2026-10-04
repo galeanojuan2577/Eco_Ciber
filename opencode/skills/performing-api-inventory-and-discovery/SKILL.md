@@ -1,14 +1,6 @@
 ---
 name: performing-api-inventory-and-discovery
-description: 'Performs API inventory and discovery to identify all API endpoints in
-  an organization''s environment including documented, undocumented, shadow, zombie,
-  and deprecated APIs. The tester uses passive traffic analysis, active scanning,
-  DNS enumeration, JavaScript analysis, and cloud resource inventory to build a comprehensive
-  API catalog. Maps to OWASP API9:2023 Improper Inventory Management. Activates for
-  requests involving API discovery, shadow API detection, API inventory audit, or
-  attack surface mapping.
-
-  '
+description: 'Performs API inventory and discovery to identify all API endpoints in an organization''s environment including documented, undocumented Activates for requests involving API discovery, shadow API'
 domain: cybersecurity
 subdomain: api-security
 tags:
@@ -442,3 +434,7 @@ def detect_shadow_and_zombie_apis(discovered_endpoints, documented_endpoints):
 3. **Exposed Documentation**: 12 Swagger UI instances accessible publicly,
    revealing full API schema and endpoint details
 ```
+
+## Detalle de la descripción
+
+undocumented, shadow, zombie, and deprecated APIs. The tester uses passive traffic analysis, active scanning, DNS enumeration, JavaScript analysis, and cloud resource inventory to build a comprehensive API catalog. Maps to OWASP API9:2023 Improper Inventory Management. detection, API inventory audit, or attack surface mapping.

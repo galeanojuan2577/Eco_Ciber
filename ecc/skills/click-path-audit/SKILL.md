@@ -1,8 +1,6 @@
 ---
 name: click-path-audit
-description: "Trace every user-facing button/touchpoint through its full state change
-metadata:
-  origin: community
+description: '"Trace every user-facing button/touchpoint through its full state change metadata:   origin: community'
 ---
 
 # /click-path-audit — Behavioural Flow Audit

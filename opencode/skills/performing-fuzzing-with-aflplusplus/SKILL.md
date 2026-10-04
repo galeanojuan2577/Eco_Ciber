@@ -1,12 +1,6 @@
 ---
 name: performing-fuzzing-with-aflplusplus
-description: 'Performs coverage-guided fuzzing of compiled binaries with AFL++, instrumenting
-  targets via afl-cc/afl-clang-fast, minimizing corpora with afl-cmin and afl-tmin,
-  running parallel campaigns with afl-fuzz, and triaging crashes with CASR or GDB
-  scripts. Use for binary fuzzing, crash and memory-corruption discovery, coverage-guided
-  testing, or running AFL++ fuzzing campaigns.
-
-  '
+description: 'Performs coverage-guided fuzzing of compiled binaries with AFL++, instrumenting targets via afl-cc/afl-clang-fast, minimizing corpora with Use for binary fuzzing, crash and memory-corruption'
 domain: cybersecurity
 subdomain: application-security
 tags:
@@ -85,3 +79,7 @@ and persistent mode for high-throughput fuzzing.
   paths found: 1847
   exec speed: 2145/sec
 ```
+
+## Detalle de la descripción
+
+afl-cmin and afl-tmin, running parallel campaigns with afl-fuzz, and triaging crashes with CASR or GDB scripts. discovery, coverage-guided testing, or running AFL++ fuzzing campaigns.

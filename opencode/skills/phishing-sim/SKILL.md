@@ -1,6 +1,6 @@
 ---
 name: phishing-sim
-description: Ejecutar simulaciones de phishing y campañas de concienciación con consentimiento explícito y plataforma propia (GoPhish, SET en modo lab). Requisitos de aprobación, plantillas, métricas, recogida de evidencia y borrado seguro de datos de campaña.
+description: 'Ejecutar simulaciones de phishing y campañas de concienciación con consentimiento explícito y plataforma propia (GoPhish, SET en modo lab). Requisitos de aprobación, plantillas, métricas, recogida de'
 domain: cybersecurity
 subdomain: social-engineering
 tags:
@@ -54,3 +54,7 @@ Regla para realizar **simulaciones de phishing (social engineering)** como parte
 
 - Informe de concienciación (resultados agregados, unidades de formación recomendadas).
 - Borrado de datos de campaña y archivos temporales (ver `__OPENCODE_ROOT__/rules/cyber/cleanup.md`).
+
+## Detalle de la descripción
+
+evidencia y borrado seguro de datos de campaña.

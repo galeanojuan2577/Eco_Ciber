@@ -1,11 +1,6 @@
 ---
 name: conducting-network-penetration-test
-description: Ejecuta un pentest de red completo (externo o interno) siguiendo PTES/OSSTMM
-  con gate de autorización obligatorio: reconocimiento, escaneo, enumeración, análisis de
-  vulnerabilidades, explotación controlada, post-explotación e informe, usando herramientas
-  reales (nmap, masscan, subfinder, amass, httpx, nuclei, nikto, gobuster, ffuf, sqlmap, hydra,
-  searchsploit). Use durante engagements autorizados cuando se necesite validar la postura de
-  seguridad de la infraestructura de red.
+description: 'Ejecuta un pentest de red completo (externo o interno) siguiendo PTES/OSSTMM con gate de autorización obligatorio: reconocimiento, escaneo Use durante engagements autorizados cuando se necesite'
 domain: cybersecurity
 subdomain: penetration-testing
 tags:
@@ -248,3 +243,7 @@ Ruta: `__HOME__/BugBounty/<proyecto>/reports/<fecha>_<target>_pentest-report.md`
 - OSSTMM v3: https://www.isecom.org/OSSTMM.3.pdf
 - NIST SP 800-115: https://csrc.nist.gov/publications/detail/sp/800-115/final
 - MITRE ATT&CK: https://attack.mitre.org/
+
+## Detalle de la descripción
+
+escaneo, enumeración, análisis de vulnerabilidades, explotación controlada, post-explotación e informe, usando herramientas reales (nmap, masscan, subfinder, amass, httpx, nuclei, nikto, gobuster, ffuf, sqlmap, hydra, searchsploit). validar la postura de seguridad de la infraestructura de red.

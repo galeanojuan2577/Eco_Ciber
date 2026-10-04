@@ -1,11 +1,6 @@
 ---
 name: performing-web-application-firewall-bypass
-description: Bypasses Web Application Firewall protections using encoding tricks,
-  HTTP method manipulation, parameter pollution, and payload obfuscation to smuggle
-  SQL injection, XSS, and other exploit payloads past WAF detection rules. Use when
-  a confirmed vulnerability is blocked by a WAF, during penetration tests or red
-  team engagements requiring bypass of perimeter security controls, or when evaluating
-  WAF rule effectiveness and bypass resistance.
+description: 'Bypasses Web Application Firewall protections using encoding tricks, HTTP method manipulation, parameter pollution, and payload obfuscation Use when a confirmed vulnerability is blocked by a WAF'
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -263,3 +258,7 @@ curl "http://target.com/page?q=%253Cscript%253Ealert(1)%253C%252Fscript%253E"
 - Enable deep content inspection for all HTTP methods
 - Implement request normalization before rule evaluation
 ```
+
+## Detalle de la descripción
+
+to smuggle SQL injection, XSS, and other exploit payloads past WAF detection rules. WAF, during penetration tests or red team engagements requiring bypass of perimeter security controls, or when evaluating WAF rule effectiveness and bypass resistance.

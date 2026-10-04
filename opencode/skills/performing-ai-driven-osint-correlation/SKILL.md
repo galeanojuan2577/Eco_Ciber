@@ -1,10 +1,6 @@
 ---
 name: performing-ai-driven-osint-correlation
-description: Use AI/LLM-based reasoning with Sherlock, theHarvester, and SpiderFoot
-  to correlate OSINT findings—usernames, emails, social profiles, domain records,
-  breach databases, and dark-web mentions—into unified, confidence-scored intelligence
-  profiles with link analysis. Use when raw OSINT data from multiple sources needs
-  merging into one target profile or resolving identity linkage across platforms.
+description: 'Use AI/LLM-based reasoning with Sherlock, theHarvester, and SpiderFoot to correlate OSINT findings—usernames, emails, social profiles Use when raw OSINT data from multiple sources needs'
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:
@@ -401,3 +397,7 @@ The final output is a structured JSON correlation report and a Markdown intellig
 - Verify that no false positives from common usernames (e.g., "admin", "test") inflated entity profiles.
 - Ensure breach data timestamps are current and from reputable aggregators.
 - Validate that the final report does not include stale or retracted OSINT data.
+
+## Detalle de la descripción
+
+profiles, domain records, breach databases, and dark-web mentions—into unified, confidence-scored intelligence profiles with link analysis. merging into one target profile or resolving identity linkage across platforms.

@@ -1,8 +1,6 @@
 ---
 name: skill-stocktake
-description: "Use when auditing Claude skills and commands for quality. Supports Quick Scan
-metadata:
-  origin: ECC
+description: '"Use when auditing Claude skills and commands for quality. Supports Quick Scan metadata:   origin: ECC'
 ---
 
 # skill-stocktake

@@ -1,10 +1,6 @@
 ---
 name: performing-packet-injection-attack
-description: 'Crafts and injects custom network packets using Scapy, hping3, and Nemesis
-  during authorized security assessments to test firewall rules, IDS detection, protocol
-  handling, and network stack resilience against malformed and spoofed traffic.
-
-  '
+description: 'Crafts and injects custom network packets using Scapy, hping3, and Nemesis during authorized security assessments to test firewall rules, IDS detection, protocol handling, and network stack'
 domain: cybersecurity
 subdomain: network-security
 tags:
@@ -332,3 +328,7 @@ EOF
 1. Land attack (src==dst) not detected -- add rule SID 2100333
 2. TCP RST injection not detected -- create custom rule for out-of-window RST
 ```
+
+## Detalle de la descripción
+
+resilience against malformed and spoofed traffic.

@@ -1,8 +1,6 @@
 ---
 name: performing-thick-client-application-penetration-test
-description: Conduct a thick client application penetration test to identify insecure
-  local storage, hardcoded credentials, DLL hijacking, memory manipulation, and insecure
-  API communication in desktop applications using dnSpy, Procmon, and Burp Suite.
+description: 'Conduct a thick client application penetration test to identify insecure local storage, hardcoded credentials, DLL hijacking, memory manipulation, and insecure API communication in desktop'
 domain: cybersecurity
 subdomain: penetration-testing
 tags:
@@ -269,3 +267,7 @@ strings process_dump.dmp | findstr -i "password\|token\|session\|bearer"
 - OWASP Thick Client Testing Guide: https://owasp.org/www-project-thick-client-top-10/
 - Ghidra: https://ghidra-sre.org/
 - Echo Mirage: https://sourceforge.net/projects/echomirage/
+
+## Detalle de la descripción
+
+applications using dnSpy, Procmon, and Burp Suite.

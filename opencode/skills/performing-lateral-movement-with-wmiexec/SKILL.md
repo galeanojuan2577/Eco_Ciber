@@ -1,8 +1,6 @@
 ---
 name: performing-lateral-movement-with-wmiexec
-description: Perform lateral movement across Windows networks using WMI-based remote
-  execution techniques including Impacket wmiexec.py, CrackMapExec, and native WMI
-  commands for stealthy post-exploitation during red team engagements.
+description: 'Perform lateral movement across Windows networks using WMI-based remote execution techniques including Impacket wmiexec.py, CrackMapExec, and native WMI commands for stealthy post-exploitation during'
 domain: cybersecurity
 subdomain: red-teaming
 tags:
@@ -211,3 +209,7 @@ WMI (Windows Management Instrumentation) is a legitimate Windows administration 
 - [ ] Credential harvesting performed via WMI execution chain
 - [ ] No service creation artifacts on target systems
 - [ ] Evidence documented with command outputs and screenshots
+
+## Detalle de la descripción
+
+red team engagements.

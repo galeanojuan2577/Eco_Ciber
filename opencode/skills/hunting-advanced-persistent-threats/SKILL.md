@@ -1,10 +1,6 @@
 ---
 name: hunting-advanced-persistent-threats
-description: Caza proactiva de amenazas persistentes avanzadas (APT) con hipótesis basadas
-  en MITRE ATT&CK: recolección de telemetría (logs, DNS, proxy, PCAP), detección de beaconing
-  C2 y exfiltración con tshark/tcpdump/awk, validación de indicadores en scope con nmap/httpx/nuclei,
-  y entrega de detecciones y hallazgos priorizados. Use en equipos defensivos o en engagements
-  autorizados cuando se sospeche de intrusión persistente.
+description: 'Caza proactiva de amenazas persistentes avanzadas (APT) con hipótesis basadas en MITRE ATT&CK: recolección de telemetría (logs, DNS, proxy Use en equipos defensivos o en engagements autorizados'
 domain: cybersecurity
 subdomain: threat-hunting
 tags:
@@ -231,3 +227,7 @@ Ruta: `__HOME__/BugBounty/<proyecto>/reports/<fecha>_<target>_threat-hunt-report
 - The DFIR Report — casos APT: https://thedfirreport.com/
 - NIST SP 800-137 — Information Continuous Monitoring: https://csrc.nist.gov/publications/detail/sp/800-137/final
 - Volatility documentation (artefactos de memoria): https://volatility3.readthedocs.io/
+
+## Detalle de la descripción
+
+proxy, PCAP), detección de beaconing C2 y exfiltración con tshark/tcpdump/awk, validación de indicadores en scope con nmap/httpx/nuclei, y entrega de detecciones y hallazgos priorizados. cuando se sospeche de intrusión persistente.

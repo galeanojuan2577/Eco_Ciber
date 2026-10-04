@@ -1,15 +1,6 @@
 ---
 name: performing-ios-app-security-assessment
-description: 'Performs comprehensive iOS application security assessments using Frida
-  for dynamic instrumentation, Objection for runtime exploration, SSL pinning bypass
-  for traffic interception, keychain extraction for credential analysis, and IPA static
-  analysis for binary-level review. Use when conducting authorized iOS penetration
-  tests, evaluating mobile app security posture against OWASP MASTG, or assessing
-  iOS app data protection and transport security controls. Activates for requests
-  involving iOS app pentesting, Frida-based iOS instrumentation, mobile app SSL pinning
-  bypass, or IPA reverse engineering.
-
-  '
+description: 'Performs comprehensive iOS application security assessments using Frida for dynamic instrumentation, Objection for runtime exploration, SSL Use when conducting authorized iOS penetration tests'
 domain: cybersecurity
 subdomain: mobile-security
 author: mukul975
@@ -287,3 +278,7 @@ to the user's account without knowing device passcode.
 Store sensitive credentials with kSecAttrAccessibleWhenUnlockedThisDeviceOnly
 and enable biometric protection via kSecAccessControlBiometryCurrentSet.
 ```
+
+## Detalle de la descripción
+
+pinning bypass for traffic interception, keychain extraction for credential analysis, and IPA static analysis for binary-level review. tests, evaluating mobile app security posture against OWASP MASTG, or assessing iOS app data protection and transport security controls. Activates for requests involving iOS app pentesting, Frida-based iOS instrumentation, mobile app SSL pinning bypass, or IPA reverse engineering.

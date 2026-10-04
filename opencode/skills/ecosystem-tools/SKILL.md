@@ -1,6 +1,6 @@
 ---
 name: ecosystem-tools
-description: ECC+ ecosystem tools: Headroom, Agent-Browser, local-rag, and Docker services
+description: 'ECC+ ecosystem tools: Headroom, Agent-Browser, local-rag, and Docker services'
 ---
 
 # ECC+ Ecosystem Tools

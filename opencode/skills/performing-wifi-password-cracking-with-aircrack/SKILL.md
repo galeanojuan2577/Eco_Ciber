@@ -1,10 +1,6 @@
 ---
 name: performing-wifi-password-cracking-with-aircrack
-description: 'Captures WPA/WPA2 handshakes and performs offline password cracking
-  using aircrack-ng, hashcat, and dictionary attacks during authorized wireless security
-  assessments to evaluate passphrase strength and wireless network security posture.
-
-  '
+description: 'Captures WPA/WPA2 handshakes and performs offline password cracking using aircrack-ng, hashcat, and dictionary attacks during authorized wireless security assessments to evaluate passphrase strength'
 domain: cybersecurity
 subdomain: network-security
 tags:
@@ -281,3 +277,7 @@ sha256sum handshake_capture-01.cap > evidence_hashes.txt
 4. Consider WPA3-SAE for PSK networks to prevent offline cracking
 5. Enable 802.11w Protected Management Frames to prevent deauth attacks
 ```
+
+## Detalle de la descripción
+
+and wireless network security posture.

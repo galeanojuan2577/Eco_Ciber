@@ -1,8 +1,6 @@
 ---
 name: rules-distill
-description: "Scan skills to extract cross-cutting principles and distill them into rules —
-metadata:
-  origin: ECC
+description: '"Scan skills to extract cross-cutting principles and distill them into rules — metadata:   origin: ECC'
 ---
 
 # Rules Distill

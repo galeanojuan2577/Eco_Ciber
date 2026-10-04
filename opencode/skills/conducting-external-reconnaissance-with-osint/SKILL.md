@@ -1,6 +1,6 @@
 ---
 name: conducting-external-reconnaissance-with-osint
-description: Conduct external recon using OSINT techniques to map an organization's external attack surface without touching target systems, gathering DNS records, certificate transparency logs, search results, social media, code repositories, and breach databases into a target profile. Use for the passive info-gathering phase of a pentest, external footprinting, or collecting employee/email intel for a social engineering campaign.
+description: 'Conduct external recon using OSINT techniques to map an organization''s external attack surface without touching target systems, gathering Use for the passive info-gathering phase of a pentest'
 domain: cybersecurity
 subdomain: penetration-testing
 tags:
@@ -181,3 +181,7 @@ Identify the technologies, frameworks, and services used by the target:
 3. Disable directory listings on docs.techcorp.io and audit all web servers
 4. Implement GitHub secret scanning across all organization repositories
 ```
+
+## Detalle de la descripción
+
+DNS records, certificate transparency logs, search results, social media, code repositories, and breach databases into a target profile. pentest, external footprinting, or collecting employee/email intel for a social engineering campaign.

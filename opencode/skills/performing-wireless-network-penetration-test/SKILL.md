@@ -1,8 +1,6 @@
 ---
 name: performing-wireless-network-penetration-test
-description: Execute a wireless network penetration test to assess WiFi security by
-  capturing handshakes, cracking WPA2/WPA3 keys, detecting rogue access points, and
-  testing wireless segmentation using Aircrack-ng and related tools.
+description: 'Execute a wireless network penetration test to assess WiFi security by capturing handshakes, cracking WPA2/WPA3 keys, detecting rogue access points, and testing wireless segmentation using'
 domain: cybersecurity
 subdomain: penetration-testing
 tags:
@@ -263,3 +261,7 @@ reaver -i wlan0mon -b AA:BB:CC:DD:EE:03 -K 1 -vv
 - WiFi Alliance WPA3 Specification: https://www.wi-fi.org/discover-wi-fi/security
 - NIST SP 800-153: Guidelines for Securing WLANs
 - Hashcat WPA modes: https://hashcat.net/wiki/doku.php?id=example_hashes
+
+## Detalle de la descripción
+
+Aircrack-ng and related tools.

@@ -1,6 +1,6 @@
 ---
 name: web-front-animation-engine
-description: Central de recursos front-end y animaciones web: Motion Primitives, getdesign.md, Unicorn Studio, MotionSites.ai. Estilos únicos, componentes animados, WebGL sin código.
+description: 'Central de recursos front-end y animaciones web: Motion Primitives, getdesign.md, Unicorn Studio, MotionSites.ai. Estilos únicos, componentes animados, WebGL sin código.'
 ---
 
 # Web Front Animation Engine

@@ -1,6 +1,6 @@
 ---
 name: fullstack-developer
-description: Senior Full Stack Engineer expert in React, TypeScript, Node.js, and Supabase. Use this skill for end-to-end development, complex bug fixing, architectural design, and continuous learning from implementation errors to ensure zero-regression code.
+description: 'Senior Full Stack Engineer expert in React, TypeScript, Node.js, and Supabase. Use this skill for end-to-end development, complex bug fixing, architectural design, and continuous learning from'
 ---
 
 # Full Stack Developer Expert (v3.0 Auto-Learning)
@@ -100,3 +100,7 @@ Al finalizar cada sesión de trabajo, registrar:
 - **Coverage Delta:** % de cobertura alcanzado vs anterior
 - **Error Density:** Errores nuevos por 100 líneas de código modificadas
 - **Lesson Closure Rate:** % de lecciones `needs-review` convertidas a `validated`
+
+## Detalle de la descripción
+
+implementation errors to ensure zero-regression code.

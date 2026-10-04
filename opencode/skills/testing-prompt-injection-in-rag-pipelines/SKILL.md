@@ -1,10 +1,6 @@
 ---
 name: testing-prompt-injection-in-rag-pipelines
-description: Probes Retrieval-Augmented Generation pipelines for indirect prompt injection
-  via poisoned retrieved documents and embedding-space manipulation, using NVIDIA garak,
-  Promptfoo red-team plugins, and Microsoft PyRIT against vector stores like FAISS,
-  Chroma, Pinecone, or pgvector. Use when security-testing a RAG chatbot or document-Q&A
-  system, validating retrieval guardrails, or gating CI/CD on prompt-template/retriever changes.
+description: 'Probes Retrieval-Augmented Generation pipelines for indirect prompt injection via poisoned retrieved documents and embedding-space Use when security-testing a RAG chatbot or document-Q&A'
 domain: cybersecurity
 subdomain: ai-security
 tags:
@@ -272,3 +268,7 @@ Collect garak's HTML/JSONL report, Promptfoo's report, and PyRIT memory transcri
 - [ ] Findings mapped to OWASP LLM01:2025 and MITRE ATLAS AML.T0051
 - [ ] Remediation recommendations provided (context isolation, output filtering, corpus provenance)
 - [ ] Report delivered with severity ratings and reproduction steps
+
+## Detalle de la descripción
+
+manipulation, using NVIDIA garak, Promptfoo red-team plugins, and Microsoft PyRIT against vector stores like FAISS, Chroma, Pinecone, or pgvector. system, validating retrieval guardrails, or gating CI/CD on prompt-template/retriever changes.

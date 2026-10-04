@@ -1,9 +1,6 @@
 ---
 name: performing-soap-web-service-security-testing
-description: Performs security testing of SOAP web services by analyzing WSDL definitions
-  and testing for XML injection, XXE, WS-Security bypass, SOAPAction spoofing, and
-  XPath injection. Use when assessing a SOAP/WSDL-based API endpoint for XML-related
-  vulnerabilities during a penetration test.
+description: 'Performs security testing of SOAP web services by analyzing WSDL definitions and testing for XML injection, XXE, WS-Security bypass Use when assessing a SOAP/WSDL-based API endpoint for'
 domain: cybersecurity
 subdomain: api-security
 tags:
@@ -459,3 +456,7 @@ if __name__ == "__main__":
 - Levo.ai SOAP API Security Testing Guide: https://www.levo.ai/resources/blogs/soap-api-security-testing
 - SoapUI Web Service Hacking: https://www.soapui.org/docs/soap-and-wsdl/tips-and-tricks/web-service-hacking/
 - PortSwigger XXE Tutorial: https://portswigger.net/web-security/xxe
+
+## Detalle de la descripción
+
+bypass, SOAPAction spoofing, and XPath injection. XML-related vulnerabilities during a penetration test.

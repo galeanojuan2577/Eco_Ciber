@@ -1,8 +1,6 @@
 ---
 name: flox-environments
-description: "Create reproducible, cross-platform (macOS/Linux) development environments
-metadata:
-  origin: Flox
+description: '"Create reproducible, cross-platform (macOS/Linux) development environments metadata:   origin: Flox'
 ---
 
 # Flox Environments

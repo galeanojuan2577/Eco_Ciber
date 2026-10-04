@@ -1,12 +1,6 @@
 ---
 name: performing-vlan-hopping-attack
-description: >-
-  Simulates VLAN hopping attacks using switch spoofing and 802.1Q double
-  tagging techniques in authorized lab environments to test VLAN segmentation
-  effectiveness and switch port security. Use during an authorized
-  penetration test to validate trunk port hardening, confirm DTP is disabled
-  on access ports, and demonstrate Layer 2 segmentation bypass risk to
-  network teams.
+description: 'Simulates VLAN hopping attacks using switch spoofing and 802.1Q double tagging techniques in authorized lab environments to test VLAN Use during an authorized penetration test to validate'
 domain: cybersecurity
 subdomain: network-security
 tags:
@@ -333,3 +327,7 @@ EOF
 5. Enable port security on access ports
 6. Set VTP to transparent mode on all switches
 ```
+
+## Detalle de la descripción
+
+segmentation effectiveness and switch port security. trunk port hardening, confirm DTP is disabled on access ports, and demonstrate Layer 2 segmentation bypass risk to network teams.

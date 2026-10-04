@@ -1,11 +1,6 @@
 ---
 name: performing-web-application-scanning-with-nikto
-description: Runs Nikto, an open-source web server and web application scanner,
-  to test over 7,000 potentially dangerous files/programs, check for outdated versions
-  across 1,250+ servers, and identify XSS, SQL injection, misconfigurations, default
-  credentials, and vulnerable CGI scripts. Use when performing web application vulnerability
-  scanning, security assessments, scheduled security testing, or validating web
-  server security controls.
+description: 'Runs Nikto, an open-source web server and web application scanner, to test over 7,000 potentially dangerous files/programs, check for Use when performing web application vulnerability'
 domain: cybersecurity
 subdomain: vulnerability-management
 tags:
@@ -245,3 +240,7 @@ for item in tree.findall('.//item'):
 - scanning-infrastructure-with-nessus
 - scanning-apis-for-security-vulnerabilities
 - performing-network-vulnerability-assessment
+
+## Detalle de la descripción
+
+outdated versions across 1,250+ servers, and identify XSS, SQL injection, misconfigurations, default credentials, and vulnerable CGI scripts. scanning, security assessments, scheduled security testing, or validating web server security controls.

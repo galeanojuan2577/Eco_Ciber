@@ -1,6 +1,6 @@
 ---
 name: conducting-internal-reconnaissance-with-bloodhound-ce
-description: Conduct internal Active Directory reconnaissance using BloodHound Community Edition's graph database with the SharpHound (AD) and AzureHound (Entra ID) collectors, mapping ACLs, sessions, and group memberships into attack paths from a low-privileged foothold to Domain Admin. Use after an initial AD foothold to identify privilege escalation chains, or to validate that AD hardening closed known attack paths.
+description: 'Conduct internal Active Directory reconnaissance using BloodHound Community Edition''s graph database with the SharpHound (AD) and Use after an initial AD foothold to identify privilege'
 domain: cybersecurity
 subdomain: red-teaming
 tags:
@@ -196,3 +196,7 @@ BloodHound Community Edition (CE) is a modern, web-based Active Directory reconn
 - [ ] Custom Cypher queries executed for advanced analysis
 - [ ] Attack paths prioritized by feasibility and stealth
 - [ ] Report generated with all identified paths and evidence
+
+## Detalle de la descripción
+
+AzureHound (Entra ID) collectors, mapping ACLs, sessions, and group memberships into attack paths from a low-privileged foothold to Domain Admin. escalation chains, or to validate that AD hardening closed known attack paths.

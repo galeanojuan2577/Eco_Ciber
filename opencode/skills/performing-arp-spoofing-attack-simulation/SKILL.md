@@ -1,13 +1,6 @@
 ---
 name: performing-arp-spoofing-attack-simulation
-description: 'Simulates ARP spoofing/cache-poisoning attacks in authorized lab or
-  pentest environments using arpspoof, Ettercap, and Scapy to demonstrate man-in-the-middle
-  risk and validate Dynamic ARP Inspection, port security, and network monitoring
-  detections. Use when testing whether switches, IDS/IPS, or a SIEM detect ARP spoofing
-  under written authorization; do not use on production networks without explicit
-  approval.
-
-  '
+description: 'Simulates ARP spoofing/cache-poisoning attacks in authorized lab or pentest environments using arpspoof, Ettercap, and Scapy to demonstrate Use when testing whether switches, IDS/IPS, or a SIEM'
 domain: cybersecurity
 subdomain: network-security
 tags:
@@ -280,3 +273,7 @@ arp -a
 2. Enable DHCP snooping rate limiting to prevent DHCP starvation attacks
 3. Deploy 802.1X port authentication to complement ARP inspection
 ```
+
+## Detalle de la descripción
+
+man-in-the-middle risk and validate Dynamic ARP Inspection, port security, and network monitoring detections. detect ARP spoofing under written authorization; do not use on production networks without explicit approval.

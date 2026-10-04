@@ -1,6 +1,6 @@
 ---
 name: abusing-dpapi-for-credential-access
-description: Extract and decrypt Windows DPAPI-protected secrets (Credential Manager, browser logins/cookies, Wi-Fi credentials, KeePass keys) online or offline using SharpDPAPI, SharpChrome, Mimikatz, or Impacket's dpapi.py, including domain-wide decryption via the DPAPI backup key. Use during authorized red-team credential-access engagements after gaining a foothold or when triaging DPAPI blobs pulled from a host.
+description: 'Extract and decrypt Windows DPAPI-protected secrets (Credential Manager, browser logins/cookies, Wi-Fi credentials, KeePass keys) online or Use during authorized red-team credential-access'
 domain: cybersecurity
 subdomain: red-teaming
 tags:
@@ -207,3 +207,7 @@ donpapi collect -u alice -p 'Password123!' -d corp.local --target 10.0.0.0/24
 - [ ] Browser logins/cookies decrypted with SharpChrome.
 - [ ] Domain DPAPI backup key retrieved with Domain Admin (if in scope) and reused offline.
 - [ ] All recovered secrets documented with source host/user and ROE adherence confirmed.
+
+## Detalle de la descripción
+
+offline using SharpDPAPI, SharpChrome, Mimikatz, or Impacket's dpapi.py, including domain-wide decryption via the DPAPI backup key. engagements after gaining a foothold or when triaging DPAPI blobs pulled from a host.

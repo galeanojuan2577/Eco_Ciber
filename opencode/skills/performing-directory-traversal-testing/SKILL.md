@@ -1,11 +1,6 @@
 ---
 name: performing-directory-traversal-testing
-description: Test web applications for path traversal and Local/Remote File Inclusion
-  vulnerabilities by manipulating file path parameters, applying encoding and filter-bypass
-  techniques, automating discovery with ffuf and dotdotpwn, and reading high-value files
-  or achieving code execution. Use during authorized penetration tests of file download,
-  view, or include functionality, or when assessing APIs that accept file names or file
-  paths as parameters.
+description: 'Test web applications for path traversal and Local/Remote File Inclusion vulnerabilities by manipulating file path parameters, applying Use during authorized penetration tests of file download'
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -329,3 +324,7 @@ Original `../` stripped by filter. Successful bypass: `....//....//....//etc/pas
 4. Remove sensitive files from web-accessible directories
 5. Disable PHP wrappers (allow_url_include, allow_url_fopen) if not required
 ```
+
+## Detalle de la descripción
+
+encoding and filter-bypass techniques, automating discovery with ffuf and dotdotpwn, and reading high-value files or achieving code execution. download, view, or include functionality, or when assessing APIs that accept file names or file paths as parameters.

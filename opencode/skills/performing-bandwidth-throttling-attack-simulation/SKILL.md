@@ -1,12 +1,6 @@
 ---
 name: performing-bandwidth-throttling-attack-simulation
-description: 'Simulate bandwidth throttling and network degradation attacks using tc,
-  iperf3, and Scapy in authorized lab environments to test QoS controls, application
-  resilience, and monitoring detection of traffic manipulation. Use when validating
-  how VoIP, video, or other real-time applications and network monitoring tools respond
-  to degraded bandwidth or slowloris-style throttling attacks.
-
-  '
+description: 'Simulate bandwidth throttling and network degradation attacks using tc, iperf3, and Scapy in authorized lab environments to test QoS Use when validating how VoIP, video, or other real-time'
 domain: cybersecurity
 subdomain: network-security
 tags:
@@ -333,3 +327,7 @@ iperf3 -c 10.10.20.10 -t 10 -f m -p 5201
 2. Configure QoS to prioritize DSCP EF (46) marked traffic
 3. Set monitoring threshold at 80% bandwidth utilization for early warning
 ```
+
+## Detalle de la descripción
+
+controls, application resilience, and monitoring detection of traffic manipulation. applications and network monitoring tools respond to degraded bandwidth or slowloris-style throttling attacks.

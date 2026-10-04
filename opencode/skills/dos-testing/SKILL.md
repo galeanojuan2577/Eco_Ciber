@@ -1,6 +1,6 @@
 ---
 name: dos-testing
-description: Planificar y ejecutar pruebas de estrés / denegación de servicio (DoS) autorizadas sobre infraestructura propia, laboratorio o contratada. Requisitos previos obligatorios, herramientas permitidas con límites y umbrales, criterios de parada de emergencia y registro en audit.log.
+description: 'Planificar y ejecutar pruebas de estrés / denegación de servicio (DoS) autorizadas sobre infraestructura propia, laboratorio o contratada. Requisitos previos obligatorios, herramientas permitidas con'
 domain: cybersecurity
 subdomain: denial-of-service
 tags:
@@ -58,3 +58,7 @@ Regla para realizar **pruebas de estrés de Denegación de Servicio (DoS)** dent
 - Reportar en el informe final los resultados (nivel de resistencia estimado).
 - Confirmar recuperación total del servicio tras la prueba.
 - Limpiar herramientas/procesos residuales (ver `__OPENCODE_ROOT__/rules/cyber/cleanup.md`).
+
+## Detalle de la descripción
+
+límites y umbrales, criterios de parada de emergencia y registro en audit.log.

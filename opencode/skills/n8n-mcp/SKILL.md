@@ -1,6 +1,6 @@
 ---
 name: n8n-mcp
-description: Integrar instancias de n8n con el agente mediante MCP: validar configuraciones antes de activar workflows, mantener la paridad entre los JSON de workflows del repositorio y la instancia activa, y gestionar credenciales sin exponerlas nunca en texto plano.
+description: 'Integrar instancias de n8n con el agente mediante MCP: validar configuraciones antes de activar workflows, mantener la paridad entre los JSON de workflows del repositorio y la instancia activa, y'
 domain: engineering
 subdomain: automation
 tags:
@@ -20,3 +20,7 @@ Integraci처n directa con instancias de n8n para despliegue, validaci처n y gesti�
 - **Despliegue**: Uso de herramientas de sistema para validar configuraciones antes de activar workflows.
 - **Sincronizaci처n**: Mantener paridad entre los archivos JSON de workflows en repositorio y la instancia de n8n activa.
 - **Seguridad**: Gesti처n segura de credenciales (nunca en texto plano).
+
+## Detalle de la descripci처n
+
+gestionar credenciales sin exponerlas nunca en texto plano.

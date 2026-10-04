@@ -1,10 +1,6 @@
 ---
 name: testing-for-open-redirect-vulnerabilities
-description: Identifies and exploits open redirect vulnerabilities by analyzing URL
-  redirection parameters (next, url, redirect, return, goto), applying bypass techniques,
-  and chaining findings into phishing or token-theft exploits, using Burp Suite/OWASP ZAP
-  and Burp Collaborator. Use when testing login/logout flows, OAuth redirect_uri handling,
-  or SSO redirect validation.
+description: 'Identifies and exploits open redirect vulnerabilities by analyzing URL redirection parameters (next, url, redirect, return, goto), applying Use when testing login/logout flows, OAuth redirect_uri'
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -211,3 +207,7 @@ ffuf -w open-redirect-payloads.txt -u "http://target.com/redirect?url=FUZZ" -mr 
 - Reject any redirect URL containing external domains
 - Use indirect reference maps instead of direct URL parameters
 ```
+
+## Detalle de la descripción
+
+bypass techniques, and chaining findings into phishing or token-theft exploits, using Burp Suite/OWASP ZAP and Burp Collaborator. handling, or SSO redirect validation.

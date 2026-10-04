@@ -1,6 +1,6 @@
 ---
 name: generating-python-installer
-description: "Commercial-grade Python installer expert for Windows: Nuitka extreme
+description: '"Commercial-grade Python installer expert for Windows: Nuitka extreme'
 ---
 
 # Generating Python Installer (Commercial-Grade)
