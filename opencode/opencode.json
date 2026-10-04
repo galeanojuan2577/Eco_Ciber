@@ -40,6 +40,15 @@
       "__OPENCODE_ROOT__/skills-ecc"
     ]
   },
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "tail_turns": 4
+  },
+  "tool_output": {
+    "max_lines": 800,
+    "max_bytes": 20000
+  },
   "mcp": {
     "sequential-thinking": {
       "type": "local",
@@ -55,6 +64,7 @@
     },
     "filesystem": {
       "type": "local",
+      "enabled": false,
       "command": [
         "__LOCAL_BIN__/mcp-server-filesystem",
         "__HOME__/BugBounty"
@@ -73,6 +83,7 @@
     },
     "agent-browser": {
       "type": "local",
+      "enabled": false,
       "command": [
         "__LOCAL_BIN__/agent-browser",
         "mcp",
@@ -82,6 +93,7 @@
     },
     "chrome-devtools": {
       "type": "local",
+      "enabled": false,
       "command": [
         "npx",
         "-y",
