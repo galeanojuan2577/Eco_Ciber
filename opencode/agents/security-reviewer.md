@@ -1,5 +1,5 @@
 ---
-description: "Security vulnerability detection and remediation specialist. Use PROACTIVELY after writing code that handles user input, authentication, API endpoints, or sensitive data. Flags secrets, SSRF, injection, unsafe crypto, and OWASP Top 10 vulnerabilities."
+description: 'Security vulnerability detection and remediation specialist. Use PROACTIVELY after writing code that handles user input, authentication, API'
 mode: subagent
 permissions:
   - action: "shell"
@@ -117,3 +117,7 @@ For detailed vulnerability patterns, code examples, report templates, and PR rev
 ---
 
 **Remember**: Security is not optional. One vulnerability can cost users real financial losses. Be thorough, be paranoid, be proactive.
+
+## Detalle de la descripción
+
+endpoints, or sensitive data. Flags secrets, SSRF, injection, unsafe crypto, and OWASP Top 10 vulnerabilities.

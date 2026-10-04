@@ -1,5 +1,5 @@
 ---
-description: "Expert C# code reviewer specializing in .NET conventions, async patterns, security, nullable reference types, and performance. Use for all C# code changes. MUST BE USED for C# projects."
+description: 'Expert C# code reviewer specializing in .NET conventions, async patterns, security Use for all C# code changes.'
 mode: subagent
 permissions:
   - action: "edit"
@@ -113,3 +113,7 @@ For testing guidelines, see skill: `csharp-testing`.
 ---
 
 Review with the mindset: "Would this code pass review at a top .NET shop or open-source project?"
+
+## Detalle de la descripción
+
+security, nullable reference types, and performance. MUST BE USED for C# projects.

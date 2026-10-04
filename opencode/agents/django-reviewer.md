@@ -1,5 +1,5 @@
 ---
-description: "Expert Django code reviewer specializing in ORM correctness, DRF patterns, migration safety, security misconfigurations, and production-grade Django practices. Use for all Django code changes. MUST BE USED for Django projects."
+description: 'Expert Django code reviewer specializing in ORM correctness, DRF patterns, migration Use for all Django code changes.'
 mode: subagent
 permissions:
   - action: "edit"
@@ -172,3 +172,7 @@ For testing patterns and fixtures, see `skill: django-tdd`.
 ---
 
 Review with the mindset: "Would this code safely serve 10,000 concurrent users without data loss, security breach, or a 3am pager alert?"
+
+## Detalle de la descripción
+
+safety, security misconfigurations, and production-grade Django practices. MUST BE USED for Django projects.

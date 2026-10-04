@@ -1,5 +1,5 @@
 ---
-description: "Simplifies and refines code for clarity, consistency, and maintainability while preserving behavior. Focus on recently modified code unless instructed otherwise."
+description: 'Simplifies and refines code for clarity, consistency, and maintainability while preserving behavior. Focus on recently modified code unless'
 mode: subagent
 permissions:
   - action: "read"
@@ -59,3 +59,7 @@ You simplify code while preserving functionality.
 2. identify simplification opportunities
 3. apply only functionally equivalent changes
 4. verify no behavioral change was introduced
+
+## Detalle de la descripción
+
+instructed otherwise.

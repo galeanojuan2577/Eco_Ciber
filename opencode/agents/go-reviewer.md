@@ -1,5 +1,5 @@
 ---
-description: "Expert Go code reviewer specializing in idiomatic Go, concurrency patterns, error handling, and performance. Use for all Go code changes. MUST BE USED for Go projects."
+description: 'Expert Go code reviewer specializing in idiomatic Go, concurrency patterns, error handling, and performance. Use for all Go code changes.'
 mode: subagent
 permissions:
   - action: "edit"
@@ -88,3 +88,7 @@ govulncheck ./...
 - **Block**: CRITICAL or HIGH issues found
 
 For detailed Go code examples and anti-patterns, see `skill: golang-patterns`.
+
+## Detalle de la descripción
+
+MUST BE USED for Go projects.

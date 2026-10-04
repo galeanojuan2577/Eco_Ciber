@@ -1,5 +1,5 @@
 ---
-description: "Expert Rust code reviewer specializing in ownership, lifetimes, error handling, unsafe usage, and idiomatic patterns. Use for all Rust code changes. MUST BE USED for Rust projects."
+description: 'Expert Rust code reviewer specializing in ownership, lifetimes, error handling, unsafe Use for all Rust code changes.'
 mode: subagent
 permissions:
   - action: "edit"
@@ -106,3 +106,7 @@ cargo build --release 2>&1 | head -50
 - **Block**: CRITICAL or HIGH issues found
 
 For detailed Rust code examples and anti-patterns, see `skill: rust-patterns`.
+
+## Detalle de la descripción
+
+usage, and idiomatic patterns. MUST BE USED for Rust projects.

@@ -1,5 +1,5 @@
 ---
-description: "Performance analysis and optimization specialist. Use PROACTIVELY for identifying bottlenecks, optimizing slow code, reducing bundle sizes, and improving runtime performance. Profiling, memory leaks, render optimization, and algorithmic improvements."
+description: 'Performance analysis and optimization specialist. Use PROACTIVELY for identifying bottlenecks, optimizing slow code, reducing bundle sizes, and'
 mode: subagent
 permissions:
   - action: "shell"
@@ -455,3 +455,7 @@ const fastCode = ...;
 ---
 
 **Remember**: Performance is a feature. Users notice speed. Every 100ms of improvement matters. Optimize for the 90th percentile, not the average.
+
+## Detalle de la descripción
+
+improving runtime performance. Profiling, memory leaks, render optimization, and algorithmic improvements.

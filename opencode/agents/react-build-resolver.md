@@ -1,5 +1,5 @@
 ---
-description: "Diagnose and fix React build failures across Vite, webpack, Next.js, CRA, Parcel, esbuild, and Bun. Handles JSX/TSX compile errors, hydration mismatches, server/client component boundary failures, missing types, and bundler-specific configuration issues with minimal, surgical changes. MUST BE USED when a React build fails."
+description: 'Diagnose and fix React build failures across Vite, webpack, Next.js, CRA, Parcel, esbuild, and Bun. MUST BE USED when a React build fails.'
 mode: subagent
 permissions:
   - action: "shell"
@@ -215,3 +215,7 @@ Final: `Build Status: SUCCESS | Errors Fixed: N | Files Modified: <list>` or `Bu
 - Rules: `rules/react/coding-style.md`, `rules/react/patterns.md`
 - Skills: `skills/react-patterns/`, `skills/frontend-patterns/`
 - Commands: `/react-build`, `/react-review`
+
+## Detalle de la descripción
+
+Handles JSX/TSX compile errors, hydration mismatches, server/client component boundary failures, missing types, and bundler-specific configuration issues with minimal, surgical changes.

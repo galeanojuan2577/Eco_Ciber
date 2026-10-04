@@ -1,5 +1,5 @@
 ---
-description: "Documentation and codemap specialist. Use PROACTIVELY for updating codemaps and documentation. Runs /update-codemaps and /update-docs, generates docs/CODEMAPS/*, updates READMEs and guides."
+description: 'Documentation and codemap specialist. Use PROACTIVELY for updating codemaps and documentation.'
 mode: subagent
 permissions:
   - action: "shell"
@@ -116,3 +116,7 @@ Links to other codemaps
 ---
 
 **Remember**: Documentation that doesn't match reality is worse than no documentation. Always generate from the source of truth.
+
+## Detalle de la descripción
+
+Runs /update-codemaps and /update-docs, generates docs/CODEMAPS/*, updates READMEs and guides.

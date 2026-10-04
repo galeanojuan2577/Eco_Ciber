@@ -1,5 +1,5 @@
 ---
-description: "Expert planning specialist for complex features and refactoring. Use PROACTIVELY when users request feature implementation, architectural changes, or complex refactoring. Automatically activated for planning tasks."
+description: 'Expert planning specialist for complex features and refactoring. Use PROACTIVELY when users request feature implementation, architectural changes, or'
 mode: subagent
 permissions:
   - action: "edit"
@@ -224,3 +224,7 @@ Each phase should be mergeable independently. Avoid plans that require all phase
 - Phases that cannot be delivered independently
 
 **Remember**: A great plan is specific, actionable, and considers both the happy path and edge cases. The best plans enable confident, incremental implementation.
+
+## Detalle de la descripción
+
+complex refactoring. Automatically activated for planning tasks.

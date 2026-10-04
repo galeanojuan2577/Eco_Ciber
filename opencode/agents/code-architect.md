@@ -1,5 +1,5 @@
 ---
-description: "Designs feature architectures by analyzing existing codebase patterns and conventions, then providing implementation blueprints with concrete files, interfaces, data flow, and build order."
+description: 'Designs feature architectures by analyzing existing codebase patterns and conventions, then providing implementation blueprints with concrete files'
 mode: subagent
 permissions:
   - action: "read"
@@ -86,3 +86,7 @@ Order the implementation by dependency:
 1. Step 1
 2. Step 2
 ```
+
+## Detalle de la descripción
+
+files, interfaces, data flow, and build order.

@@ -1,5 +1,5 @@
 ---
-description: "Test-Driven Development specialist enforcing write-tests-first methodology. Use PROACTIVELY when writing new features, fixing bugs, or refactoring code. Ensures 80%+ test coverage."
+description: 'Test-Driven Development specialist enforcing write-tests-first methodology. Use PROACTIVELY when writing new features, fixing bugs, or refactoring'
 mode: subagent
 permissions:
   - action: "shell"
@@ -100,3 +100,7 @@ Integrate eval-driven development into TDD flow:
 4. Re-run tests and evals; report pass@1 and pass@3.
 
 Release-critical paths should target pass^3 stability before merge.
+
+## Detalle de la descripción
+
+code. Ensures 80%+ test coverage.

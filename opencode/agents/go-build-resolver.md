@@ -1,5 +1,5 @@
 ---
-description: "Go build, vet, and compilation error resolution specialist. Fixes build errors, go vet issues, and linter warnings with minimal changes. Use when Go builds fail."
+description: 'Go build, vet, and compilation error resolution specialist. Use when Go builds fail.'
 mode: subagent
 permissions:
   - action: "shell"
@@ -103,3 +103,7 @@ Remaining errors: 3
 Final: `Build Status: SUCCESS/FAILED | Errors Fixed: N | Files Modified: list`
 
 For detailed Go error patterns and code examples, see `skill: golang-patterns`.
+
+## Detalle de la descripción
+
+Fixes build errors, go vet issues, and linter warnings with minimal changes.

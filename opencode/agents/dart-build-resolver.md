@@ -1,5 +1,5 @@
 ---
-description: "Dart/Flutter build, analysis, and dependency error resolution specialist. Fixes `dart analyze` errors, Flutter compilation failures, pub dependency conflicts, and build_runner issues with minimal, surgical changes. Use when Dart/Flutter builds fail."
+description: 'Dart/Flutter build, analysis, and dependency error resolution specialist. Use when Dart/Flutter builds fail.'
 mode: subagent
 permissions:
   - action: "shell"
@@ -210,3 +210,7 @@ Remaining errors: 0
 Final: `Build Status: SUCCESS/FAILED | Errors Fixed: N | Files Modified: list`
 
 For detailed Dart patterns and code examples, see `skill: flutter-dart-code-review`.
+
+## Detalle de la descripción
+
+Fixes `dart analyze` errors, Flutter compilation failures, pub dependency conflicts, and build_runner issues with minimal, surgical changes.

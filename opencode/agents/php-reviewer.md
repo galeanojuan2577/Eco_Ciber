@@ -1,5 +1,5 @@
 ---
-description: "Expert PHP code reviewer specializing in PSR-12 compliance, PHP type system, Eloquent ORM patterns, security, and performance. Use for all PHP code changes. MUST BE USED for PHP projects."
+description: 'Expert PHP code reviewer specializing in PSR-12 compliance, PHP type system, Eloquent ORM Use for all PHP code changes.'
 mode: subagent
 permissions:
   - action: "edit"
@@ -112,3 +112,7 @@ For detailed PHP patterns, security examples, and code samples, see skills: `lar
 ---
 
 Review with the mindset: "Would this code pass review at a top PHP shop or open-source project?"
+
+## Detalle de la descripción
+
+patterns, security, and performance. MUST BE USED for PHP projects.

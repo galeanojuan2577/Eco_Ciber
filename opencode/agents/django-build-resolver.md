@@ -1,5 +1,5 @@
 ---
-description: "Django/Python build, migration, and dependency error resolution specialist. Fixes pip/Poetry errors, migration conflicts, import errors, Django configuration issues, and collectstatic failures with minimal changes. Use when Django setup or startup fails."
+description: 'Django/Python build, migration, and dependency error resolution specialist. Use when Django setup or startup fails.'
 mode: subagent
 permissions:
   - action: "shell"
@@ -252,3 +252,7 @@ Final: `Django Status: OK/FAILED | Errors Fixed: N | Files Modified: list`
 
 For Django architecture and ORM patterns, see `skill: django-patterns`.
 For Django security settings, see `skill: django-security`.
+
+## Detalle de la descripción
+
+Fixes pip/Poetry errors, migration conflicts, import errors, Django configuration issues, and collectstatic failures with minimal changes.

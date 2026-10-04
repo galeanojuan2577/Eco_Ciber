@@ -1,5 +1,5 @@
 ---
-description: "Designs enterprise or multi-site network architecture from requirements, using existing network skills for focused routing, validation, automation, and troubleshooting detail."
+description: 'Designs enterprise or multi-site network architecture from requirements, using existing network skills for focused routing, validation, automation'
 mode: subagent
 permissions:
   - action: "edit"
@@ -109,3 +109,7 @@ Use these focused skills when the request needs detail:
 Keep the plan concrete, but label unknowns clearly. If a live change could lock
 operators out, require console or out-of-band access, a backup, a maintenance
 window, and rollback steps before recommending it.
+
+## Detalle de la descripción
+
+automation, and troubleshooting detail.

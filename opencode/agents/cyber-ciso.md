@@ -1,5 +1,5 @@
 ---
-description: "Asesor defensivo de ciberseguridad (hardening, OWASP, políticas, respuesta a incidentes). Coordina el stack ofensivo solo con autorización del usuario."
+description: 'Asesor defensivo de ciberseguridad (hardening, OWASP, políticas, respuesta a incidentes). Coordina el stack ofensivo solo con autorización del'
 mode: subagent
 permissions:
   - action: "shell"

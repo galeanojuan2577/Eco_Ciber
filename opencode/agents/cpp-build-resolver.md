@@ -1,5 +1,5 @@
 ---
-description: "C++ build, CMake, and compilation error resolution specialist. Fixes build errors, linker issues, and template errors with minimal changes. Use when C++ builds fail."
+description: 'C++ build, CMake, and compilation error resolution specialist. Use when C++ builds fail.'
 mode: subagent
 permissions:
   - action: "shell"
@@ -99,3 +99,7 @@ Remaining errors: 3
 Final: `Build Status: SUCCESS/FAILED | Errors Fixed: N | Files Modified: list`
 
 For detailed C++ patterns and code examples, see `skill: cpp-coding-standards`.
+
+## Detalle de la descripción
+
+Fixes build errors, linker issues, and template errors with minimal changes.

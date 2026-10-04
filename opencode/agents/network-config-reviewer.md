@@ -1,5 +1,5 @@
 ---
-description: "Reviews router and switch configurations for security, correctness, stale references, risky change-window commands, and missing operational guardrails."
+description: 'Reviews router and switch configurations for security, correctness, stale references, risky change-window commands, and missing operational'
 mode: subagent
 permissions:
   - action: "edit"

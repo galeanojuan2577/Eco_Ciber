@@ -1,5 +1,5 @@
 ---
-description: "Swift/Xcode build, compilation, and dependency error resolution specialist. Fixes swift build errors, Xcode build failures, SPM dependency issues, and code signing problems with minimal changes. Use when Swift builds fail."
+description: 'Swift/Xcode build, compilation, and dependency error resolution specialist. Use when Swift builds fail.'
 mode: subagent
 permissions:
   - action: "shell"
@@ -170,3 +170,7 @@ Remaining errors: 3
 Final: `Build Status: SUCCESS/FAILED | Errors Fixed: N | Files Modified: list`
 
 For detailed Swift patterns and rules, see rules: `swift/coding-style`, `swift/patterns`, `swift/security`. See also skill: `swift-concurrency-6-2`, `swift-actor-persistence`.
+
+## Detalle de la descripción
+
+Fixes swift build errors, Xcode build failures, SPM dependency issues, and code signing problems with minimal changes.

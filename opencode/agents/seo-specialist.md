@@ -1,5 +1,5 @@
 ---
-description: "SEO specialist for technical SEO audits, on-page optimization, structured data, Core Web Vitals, and content/keyword mapping. Use for site audits, meta tag reviews, schema markup, sitemap and robots issues, and SEO remediation plans."
+description: 'SEO specialist for technical SEO audits, on-page optimization, structured data, Core Web Use for site audits, meta tag reviews, schema markup'
 mode: subagent
 permissions:
   - action: "edit"
@@ -74,3 +74,7 @@ Fix: Exact change to make
 ## Reference
 
 Use `skills/seo` for the canonical ECC SEO workflow and implementation guidance.
+
+## Detalle de la descripción
+
+Vitals, and content/keyword mapping. markup, sitemap and robots issues, and SEO remediation plans.

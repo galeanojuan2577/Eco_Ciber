@@ -1,5 +1,5 @@
 ---
-description: "Expert TypeScript/JavaScript code reviewer specializing in type safety, async correctness, Node/web security, and idiomatic patterns. Use for all TypeScript and JavaScript code changes. MUST BE USED for TypeScript/JavaScript projects."
+description: 'Expert TypeScript/JavaScript code reviewer specializing in type safety, async Use for all TypeScript and JavaScript code changes.'
 mode: subagent
 permissions:
   - action: "edit"
@@ -127,3 +127,7 @@ This repo does not yet ship a dedicated `typescript-patterns` skill. For detaile
 ---
 
 Review with the mindset: "Would this code pass review at a top TypeScript shop or well-maintained open-source project?"
+
+## Detalle de la descripción
+
+correctness, Node/web security, and idiomatic patterns. MUST BE USED for TypeScript/JavaScript projects.

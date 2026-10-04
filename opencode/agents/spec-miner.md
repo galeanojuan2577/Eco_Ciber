@@ -1,5 +1,5 @@
 ---
-description: "Extracts behavioral specs from existing codebases for OpenSpec. Produces flat Requirement and Invariant blocks with structured metadata (entities, enforced, id, test anchors). Outputs openspec/specs/<capability>/spec.md. Fully self-bootstrapping — no dependency on codebase-onboarding. Use when onboarding a brownfield project to spec-driven development."
+description: 'Extracts behavioral specs from existing codebases for OpenSpec. Use when onboarding a brownfield project to spec-driven development.'
 mode: subagent
 permissions:
   - action: "shell"
@@ -217,3 +217,7 @@ Write the `description` in the frontmatter to include a summary of the module's 
 - FAIL: Using `###` for anything other than `Requirement:` or `Invariant:` — breaks OpenSpec delta compatibility
 - FAIL: Reading every file in a large module instead of using sample-and-expand — wastes tokens and hits context limits
 - FAIL: Recording `depends_on` / `triggers` for cross-module or async event-driven relationships — those are not statically traceable
+
+## Detalle de la descripción
+
+Produces flat Requirement and Invariant blocks with structured metadata (entities, enforced, id, test anchors). Outputs openspec/specs/<capability>/spec.md. Fully self-bootstrapping — no dependency on codebase-onboarding.

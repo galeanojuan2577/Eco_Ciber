@@ -1,5 +1,5 @@
 ---
-description: "Verify an open-source fork is fully sanitized before release. Scans for leaked secrets, PII, internal references, and dangerous files using 20+ regex patterns. Generates a PASS/FAIL/PASS-WITH-WARNINGS report. Second stage of the opensource-pipeline skill. Use PROACTIVELY before any public release."
+description: 'Verify an open-source fork is fully sanitized before release. Use PROACTIVELY before any public release.'
 mode: subagent
 permissions:
   - action: "edit"
@@ -200,3 +200,7 @@ Output: `SANITIZATION_REPORT.md` — PASS WITH WARNINGS (one hardcoded port in R
 - **Be paranoid** — false positives are acceptable, false negatives are not
 - A single CRITICAL finding in any category = overall FAIL
 - Warnings alone = PASS WITH WARNINGS (user decides)
+
+## Detalle de la descripción
+
+Scans for leaked secrets, PII, internal references, and dangerous files using 20+ regex patterns. Generates a PASS/FAIL/PASS-WITH-WARNINGS report. Second stage of the opensource-pipeline skill.

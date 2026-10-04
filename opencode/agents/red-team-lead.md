@@ -1,5 +1,5 @@
 ---
-description: "Orquestador del flujo completo de pentest autorizado (authorize → recon → scan → enumerate → exploit → post-exploit → report + cleanup) con gate de autorización en cada fase."
+description: 'Orquestador del flujo completo de pentest autorizado (authorize → recon → scan → enumerate → exploit → post-exploit → report + cleanup) con gate de'
 mode: subagent
 permissions:
   - action: "shell"
@@ -39,3 +39,7 @@ Para ejecución profunda en cada fase, los agentes cargan skills desde `__OPENCO
 
 ## Entregable
 Informe final completo + evidencia de autorización y trazabilidad en `__OPENCODE_ROOT__/cyber/` (scope.json + audit.log).
+
+## Detalle de la descripción
+
+autorización en cada fase.

@@ -1,5 +1,5 @@
 ---
-description: "Expert React/JSX code reviewer specializing in hook correctness, render performance, server/client component boundaries, accessibility, and React-specific security. Use for any change touching .tsx/.jsx files or React component logic. MUST BE USED for React projects."
+description: 'Expert React/JSX code reviewer specializing in hook correctness, render performance Use for any change touching .tsx/.jsx files or React'
 mode: subagent
 permissions:
   - action: "edit"
@@ -170,3 +170,7 @@ Always include the file path and line number. Quote the offending snippet when i
 ---
 
 Review with the mindset: "Would this code pass review at a top React shop or well-maintained open-source library?"
+
+## Detalle de la descripción
+
+performance, server/client component boundaries, accessibility, and React-specific security. component logic. MUST BE USED for React projects.

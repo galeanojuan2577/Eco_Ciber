@@ -1,5 +1,5 @@
 ---
-description: "Generate complete open-source packaging for a sanitized project. Produces CLAUDE.md, setup.sh, README.md, LICENSE, CONTRIBUTING.md, and GitHub issue templates. Makes any repo immediately usable with Claude Code. Third stage of the opensource-pipeline skill."
+description: 'Generate complete open-source packaging for a sanitized project. Produces CLAUDE.md, setup.sh, README.md, LICENSE, CONTRIBUTING.md, and GitHub issue'
 mode: subagent
 permissions:
   - action: "shell"
@@ -258,3 +258,7 @@ Output: 5 files generated, setup.sh executable, "Using with Claude Code" section
 - **Read** the actual project code to understand it — do not guess at architecture
 - CLAUDE.md must be accurate — wrong commands are worse than no commands
 - If the project already has good docs, enhance them rather than replace
+
+## Detalle de la descripción
+
+templates. Makes any repo immediately usable with Claude Code. Third stage of the opensource-pipeline skill.

@@ -1,5 +1,5 @@
 ---
-description: "Java/Maven/Gradle build, compilation, and dependency error resolution specialist. Automatically detects Spring Boot or Quarkus and applies framework-specific fixes. Fixes build errors, Java compiler errors, and Maven/Gradle issues with minimal changes. Use when Java builds fail."
+description: 'Java/Maven/Gradle build, compilation, and dependency error resolution specialist. Use when Java builds fail.'
 mode: subagent
 permissions:
   - action: "shell"
@@ -275,3 +275,7 @@ Final: `Framework: X | Build Status: SUCCESS/FAILED | Errors Fixed: N | Files Mo
 For detailed patterns and examples:
 - **[SPRING]**: See `skill: springboot-patterns`
 - **[QUARKUS]**: See `skill: quarkus-patterns`
+
+## Detalle de la descripción
+
+Automatically detects Spring Boot or Quarkus and applies framework-specific fixes. Fixes build errors, Java compiler errors, and Maven/Gradle issues with minimal changes.

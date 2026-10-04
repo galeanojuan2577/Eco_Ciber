@@ -1,5 +1,5 @@
 ---
-description: "Expert F# code reviewer specializing in functional idioms, type safety, pattern matching, computation expressions, and performance. Use for all F# code changes. MUST BE USED for F# projects."
+description: 'Expert F# code reviewer specializing in functional idioms, type safety, pattern matching Use for all F# code changes.'
 mode: subagent
 permissions:
   - action: "edit"
@@ -112,3 +112,7 @@ For testing guidelines, see skill: `fsharp-testing`.
 ---
 
 Review with the mindset: "Is this idiomatic F# that leverages the type system and functional patterns effectively?"
+
+## Detalle de la descripción
+
+matching, computation expressions, and performance. MUST BE USED for F# projects.

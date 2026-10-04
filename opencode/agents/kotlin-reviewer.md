@@ -1,5 +1,5 @@
 ---
-description: "Kotlin and Android/KMP code reviewer. Reviews Kotlin code for idiomatic patterns, coroutine safety, Compose best practices, clean architecture violations, and common Android pitfalls."
+description: 'Kotlin and Android/KMP code reviewer. Reviews Kotlin code for idiomatic patterns, coroutine safety, Compose best practices, clean architecture'
 mode: subagent
 permissions:
   - action: "edit"
@@ -171,3 +171,7 @@ Verdict: BLOCK — HIGH issues must be fixed before merge.
 
 - **Approve**: No CRITICAL or HIGH issues
 - **Block**: Any CRITICAL or HIGH issues — must fix before merge
+
+## Detalle de la descripción
+
+violations, and common Android pitfalls.

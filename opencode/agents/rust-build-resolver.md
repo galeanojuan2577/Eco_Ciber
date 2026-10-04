@@ -1,5 +1,5 @@
 ---
-description: "Rust build, compilation, and dependency error resolution specialist. Fixes cargo build errors, borrow checker issues, and Cargo.toml problems with minimal changes. Use when Rust builds fail."
+description: 'Rust build, compilation, and dependency error resolution specialist. Use when Rust builds fail.'
 mode: subagent
 permissions:
   - action: "shell"
@@ -157,3 +157,7 @@ Remaining errors: 3
 Final: `Build Status: SUCCESS/FAILED | Errors Fixed: N | Files Modified: list`
 
 For detailed Rust error patterns and code examples, see `skill: rust-patterns`.
+
+## Detalle de la descripción
+
+Fixes cargo build errors, borrow checker issues, and Cargo.toml problems with minimal changes.

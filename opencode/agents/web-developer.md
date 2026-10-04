@@ -1,5 +1,5 @@
 ---
-description: "Construye páginas web completas con Supabase, clean architecture, animaciones (Framer Motion/GSAP), rendimiento escalable y seguridad OWASP. Orquesta creación de landing pages, dashboards, y aplicaciones full-stack."
+description: 'Construye páginas web completas con Supabase, clean architecture, animaciones (Framer Orquesta creación de landing pages, dashboards, y'
 mode: subagent
 permissions:
   - action: "read"
@@ -90,3 +90,7 @@ Cada entrega debe incluir:
 - rule: `rules/web/security-owasp.md` — OWASP
 - rule: `rules/web/performance.md` — Core Web Vitals
 - rule: `rules/web/patterns.md` — Patrones de componentes
+
+## Detalle de la descripción
+
+Motion/GSAP), rendimiento escalable y seguridad OWASP. aplicaciones full-stack.

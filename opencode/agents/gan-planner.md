@@ -1,5 +1,5 @@
 ---
-description: "\"GAN Harness — Planner agent. Expands a one-line prompt into a full product specification with features, sprints, evaluation criteria, and design direction.\""
+description: '"GAN Harness — Planner agent. Expands a one-line prompt into a full product specification with features, sprints, evaluation criteria, and design'
 mode: subagent
 permissions:
   - action: "shell"

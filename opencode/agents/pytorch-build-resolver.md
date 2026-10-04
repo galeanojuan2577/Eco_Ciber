@@ -1,5 +1,5 @@
 ---
-description: "PyTorch runtime, CUDA, and training error resolution specialist. Fixes tensor shape mismatches, device errors, gradient issues, DataLoader problems, and mixed precision failures with minimal changes. Use when PyTorch training or inference crashes."
+description: 'PyTorch runtime, CUDA, and training error resolution specialist. Use when PyTorch training or inference crashes.'
 mode: subagent
 permissions:
   - action: "shell"
@@ -129,3 +129,7 @@ Final: `Status: SUCCESS/FAILED | Errors Fixed: N | Files Modified: list`
 ---
 
 For PyTorch best practices, consult the [official PyTorch documentation](https://pytorch.org/docs/stable/) and [PyTorch forums](https://discuss.pytorch.org/).
+
+## Detalle de la descripción
+
+Fixes tensor shape mismatches, device errors, gradient issues, DataLoader problems, and mixed precision failures with minimal changes.

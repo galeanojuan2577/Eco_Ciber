@@ -1,5 +1,5 @@
 ---
-description: "Production machine-learning engineering reviewer for data contracts, feature pipelines, training reproducibility, offline/online evaluation, model serving, monitoring, and rollback. Use when ML, MLOps, model training, inference, feature store, or evaluation code changes."
+description: 'Production machine-learning engineering reviewer for data contracts, feature pipelines Use when ML, MLOps, model training, inference, feature'
 mode: subagent
 permissions:
   - action: "edit"
@@ -165,3 +165,7 @@ Tests run: commands and outcomes
 - **BLOCK**: Any plausible leakage, irreproducible promotion, unsafe serving behavior, missing rollback for production deployment, sensitive data exposure, or critical eval gap.
 
 Reference skill: `mle-workflow`.
+
+## Detalle de la descripción
+
+pipelines, training reproducibility, offline/online evaluation, model serving, monitoring, and rollback. store, or evaluation code changes.

@@ -1,5 +1,5 @@
 ---
-description: "Expert C++ code reviewer specializing in memory safety, modern C++ idioms, concurrency, and performance. Use for all C++ code changes. MUST BE USED for C++ projects."
+description: 'Expert C++ code reviewer specializing in memory safety, modern C++ idioms, concurrency, and performance. Use for all C++ code changes.'
 mode: subagent
 permissions:
   - action: "edit"
@@ -84,3 +84,7 @@ cmake --build build 2>&1 | head -50
 - **Block**: CRITICAL or HIGH issues found
 
 For detailed C++ coding standards and anti-patterns, see `skill: cpp-coding-standards`.
+
+## Detalle de la descripción
+
+MUST BE USED for C++ projects.

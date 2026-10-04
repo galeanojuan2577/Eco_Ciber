@@ -1,5 +1,5 @@
 ---
-description: "Kotlin/Gradle build, compilation, and dependency error resolution specialist. Fixes build errors, Kotlin compiler errors, and Gradle issues with minimal changes. Use when Kotlin builds fail."
+description: 'Kotlin/Gradle build, compilation, and dependency error resolution specialist. Use when Kotlin builds fail.'
 mode: subagent
 permissions:
   - action: "shell"
@@ -127,3 +127,7 @@ Remaining errors: 2
 Final: `Build Status: SUCCESS/FAILED | Errors Fixed: N | Files Modified: list`
 
 For detailed Kotlin patterns and code examples, see `skill: kotlin-patterns`.
+
+## Detalle de la descripción
+
+Fixes build errors, Kotlin compiler errors, and Gradle issues with minimal changes.

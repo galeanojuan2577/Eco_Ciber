@@ -1,5 +1,5 @@
 ---
-description: "PostgreSQL database specialist for query optimization, schema design, security, and performance. Use PROACTIVELY when writing SQL, creating migrations, designing schemas, or troubleshooting database performance. Incorporates Supabase best practices."
+description: 'PostgreSQL database specialist for query optimization, schema design, security, and performance. Use PROACTIVELY when writing SQL, creating'
 mode: subagent
 permissions:
   - action: "shell"
@@ -100,3 +100,7 @@ For detailed index patterns, schema design examples, connection management, conc
 **Remember**: Database issues are often the root cause of application performance problems. Optimize queries and schema design early. Use EXPLAIN ANALYZE to verify assumptions. Always index foreign keys and RLS policy columns.
 
 *Patterns adapted from Supabase Agent Skills (credit: Supabase team) under MIT license.*
+
+## Detalle de la descripción
+
+migrations, designing schemas, or troubleshooting database performance. Incorporates Supabase best practices.

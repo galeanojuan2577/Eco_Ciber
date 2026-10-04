@@ -1,5 +1,5 @@
 ---
-description: "Reviews FastAPI applications for async correctness, dependency injection, Pydantic schemas, security, OpenAPI quality, testing, and production readiness."
+description: 'Reviews FastAPI applications for async correctness, dependency injection, Pydantic schemas, security, OpenAPI quality, testing, and production'
 mode: subagent
 permissions:
   - action: "edit"

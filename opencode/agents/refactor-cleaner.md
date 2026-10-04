@@ -1,5 +1,5 @@
 ---
-description: "Dead code cleanup and consolidation specialist. Use PROACTIVELY for removing unused code, duplicates, and refactoring. Runs analysis tools (knip, depcheck, ts-prune) to identify dead code and safely removes it."
+description: 'Dead code cleanup and consolidation specialist. Use PROACTIVELY for removing unused code, duplicates, and refactoring.'
 mode: subagent
 permissions:
   - action: "shell"
@@ -94,3 +94,7 @@ After each batch:
 - Build succeeds
 - No regressions
 - Bundle size reduced
+
+## Detalle de la descripción
+
+Runs analysis tools (knip, depcheck, ts-prune) to identify dead code and safely removes it.

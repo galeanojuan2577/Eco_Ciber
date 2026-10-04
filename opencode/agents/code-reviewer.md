@@ -1,5 +1,5 @@
 ---
-description: "Expert code review specialist. Proactively reviews code for quality, security, and maintainability. Use immediately after writing or modifying code. MUST BE USED for all code changes."
+description: 'Expert code review specialist. Use immediately after writing or modifying code. MUST BE USED for all code changes.'
 mode: subagent
 permissions:
   - action: "edit"
@@ -326,3 +326,7 @@ When reviewing AI-generated changes, prioritize:
 Cost-awareness check:
 - Flag workflows that escalate to higher-cost models without clear reasoning need.
 - Recommend defaulting to lower-cost tiers for deterministic refactors.
+
+## Detalle de la descripción
+
+Proactively reviews code for quality, security, and maintainability.

@@ -1,5 +1,5 @@
 ---
-description: "Marketing strategist and copywriter for campaign planning, audience research, positioning, copy creation, and content review. Covers landing pages, email sequences, social posts, ad copy, short-form video scripts, and content calendars. Use when the user wants to plan or execute a product launch or marketing campaign."
+description: 'Marketing strategist and copywriter for campaign planning, audience research Use when the user wants to plan or execute a product'
 mode: subagent
 permissions:
   - action: "edit"
@@ -162,3 +162,7 @@ Delegate voice capture to `brand-voice`.
 Delegate platform-native content production to `content-engine`.
 Delegate multi-platform distribution to `crosspost`.
 Use `market-research` for deep audience or competitive intelligence.
+
+## Detalle de la descripción
+
+research, positioning, copy creation, and content review. Covers landing pages, email sequences, social posts, ad copy, short-form video scripts, and content calendars. launch or marketing campaign.

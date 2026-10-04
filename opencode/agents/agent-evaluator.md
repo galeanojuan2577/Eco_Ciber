@@ -1,5 +1,5 @@
 ---
-description: "Evaluates agent output against 5-axis quality rubric (accuracy, completeness, clarity, actionability, conciseness). Use after any non-trivial task when the user wants a quality assessment, or when the agent-self-evaluation skill is active. Produces structured scorecard with evidence and improvement suggestions."
+description: 'Evaluates agent output against 5-axis quality rubric (accuracy, completeness, clarity Use after any non-trivial task when the user wants a'
 mode: subagent
 permissions:
   - action: "edit"
@@ -209,3 +209,7 @@ TOP IMPROVEMENTS:
 
 VERDICT: Redo with specific fixes. Weakest axis: Accuracy (2/5).
 ```
+
+## Detalle de la descripción
+
+clarity, actionability, conciseness). quality assessment, or when the agent-self-evaluation skill is active. Produces structured scorecard with evidence and improvement suggestions.

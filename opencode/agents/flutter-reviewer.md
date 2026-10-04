@@ -1,5 +1,5 @@
 ---
-description: "Flutter and Dart code reviewer. Reviews Flutter code for widget best practices, state management patterns, Dart idioms, performance pitfalls, accessibility, and clean architecture violations. Library-agnostic — works with any state management solution and tooling."
+description: 'Flutter and Dart code reviewer. Reviews Flutter code for widget best practices, state management patterns, Dart idioms, performance pitfalls'
 mode: subagent
 permissions:
   - action: "edit"
@@ -255,3 +255,7 @@ Verdict: BLOCK — HIGH issues must be fixed before merge.
 - **Block**: Any CRITICAL or HIGH issues — must fix before merge
 
 Refer to the `flutter-dart-code-review` skill for the comprehensive review checklist.
+
+## Detalle de la descripción
+
+pitfalls, accessibility, and clean architecture violations. Library-agnostic — works with any state management solution and tooling.

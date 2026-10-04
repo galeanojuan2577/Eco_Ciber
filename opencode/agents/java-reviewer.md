@@ -1,5 +1,5 @@
 ---
-description: "Expert Java code reviewer for Spring Boot and Quarkus projects. Automatically detects the framework and applies the appropriate review rules. Covers layered architecture, JPA/Panache, MongoDB, security, and concurrency. MUST BE USED for all Java code changes."
+description: 'Expert Java code reviewer for Spring Boot and Quarkus projects. MUST BE USED for all Java code changes.'
 mode: subagent
 permissions:
   - action: "edit"
@@ -193,3 +193,7 @@ Read `pom.xml`, `build.gradle`, or `build.gradle.kts` to determine the build too
 For detailed patterns and examples:
 - **[SPRING]**: See `skill: springboot-patterns`
 - **[QUARKUS]**: See `skill: quarkus-patterns`
+
+## Detalle de la descripción
+
+Automatically detects the framework and applies the appropriate review rules. Covers layered architecture, JPA/Panache, MongoDB, security, and concurrency.

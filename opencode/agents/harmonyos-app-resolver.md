@@ -1,5 +1,5 @@
 ---
-description: "HarmonyOS application development expert specializing in ArkTS and ArkUI. Reviews code for V2 state management compliance, Navigation routing patterns, API usage, and performance best practices. Use for HarmonyOS/OpenHarmony projects."
+description: 'HarmonyOS application development expert specializing in ArkTS and ArkUI. Use for HarmonyOS/OpenHarmony projects.'
 mode: subagent
 permissions:
   - action: "shell"
@@ -182,3 +182,7 @@ Created: ViewModel using @ObservedV2 with @Trace for observable properties, cons
 Final: `Status: SUCCESS/NEEDS_WORK | Issues Found: N | Files Modified: list`
 
 For detailed HarmonyOS patterns and code examples, refer to rule files in `rules/arkts/`.
+
+## Detalle de la descripción
+
+Reviews code for V2 state management compliance, Navigation routing patterns, API usage, and performance best practices.

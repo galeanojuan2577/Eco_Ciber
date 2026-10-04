@@ -1,5 +1,5 @@
 ---
-description: "Expert Python code reviewer specializing in PEP 8 compliance, Pythonic idioms, type hints, security, and performance. Use for all Python code changes. MUST BE USED for Python projects."
+description: 'Expert Python code reviewer specializing in PEP 8 compliance, Pythonic idioms, type Use for all Python code changes.'
 mode: subagent
 permissions:
   - action: "edit"
@@ -110,3 +110,7 @@ For detailed Python patterns, security examples, and code samples, see skill: `p
 ---
 
 Review with the mindset: "Would this code pass review at a top Python shop or open-source project?"
+
+## Detalle de la descripción
+
+hints, security, and performance. MUST BE USED for Python projects.

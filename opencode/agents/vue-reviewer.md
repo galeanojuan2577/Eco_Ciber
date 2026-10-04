@@ -1,5 +1,5 @@
 ---
-description: "Expert Vue.js code reviewer specializing in Composition API correctness, reactivity pitfalls, component architecture, template security, and Vue-specific performance. Use for any change touching .vue, .ts/.js files with Vue imports, or Vue ecosystem code (Pinia, Vue Router, Nuxt). MUST BE USED for Vue projects."
+description: 'Expert Vue.js code reviewer specializing in Composition API correctness, reactivity Use for any change touching .vue, .ts/.js files with Vue'
 mode: subagent
 permissions:
   - action: "edit"
@@ -209,3 +209,7 @@ Verdict: BLOCK — HIGH issues must be fixed before merge.
 ---
 
 Review with the mindset: "Would this code pass review on the Vue.js core team or a well-maintained open-source Vue project?"
+
+## Detalle de la descripción
+
+pitfalls, component architecture, template security, and Vue-specific performance. imports, or Vue ecosystem code (Pinia, Vue Router, Nuxt). MUST BE USED for Vue projects.
