@@ -22,7 +22,7 @@
 
 ## [2026-08-13] Alinear rutas de referencias para eliminar ambigüedad
 - **Contexto:** auditoría del stack de ciberseguridad detectó que agentes/skills/commands referenciaban `rules/cyber/*.md` como ruta relativa ambigua (no existía en el repo ECC).
-- **Solución:** usar `__OPENCODE_ROOT__/rules/cyber/*.md` (placeholder portable) en el repo ECC y plantilla `opencode/`; usar ruta absoluta `/root/.config/opencode/rules/cyber/*.md` en los archivos locales reales.
+- **Solución:** usar `__OPENCODE_ROOT__/rules/cyber/*.md` (placeholder portable) en el repo ECC y plantilla `opencode/`; usar ruta absoluta `__OPENCODE_ROOT__/rules/cyber/*.md` en los archivos locales reales.
 - **Regla:** toda referencia a reglas/scripts del ecosistema debe incluir la ruta completa (placeholder o absoluta), nunca relativa.
 
 ## [2026-08-15] OIDC discovery idéntico entre orgs engagement

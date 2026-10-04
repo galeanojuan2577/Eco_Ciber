@@ -142,7 +142,7 @@ tu prompt
 ## 🔑 Configuración
 
 Las API keys están en:
-`/root/Eco_program/external/sistema-multi-agente/.env`
+`__HOME__/Eco_program/external/sistema-multi-agente/.env`
 
 ## 📝 Notas
 
