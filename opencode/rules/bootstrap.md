@@ -1,38 +1,23 @@
 # Auto-Bootstrap Instructions
 
-## Language (Always On)
-⚠️ **IDIOMA**: Siempre responder en **español**. Sin excepción.
+> **Este fichero ya no se carga.** OpenCode V2 sólo auto-carga `AGENTS.md`,
+> `CLAUDE.md` y `.cursor/rules/` — `rules/` no es una ruta de descubrimiento.
+>
+> El contenido permanente de este archivo vive ahora en
+> **`~/.config/opencode/AGENTS.md`** (instalado desde `AGENTS.md` de la raíz
+> del repo). Las reglas **situacionales** pasaron a ser skills que se cargan
+> bajo demanda: `dos-testing`, `phishing-sim`, `pentest-flow-detail`.
+>
+> Documentación detallada de cada regla permanente:
+> `__OPENCODE_ROOT__/rules/cyber/{authorization,project-isolation,cleanup,reporting,session-continuity,tool-invocation,agent-write-permissions}.md`
 
-## Pentest Workflow
-Before starting any pentest engagement:
-1. **Read `pentest-flow-detail.md`** — full pentest reference
-2. **Authorize** — `authorize.sh` + SoW before any offensive action
-3. **Scope check** — `check-scope.sh <target>` before acting
-4. **Use subagents** — delegate to specialized agents (recon-agent, scanner-agent, etc.)
+## Referencias rápidas
 
-## Agent Routing
-| Task | Agent |
+| Qué | Dónde |
 |---|---|
-| Recon/OSINT | `recon-agent` |
-| Vulnerability scan | `scanner-agent` |
-| Enum/web/API fuzz | `enumerator-agent` or `web-tester` or `api-tester` |
-| Exploitation | `exploiter-agent` |
-| Post-exploit | `post-exploit-agent` |
-| Report | `report-agent` |
-| Orchestrate full pentest | `red-team-lead` |
-| OpSec/review | `opsec-agent` |
-| Code review | `code-reviewer` |
-| Fix verification | `pentest-verification` |
-
-## Token Optimization
-- Ultra-short responses, no preambles
-- Don't repeat existing code — only show changes with `edit`
-- No code comments unless necessary
-- After each milestone, suggest `/compact`
-
-## Rules (Pentest-Specific)
-- `rules/cyber/authorization.md` — Authorization & Scope (MANDATORY)
-- `rules/cyber/pentest-flow-detail.md` — Full pentest flow reference
-- `rules/cyber/reporting.md` — Pentest reporting
-- `rules/cyber/cleanup.md` — Post-engagement cleanup
-- `rules/cyber/project-isolation.md` — Per-project isolation
+| Instrucciones permanentes | `AGENTS.md` (raíz del repo) → `~/.config/opencode/AGENTS.md` |
+| Reglas permanentes (detalle) | `__OPENCODE_ROOT__/rules/cyber/*.md` |
+| Reglas situacionales | skills `dos-testing`, `phishing-sim`, `pentest-flow-detail` |
+| Gate de autorización | `__OPENCODE_ROOT__/tools/check-scope.sh` |
+| Trazabilidad | `__OPENCODE_ROOT__/tools/audit-log.sh` |
+| Enrutamiento de agentes | `AGENTS.md` §10 |

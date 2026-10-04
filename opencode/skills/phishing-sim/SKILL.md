@@ -1,3 +1,20 @@
+---
+name: phishing-sim
+description: Ejecutar simulaciones de phishing y campañas de concienciación con consentimiento explícito y plataforma propia (GoPhish, SET en modo lab). Requisitos de aprobación, plantillas, métricas, recogida de evidencia y borrado seguro de datos de campaña.
+domain: cybersecurity
+subdomain: social-engineering
+tags:
+  - phishing
+  - social-engineering
+  - gophish
+  - set
+  - awareness
+  - consent
+version: '1.0'
+author: eco-ciber
+license: Apache-2.0
+---
+
 # Phishing Simulation Policy
 
 Regla para realizar **simulaciones de phishing (social engineering)** como parte de pruebas de seguridad autorizadas (campañas de concienciación, red team, testing de phishing simulaciones). **Siempre con autorización y consentimiento.**

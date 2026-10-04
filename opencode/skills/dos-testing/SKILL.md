@@ -1,3 +1,19 @@
+---
+name: dos-testing
+description: Planificar y ejecutar pruebas de estrés / denegación de servicio (DoS) autorizadas sobre infraestructura propia, laboratorio o contratada. Requisitos previos obligatorios, herramientas permitidas con límites y umbrales, criterios de parada de emergencia y registro en audit.log.
+domain: cybersecurity
+subdomain: denial-of-service
+tags:
+  - dos
+  - stress-testing
+  - authorized-testing
+  - availability
+  - rate-limit
+version: '1.0'
+author: eco-ciber
+license: Apache-2.0
+---
+
 # DoS Stress Testing Policy
 
 Regla para realizar **pruebas de estrés de Denegación de Servicio (DoS)** dentro del Ecosistema de Ciberseguridad. Permite técnicas de validación de resistencia ante DoS **siempre con autorización**.

@@ -1,3 +1,16 @@
+---
+name: n8n-mcp
+description: Integrar instancias de n8n con el agente mediante MCP: validar configuraciones antes de activar workflows, mantener la paridad entre los JSON de workflows del repositorio y la instancia activa, y gestionar credenciales sin exponerlas nunca en texto plano.
+domain: engineering
+subdomain: automation
+tags:
+  - n8n
+  - mcp
+  - automation
+version: '1.0'
+author: eco-ciber
+license: Apache-2.0
+---
 # N8N MCP Skill (v1.0)
 
 ## Propósito

@@ -66,14 +66,14 @@ description: Metodología completa de pentesting y hacking ético (recon → sca
 - `meterpreter` sesiones, `mimikatz`, extracción de credenciales del lab.
 - Documentar vías de compromiso (solo en entorno autorizado).
 
-### Fase 6 — DoS stress testing (SOLO con autorización) — ver `__OPENCODE_ROOT__/rules/cyber/dos-testing.md`
+### Fase 6 — DoS stress testing (SOLO con autorización) — ver el skill `dos-testing`
 | Herramienta | Uso | Límites |
 |---|---|---|
 | `hping3 -S --flood -p 80 <target>` | Flooding controlado | solo en scope, duración corta |
 | `nmap --script dos <target>` | Validar DoS conocidos | solo lab |
 - Confirmar con `check-scope.sh <target> dos` y con el usuario. NUNCA contra terceros.
 
-### Fase 7 — Phishing simulation (SOLO con autorización) — ver `__OPENCODE_ROOT__/rules/cyber/phishing-sim.md`
+### Fase 7 — Phishing simulation (SOLO con autorización) — ver el skill `phishing-sim`
 | Herramienta | Uso |
 |---|---|
 | `GoPhish` | Campañas de concienciación con tracking |

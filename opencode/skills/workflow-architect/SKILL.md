@@ -1,3 +1,16 @@
+---
+name: workflow-architect
+description: Imponer la metodología agéntica obligatoria (brainstorming, spec, plan, TDD/verificación, act, review) en tareas no triviales de desarrollo de software, automatizaciones y diseño. Prohíbe ir directo al código y exige plan mode para tareas complejas.
+domain: engineering
+subdomain: methodology
+tags:
+  - methodology
+  - planning
+  - tdd
+version: '1.0'
+author: eco-ciber
+license: Apache-2.0
+---
 # Workflow Architect (v1.0)
 
 ## Propósito

@@ -5,7 +5,7 @@ Regla **estructural** del Ecosistema de Ciberseguridad: cada bug bounty se valid
 ## 1. Estructura de almacenamiento
 
 ```
-/root/.config/opencode/cyber/
+__OPENCODE_ROOT__/cyber/
 ├── session.json                  ← Pin de sesión (proyecto activo de ESTA sesión)
 ├── projects/
 │   ├── <proyecto>/scope.json     ← Scope autorizado del proyecto (única fuente de verdad)
@@ -53,7 +53,7 @@ Regla **estructural** del Ecosistema de Ciberseguridad: cada bug bounty se valid
 
 1. `$CYBER_PROJECT` (env var)
 2. `session.json` (pin fijado con `project-context.sh set`)
-3. `$PWD` bajo `/root/Bugbonty/<proyecto>/`
+3. `$PWD` bajo `__HOME__/BugBounty/<proyecto>/`
 4. Sin proyecto → error: fijar pin explícitamente
 
 ## 5. Dónde se ejecuta la validación
