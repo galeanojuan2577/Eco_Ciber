@@ -17,23 +17,13 @@
 | Placeholder | Equivale a |
 |---|---|
 | `__OPENCODE_ROOT__` | `~/.config/opencode` |
-| `__ECC_ROOT__` | clon del repositorio Eco_Ciber (`ecc/`) — **sólo existe en el repo** |
+| `__ECC_ROOT__` | clon Eco_Ciber (`ecc/`) — **sólo existe en el repo** |
 | `__HOME__` | `$HOME` |
 | `__LOCAL_BIN__` | `~/.local/bin` |
 
-En **destino** los skills viven en dos carpetas separadas, ambas bajo `__OPENCODE_ROOT__`:
+Skills en destino: `__OPENCODE_ROOT__/skills/` (166 ciber, origen `opencode/skills/`) y `__OPENCODE_ROOT__/skills-ecc/` (271 ingeniería, origen `ecc/skills/`); `opencode.json` declara ambas en el array `skills`, por eso el clon (`__ECC_ROOT__`) **no** se referencia desde ninguna instrucción que se cargue en una sesión.
 
-| Carpeta | Origen | Contenido |
-|---|---|---|
-| `__OPENCODE_ROOT__/skills/` | `opencode/skills/` | 166 skills de ciberseguridad |
-| `__OPENCODE_ROOT__/skills-ecc/` | `ecc/skills/` | 271 skills de ingeniería de software |
-
-`opencode.json` declara ambas en el array `skills`, por eso el clon (`__ECC_ROOT__`)
-**no** se referencia desde ninguna instrucción que se cargue en una sesión.
-
-Los ficheros de **instalación** del repo llevan placeholders; `eco-install.sh` los resuelve al instalar. **Nunca** escribas rutas `/root/...` ni `/home/diego/...` en el repo.
-
-Los espacios de trabajo de engagements viven en `__HOME__/BugBounty/<proyecto>/`.
+Instalación con placeholders resueltos por `eco-install.sh`. **Nunca** escribas rutas `/root/...` ni `/home/diego/...` en el repo. Engagements en `__HOME__/BugBounty/<proyecto>/`.
 
 ---
 
@@ -146,26 +136,7 @@ Todo pentest termina con un informe en `__HOME__/BugBounty/<proyecto>/reports/<f
 
 ## 10. Enrutamiento → agentes
 
-| Tarea | Agente |
-|---|---|
-| Recon / OSINT | `recon-agent` |
-| Escaneo de vulnerabilidades | `scanner-agent` |
-| Enumeración web/API | `enumerator-agent` |
-| Explotación | `exploiter-agent` |
-| Post-explotación | `post-exploitation-agent` |
-| Informe | `pentest-report-agent` |
-| Orquestar un pentest completo | `red-team-lead` |
-| DoS / estrés (autorizado) | `dos-tester` |
-| Simulación de phishing | `phishing-sim-agent` |
-| Forensics | `forensics-agent` · `malware-analyst-agent` |
-| Threat hunting | `threat-hunting-agent` |
-| Revisión de seguridad | `security-reviewer` · `cyber-ciso` |
-| Arquitectura / planificación | `planner` · `architect` · `code-architect` |
-| TDD | `tdd-guide` |
-| Code review | `code-reviewer` + `*-reviewer` (typescript, python, go, rust, java, php, kotlin, swift, csharp, cpp, dart, flutter, react, vue, django, fastapi, pytorch, mle, healthcare…) |
-| Bug de build / error | `build-error-resolver` + `*-build-resolver` |
-| Refactor | `refactor-cleaner` |
-| DevOps / red | `harness-optimizer` · `network-architect` · `homelab-architect` |
+El harness inyecta las descripciones de los 81 agentes: elige con ellas. Flujo pentest: `recon-agent` → `scanner-agent` → `enumerator-agent` → `exploiter-agent` → `post-exploitation-agent` → `pentest-report-agent`, orquestado por `red-team-lead`. Familias por patrón: `*-reviewer`, `*-build-resolver`, `*-resolver`.
 
 **Delega.** Si una tarea corresponde a un agente, lánzalo como subagente en lugar de hacerla tú.
 
