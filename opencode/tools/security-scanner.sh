@@ -12,6 +12,16 @@ SCAN_DIR="${1:-$PWD}"
 ISSUES=0
 FIXES=0
 
+# La configuración de OpenCode NO suele estar en el directorio escaneado
+# (OpenCode usa ~/.config/opencode/opencode.json como config global). Sin esta
+# resolución, los chequeos 4 y 5 se saltaban en silencio por no encontrar
+# el fichero y reportaban "0 issues" sin haber mirado nada.
+CONFIG="$SCAN_DIR/opencode.json"
+if [ ! -f "$CONFIG" ]; then
+    CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/opencode/opencode.json"
+fi
+[ -f "$CONFIG" ] || CONFIG=""
+
 echo -e "${CYAN}🔍 ECC Security Scanner${NC}"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo "Scanning: $SCAN_DIR"
@@ -74,7 +84,8 @@ check_env_in_git() {
 
 # Pattern 4: MCP servers with potential credential exposure
 check_mcp_servers() {
-    local config="$SCAN_DIR/opencode.json"
+    local config="$CONFIG"
+    [ -n "$config" ] || return 0
     if [ -f "$config" ]; then
         local servers=$(grep -oP '"command":\s*\[\s*"npx"[^\]]*\]' "$config" 2>/dev/null | head -5)
         if [ -n "$servers" ]; then
@@ -84,16 +95,50 @@ check_mcp_servers() {
     fi
 }
 
-# Pattern 5: Permission audit
+# Pattern 5: Permission audit (OpenCode V2)
+# En V2 la clave correcta es `permission` (singular); `permissions` (plural)
+# es sintaxis V1 que el runtime IGNORA en silencio. Un MCP quedaría sin
+# restricción alguna, asi que se comprueba la clave Y su contenido.
+# El catch-all `"*": "ask"` cubre tambien las herramientas MCP, cuyos nombres
+# reales varian segun el servidor.
 check_permissions() {
-    local config="$SCAN_DIR/opencode.json"
-    if [ -f "$config" ]; then
-        if grep -q '"mcp_\*"\s*:\s*"ask"' "$config" 2>/dev/null; then
-            echo -e "${GREEN}✅ MCP permissions: ask (secure)${NC}"
-        else
-            echo -e "${YELLOW}⚠️  MCP permissions not set to 'ask'${NC}"
-            ISSUES=$((ISSUES + 1))
-        fi
+    local config="$CONFIG"
+    if [ -z "$config" ]; then
+        echo -e "${YELLOW}⚠️  No se encontró opencode.json (ni en $SCAN_DIR ni global)${NC}"
+        ISSUES=$((ISSUES + 1))
+        return 0
+    fi
+    echo -e "${CYAN}ℹ️  Auditoría de permisos sobre: $config${NC}"
+    if grep -q '"permissions"\s*:' "$config" 2>/dev/null; then
+        echo -e "${RED}❌ 'permissions' (V1) presente: el runtime V2 lo IGNORA${NC}"
+        ISSUES=$((ISSUES + 1))
+        return 0
+    fi
+    if python3 - "$config" <<'PYPERM'
+import json, sys
+try:
+    d = json.load(open(sys.argv[1]))
+except Exception:
+    sys.exit(1)
+p = d.get("permission")
+if p is None:
+    sys.exit(1)
+if p == "ask":
+    sys.exit(0)
+if isinstance(p, dict) and p.get("*") in ("ask", "deny"):
+    sys.exit(0)
+# acepta tambien MCP declarados uno a uno
+mcp = d.get("mcp") or {}
+servers = mcp.get("servers", mcp)
+if isinstance(p, dict) and servers and all(p.get(s) in ("ask", "deny") for s in servers):
+    sys.exit(0)
+sys.exit(1)
+PYPERM
+    then
+        echo -e "${GREEN}✅ permission: MCP bajo 'ask' (V2, efectivo)${NC}"
+    else
+        echo -e "${YELLOW}⚠️  permission sin cobertura 'ask' para MCP (o clave V1)${NC}"
+        ISSUES=$((ISSUES + 1))
     fi
 }
 
