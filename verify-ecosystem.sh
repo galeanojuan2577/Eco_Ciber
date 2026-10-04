@@ -249,6 +249,10 @@ if [ "$INSTALLED" -eq 1 ]; then
       "python3 -c 'import json,sys;d=json.load(open(sys.argv[1]));p=d.get(\"permission\");sys.exit(0 if p==\"ask\" or (isinstance(p,dict) and p.get(\"*\") in (\"ask\",\"deny\")) else 1)' '$DEST/opencode.json'"
     check "instalado: skills.paths -> 2 rutas resueltas" \
       "python3 -c 'import json,sys,os;d=json.load(open(sys.argv[1]));p=(d.get(\"skills\") or {}).get(\"paths\") or [];sys.exit(0 if len(p)==2 and all(os.path.isdir(os.path.expanduser(x)) for x in p) else 1)' '$DEST/opencode.json'"
+    check "instalado: offsite respaldo con backoff (anti rate-limit)" \
+      "test -f '$HOME/.local/share/bin/obsidian-offsite.sh' && grep -q 'OFFSITE_BACKOFF' '$HOME/.local/share/bin/obsidian-offsite.sh' && grep -q 'MAX_ATTEMPTS' '$HOME/.local/share/bin/obsidian-offsite.sh'"
+    check "instalado: unit obsidian-offsite no failed" \
+      "systemctl --user cat obsidian-offsite.service >/dev/null 2>&1 && ! systemctl --user is-failed --quiet obsidian-offsite.service"
 fi
 
 # ── Resumen ───────────────────────────────────────────────────────────
