@@ -35,7 +35,14 @@ RESOLVERS="1.1.1.1,8.8.8.8,8.8.4.4"
 RATE_LIMIT=1000
 MASSCAN_RATE=5000
 NMAP_TIMING="-T4"
+# Puertos web que httpx debe sondear ademas de 80/443 (sin esto, un
+# servicio en 8080/3000/8000 pasaba desapercibido en targets IP)
+HTTPX_PORTS="80,443,8080,8443,8000,3000,5000,8888"
 FORCE=false
+
+# Integracion ECC: gate de autorizacion (check-scope.sh) + audit.log
+ECC_MODE=false
+ECC_TOOLS="${OPENCODE_ROOT:-$HOME/.config/opencode}/tools"
 
 # Nuevas herramientas config
 KATANA_DEPTH=3
@@ -195,7 +202,9 @@ ${CYAN}Opciones:${NC}
   -o, --output <dir>    Directorio de salida
   -w, --wordlist <file>  Wordlist para fuzzing/direccion
   -q, --quiet           Modo silencioso (solo output)
-  -f, --force           Sobreescribir directorio existente
+  -e, --ecc             Integracion ECC: gate check-scope + registro en audit.log
+  -f, --force           Sobreescribir directorio existente (con --ecc, fuerza la
+                        autorizacion fuera de scope tras confirmarla)
   -h, --help            Mostrar esta ayuda
 
 ${CYAN}Ejemplos:${NC}
@@ -453,6 +462,10 @@ parse_args() {
                 QUIET=true
                 shift
                 ;;
+            -e|--ecc)
+                ECC_MODE=true
+                shift
+                ;;
             -f|--force)
                 FORCE=true
                 shift
@@ -477,6 +490,80 @@ parse_args() {
         error "Debes especificar un target."
         usage
     fi
+}
+
+# ═══════════════════════════════════════════════════════════════════
+# INTEGRACION ECC (--ecc): gate de autorizacion + audit.log
+# ═══════════════════════════════════════════════════════════════════
+# Contrato de check-scope.sh:
+#   0 = IN SCOPE      -> procede
+#   1 = NEEDS CONFIRM -> preguntar al usuario (o -f tras confirmar)
+#   2 = HARD DENY     -> target de OTRO proyecto, rechazo duro (no se fuerza)
+#   3 = USAGE ERROR   -> falta registrar autorizacion
+# ═══════════════════════════════════════════════════════════════════
+ecc_audit() {
+    local al="$ECC_TOOLS/audit-log.sh"
+    [[ -f "$al" ]] || return 0
+    bash "$al" "$@" >/dev/null 2>&1 || true
+}
+
+ecc_gate() {
+    local target="$1" tipo="recon" rc=0
+    local cs="$ECC_TOOLS/check-scope.sh"
+
+    [[ -f "$cs" ]] || {
+        error "check-scope.sh no encontrado: $cs"
+        exit 1
+    }
+
+    info "Gate de autorizacion: check-scope.sh $target $tipo"
+    if bash "$cs" "$target" "$tipo"; then
+        rc=0
+    else
+        rc=$?
+    fi
+
+    case "$rc" in
+        0)
+            success "Scope verificado (exit=0)"
+            ;;
+        1)
+            if [[ "$FORCE" == "true" ]]; then
+                warn "Autorizacion fuera de scope / tipo no autorizado: se fuerza con -f (queda registrado)."
+                bash "$cs" "$target" "$tipo" --force >/dev/null 2>&1 || true
+                ecc_audit "recon FORCE-override target=$target nivel=$LEVEL (confirmado por usuario con -f)"
+            elif [[ -t 0 ]]; then
+                printf "%b" "${YELLOW}  ¿Confirmas por escrito que '$target' es legal, en scope y consentida? [s/N]: ${NC}"
+                read -r ans || ans=""
+                if [[ "$ans" =~ ^[sS] ]]; then
+                    bash "$cs" "$target" "$tipo" --force >/dev/null 2>&1 || true
+                    ecc_audit "recon FORCE-override target=$target nivel=$LEVEL (confirmado en terminal)"
+                else
+                    error "Autorizacion NO confirmada. Abortando sin ejecutar recon."
+                    exit 1
+                fi
+            else
+                error "check-scope exit=1: fuera de scope, autorizacion vencida o tipo no autorizado."
+                error "Registra el target con:"
+                error "  bash $ECC_TOOLS/authorize.sh init <programa_url>"
+                error "  bash $ECC_TOOLS/authorize.sh add $target recon 7d"
+                error "O reintroduce con -f DESPUES de confirmarlo explicitamente con el usuario."
+                exit 1
+            fi
+            ;;
+        2)
+            error "check-scope exit=2: '$target' pertenece al scope de OTRO proyecto."
+            error "Rechazo duro (aislamiento por proyecto). Cambia de proyecto con:"
+            error "  bash $ECC_TOOLS/project-context.sh set <proyecto>"
+            exit 1
+            ;;
+        *)
+            error "check-scope exit=$rc: no se pudo validar la autorizacion."
+            exit 1
+            ;;
+    esac
+
+    ecc_audit "recon start target=$target tipo=$tipo nivel=$LEVEL"
 }
 
 # ═══════════════════════════════════════════════════════════════════
@@ -796,6 +883,7 @@ phase_2_probing() {
         subsection "httpx (probing HTTP/HTTPS)"
         cat "$subs_file" | httpx \
             -silent \
+            -p "$HTTPX_PORTS" \
             -sc \
             -title \
             -td \
@@ -838,9 +926,20 @@ phase_2_probing() {
     # WHATWEB
     if [[ "${TOOL_STATUS[whatweb]:-missing}" == "ok" ]]; then
         subsection "whatweb (fingerprinting)"
-        whatweb --color=never -v -a 3 "$BASE_DOMAIN" > "$outdir/whatweb_raw.txt" 2>/dev/null || true
+        : > "$outdir/whatweb_raw.txt"
+        # Fingerprintar cada URL viva: con -p httpx ya ha descubierto los
+        # puertos web reales (8080, 3000...), mientras que -s sobre
+        # $BASE_DOMAIN solo miraba el puerto 80 y devolvia vacio.
+        if [[ -s "$outdir/live_urls.txt" ]]; then
+            head -30 "$outdir/live_urls.txt" | while IFS= read -r url; do
+                [[ -z "$url" ]] && continue
+                whatweb --color=never -v -a 3 "$url" >> "$outdir/whatweb_raw.txt" 2>/dev/null || true
+            done
+        else
+            whatweb --color=never -v -a 3 "$BASE_DOMAIN" > "$outdir/whatweb_raw.txt" 2>/dev/null || true
+        fi
         grep -oE '\[.*?\]' "$outdir/whatweb_raw.txt" 2>/dev/null | sort -u > "$outdir/technologies.txt" || true
-        info "whatweb completado"
+        info "whatweb completado: $(count_lines "$outdir/technologies.txt") tecnologias"
     fi
 
     # SSLSCAN
@@ -880,6 +979,21 @@ phase_2_probing() {
 # ═══════════════════════════════════════════════════════════════════
 # FASE 3: ESCANEO DE PUERTOS
 # ═══════════════════════════════════════════════════════════════════
+# Ejecuta nmap tolerando la falta de privilegios.
+# -sS (SYN scan) exige root: sin el, nmap aborta con "requires root
+# privileges". El codigo original hacia `2>/dev/null || true`, asi que el
+# fallo era invisible y TODO el escaneo de puertos salia vacio.
+# -sT (connect scan) produce el mismo resultado sin privilegios.
+nmap_run() {
+    local errfile="$1"; shift
+    local rc=0
+    nmap "$@" 2>"$errfile" || rc=$?
+    if [[ $rc -ne 0 ]]; then
+        warn "nmap fallo (exit=$rc): $(head -2 "$errfile" 2>/dev/null | tr '\n' ' ')"
+    fi
+    return 0
+}
+
 phase_3_ports() {
     local target="$1"
     local outdir="$OUTPUT_DIR/03-ports"
@@ -894,6 +1008,14 @@ phase_3_ports() {
     # Construir lista de IPs para escanear
     local scan_targets_file="$outdir/scan_targets.txt"
     : > "$scan_targets_file"
+
+    # Si el propio target es una IP, escanearla directamente. Sin este caso
+    # la cadena DNS (live_ips > resolved_ips > dig) quedaba vacia y la fase 3
+    # no escaneaba nada, reportando siempre "0 puertos".
+    if [[ "$target" =~ ^[0-9]{1,3}(\.[0-9]{1,3}){3}$ ]]; then
+        echo "$target" >> "$scan_targets_file"
+        info "Target IP: escaneo directo, sin resolucion DNS ($target)"
+    fi
 
     # Prioridad: live_ips (confirmadas por httpx) > resolved_ips > dig hosts > dig dominio
     if [[ -s "$ips_file" ]]; then
@@ -947,34 +1069,41 @@ phase_3_ports() {
             nmap_targets="$BASE_DOMAIN"
         fi
 
+        local scan_type="-sT"
+        if [[ "$(id -u)" -eq 0 ]]; then
+            scan_type="-sS"
+        else
+            info "Sin privilegios de root: se usa -sT (connect) en vez de -sS (SYN)"
+        fi
+
         if [[ $LEVEL -eq 1 ]]; then
-            nmap $NMAP_TIMING -Pn -sS --top-ports 1000 \
+            nmap_run "$outdir/nmap.err" $NMAP_TIMING -Pn $scan_type --top-ports 1000 \
                 $nmap_targets \
                 -oN "$outdir/nmap_service.txt" \
-                -oX "$outdir/nmap_service.xml" 2>/dev/null || true
+                -oX "$outdir/nmap_service.xml"
         elif [[ $LEVEL -eq 2 ]]; then
             if [[ -n "$ports" ]]; then
-                nmap $NMAP_TIMING -Pn -sV -sC -p "$ports" \
+                nmap_run "$outdir/nmap.err" $NMAP_TIMING -Pn -sV -sC -p "$ports" \
                     $nmap_targets \
                     -oN "$outdir/nmap_service.txt" \
-                    -oX "$outdir/nmap_service.xml" 2>/dev/null || true
+                    -oX "$outdir/nmap_service.xml"
             else
-                nmap $NMAP_TIMING -Pn -sS --top-ports 1000 \
+                nmap_run "$outdir/nmap.err" $NMAP_TIMING -Pn $scan_type --top-ports 1000 \
                     $nmap_targets \
                     -oN "$outdir/nmap_service.txt" \
-                    -oX "$outdir/nmap_service.xml" 2>/dev/null || true
+                    -oX "$outdir/nmap_service.xml"
             fi
         else
             if [[ -n "$ports" ]]; then
-                nmap $NMAP_TIMING -Pn -sV -sC -p "$ports" --script "vuln,exploit,auth,default" \
+                nmap_run "$outdir/nmap.err" $NMAP_TIMING -Pn -sV -sC -p "$ports" --script "vuln,exploit,auth,default" \
                     $nmap_targets \
                     -oN "$outdir/nmap_vuln.txt" \
-                    -oX "$outdir/nmap_vuln.xml" 2>/dev/null || true
+                    -oX "$outdir/nmap_vuln.xml"
             fi
-            nmap $NMAP_TIMING -Pn -sV -sC -p- --script "vuln,auth,default" \
+            nmap_run "$outdir/nmap.err" $NMAP_TIMING -Pn -sV -sC -p- --script "vuln,auth,default" \
                 $nmap_targets \
                 -oN "$outdir/nmap_full.txt" \
-                -oX "$outdir/nmap_full.xml" 2>/dev/null || true
+                -oX "$outdir/nmap_full.xml"
         fi
         # Contar puertos abiertos desde nmap
         grep -E "^[0-9]+/(tcp|udp).+open" "$outdir/nmap_service.txt" "$outdir/nmap_full.txt" "$outdir/nmap_vuln.txt" 2>/dev/null | \
@@ -1445,8 +1574,8 @@ except: pass
 run_bug_bounty_mode() {
     section "MODO BUG BOUNTY — Todos los targets en scope"
 
-    local registry="/root/Bugbonty/scope-registry.json"
-    local projects_dir="/root/Bugbonty"
+    local registry="__HOME__/BugBounty/scope-registry.json"
+    local projects_dir="__HOME__/BugBounty"
 
     if [[ ! -f "$registry" ]]; then
         error "No se encontro scope-registry.json en $projects_dir"
@@ -1905,13 +2034,282 @@ subzy run --targets $outdir/01-subdomains/all_subdomains.txt --concurrency 50
 REPORT
 
     success "Informe generado: $report"
+
+    generate_report_formats "$target"
 }
 
 # ═══════════════════════════════════════════════════════════════════
+# ═══════════════════════════════════════════════════════════════════
+# INFORMES DERIVADOS: RECON_REPORT.json + RECON_REPORT.html
+#   JSON -> maquina-legible (diff, CI, pipelines)
+#   HTML -> panel autocontenido con graficos SVG en linea (sin CDN,
+#           abre en local sin conexion a Internet)
+# ═══════════════════════════════════════════════════════════════════
+generate_report_formats() {
+    local target="$1"
+    local outdir="$OUTPUT_DIR"
+
+    if ! command -v python3 >/dev/null 2>&1; then
+        warn "python3 no disponible: solo se genera RECON_REPORT.md"
+        return 0
+    fi
+
+    RECON_TARGET="$target" \
+    RECON_OUTDIR="$outdir" \
+    RECON_TARGET_TYPE="$TARGET_TYPE" \
+    RECON_LEVEL="$LEVEL" \
+    RECON_VERSION="$VERSION" \
+    RECON_ELAPSED="$(elapsed)" \
+    RECON_STARTED_AT="${RECON_STARTED_AT:-}" \
+    python3 - <<'PY'
+import os, json, html, pathlib, datetime, traceback
+
+def build():
+    out    = pathlib.Path(os.environ.get('RECON_OUTDIR', '.'))
+    target = os.environ.get('RECON_TARGET', '')
+    ttype  = os.environ.get('RECON_TARGET_TYPE', '')
+    level  = os.environ.get('RECON_LEVEL', '')
+    ver    = os.environ.get('RECON_VERSION', '')
+    elap   = os.environ.get('RECON_ELAPSED', '0')
+    start  = os.environ.get('RECON_STARTED_AT', '') or \
+             datetime.datetime.now().isoformat(timespec='seconds')
+
+    def fmt(n):
+        """Separador de miles a la espanola: 1234 -> 1.234"""
+        return f'{n:,}'.replace(',', '.')
+
+    def rd(rels):
+        """Primer fichero existente de la lista; devuelve lineas no vacias."""
+        for cand in rels:
+            p = out / cand
+            if p.is_file():
+                try:
+                    txt = p.read_text(encoding='utf-8', errors='replace')
+                except Exception:
+                    return []
+                return [l.rstrip('\n') for l in txt.splitlines() if l.strip()]
+        return []
+
+    subdom  = rd(['01-subdomains/all_subdomains.txt'])
+    live    = rd(['02-probing/live_urls.txt'])
+    hosts   = rd(['02-probing/live_hosts.txt', '02-probing/httpx_live.txt'])
+    ips     = rd(['02-probing/live_ips.txt'])
+    ports   = rd(['03-ports/open_ports.txt', '03-ports/open_ports_nmap.txt'])
+    techs   = rd(['02-probing/technologies.txt'])
+    emails  = rd(['06-osint/emails.txt', '00-whois/emails.txt'])
+    waybk   = rd(['06-osint/wayback_urls.txt'])
+    endpts  = rd(['04-web/endpoints.txt'])
+    secrets = rd(['04-web/secrets.txt'])
+    nuclei  = rd(['05-vulns/nuclei_results.txt'])
+    sechdr  = rd(['05-vulns/security_headers.txt'])
+    sens    = rd(['06-osint/sensitive_subs.txt'])
+    waf     = rd(['02-probing/waf_detection.txt'])
+
+    def sev(tag):
+        t = tag.lower()
+        return sum(1 for l in nuclei if t in l.lower())
+
+    vulns = {
+        'critical': sev('critical'), 'high': sev('high'),
+        'medium': sev('medium'), 'low': sev('low'),
+        'total': len(nuclei),
+    }
+
+    counts = {
+        'subdominios': len(subdom),
+        'urls_vivas': len(live),
+        'hosts_vivos': len(hosts),
+        'ips_vivas': len(ips),
+        'puertos_abiertos': len(ports),
+        'tecnologias': len(techs),
+        'emails': len(emails),
+        'wayback_urls': len(waybk),
+        'endpoints': len(endpts),
+        'secrets': len(secrets),
+        'hallazgos_nuclei': len(nuclei),
+        'security_headers_faltantes': len(sechdr),
+        'subdominios_sensibles': len(sens),
+        'waf_detectado': len(waf),
+    }
+
+    md_path = out / 'RECON_REPORT.md'
+    md_text = ''
+    if md_path.is_file():
+        try:
+            md_text = md_path.read_text(encoding='utf-8', errors='replace')
+        except Exception:
+            md_text = ''
+
+    data = {
+        'schema': 'recon_pro.report/v1',
+        'meta': {
+            'target': target,
+            'target_type': ttype,
+            'nivel': level,
+            'version': ver,
+            'inicio': start,
+            'duracion_seg': int(elap) if str(elap).isdigit() else elap,
+            'directorio': str(out),
+            'generado': datetime.datetime.now().isoformat(timespec='seconds'),
+            'informe_md': md_path.name,
+        },
+        'conteos': counts,
+        'vulnerabilidades': vulns,
+        'datos': {
+            'subdominios': subdom[:5000],
+            'urls_vivas': live[:5000],
+            'hosts_vivos': hosts[:5000],
+            'ips_vivas': ips[:2000],
+            'puertos_abiertos': ports[:2000],
+            'tecnologias': techs[:500],
+            'emails': emails[:2000],
+            'wayback_urls': waybk[:5000],
+            'endpoints': endpts[:5000],
+            'secrets': secrets[:500],
+            'nuclei': nuclei[:2000],
+            'security_headers': sechdr[:500],
+            'subdominios_sensibles': sens[:1000],
+            'waf': waf[:100],
+        },
+    }
+
+    (out / 'RECON_REPORT.json').write_text(
+        json.dumps(data, indent=2, ensure_ascii=False), encoding='utf-8')
+
+    # ── HTML autocontenido ──────────────────────────────────────────
+    esc = lambda s: html.escape(str(s))
+
+    def li(items, limit=300):
+        if not items:
+            return '<p class="empty">Sin datos</p>\n'
+        rows = ''.join('<li>' + esc(x) + '</li>' for x in items[:limit])
+        more = ''
+        if len(items) > limit:
+            more = '<p class="more">&hellip; y ' + fmt(len(items) - limit) + ' mas</p>\n'
+        return '<ul>' + rows + '</ul>\n' + more
+
+    bars = [
+        ('Subdominios', counts['subdominios']),
+        ('URLs vivas', counts['urls_vivas']),
+        ('Hosts vivos', counts['hosts_vivos']),
+        ('Puertos abiertos', counts['puertos_abiertos']),
+        ('Tecnologias', counts['tecnologias']),
+        ('Endpoints', counts['endpoints']),
+        ('Emails', counts['emails']),
+        ('Secrets', counts['secrets']),
+        ('Hallazgos nuclei', counts['hallazgos_nuclei']),
+    ]
+    mx  = max([v for _, v in bars] + [1])
+    BW  = 300
+    bars_html = []
+    for label, val in bars:
+        w = int(BW * val / mx)
+        bars_html.append(
+            '<div class="bar"><span class="lbl">' + esc(label) + '</span>'
+            '<span class="track"><svg width="' + str(BW) + '" height="16" role="img">'
+            '<rect x="0" y="0" width="' + str(w) + '" height="16" fill="#38bdf8"/>'
+            '</svg></span><span class="val">' + fmt(val) + '</span></div>\n')
+    bars_html = ''.join(bars_html)
+
+    sev_rows = ''.join(
+        '<tr><td>' + esc(k) + '</td><td>' + fmt(v) + '</td></tr>'
+        for k, v in vulns.items())
+
+    cards = ''.join(
+        '<div class="card"><b>' + fmt(v) + '</b><span>' +
+        esc(k.replace('_', ' ')) + '</span></div>'
+        for k, v in counts.items())
+
+    css = """
+:root{--bg:#0b1220;--fg:#e2e8f0;--mut:#94a3b8;--card:#111a2e;--ln:#1e293b;--ac:#38bdf8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+ font:14px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace}
+header{padding:22px 26px;border-bottom:1px solid var(--ln);
+ background:linear-gradient(180deg,#0f1a33,#0b1220)}
+h1{margin:0 0 6px;font-size:21px}
+.meta{color:var(--mut);font-size:12px}
+main{padding:22px 26px;max-width:1200px;margin:0 auto}
+h2{font-size:15px;color:var(--ac);border-bottom:1px solid var(--ln);
+ padding-bottom:6px;margin:26px 0 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:9px;padding:12px 14px}
+.card b{display:block;font-size:23px;color:var(--ac)}
+.card span{color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.bar{display:grid;grid-template-columns:150px auto 80px;align-items:center;
+ gap:10px;margin:5px 0;font-size:12px}
+.bar .lbl{color:var(--mut)}
+.bar .val{text-align:right}
+table{border-collapse:collapse;width:100%;font-size:12px}
+th,td{text-align:left;padding:6px 9px;border-bottom:1px solid var(--ln)}
+th{color:var(--mut);font-weight:600}
+ul{columns:2;column-gap:24px;margin:8px 0;padding-left:18px;font-size:12px}
+li{break-inside:avoid;list-style:none;padding:2px 0;color:#cbd5e1}
+li:before{content:"\\25B8 ";color:var(--ac)}
+.empty{color:var(--mut);font-style:italic}
+.more{color:var(--mut);font-size:11px}
+details{background:var(--card);border:1px solid var(--ln);border-radius:9px;
+ padding:12px 14px;margin:14px 0}
+summary{cursor:pointer;color:var(--ac);font-weight:600}
+pre{white-space:pre-wrap;word-break:break-word;color:#cbd5e1;font-size:12px}
+footer{color:var(--mut);font-size:11px;padding:18px 26px;border-top:1px solid var(--ln)}
+"""
+
+    now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    def section(title, body):
+        return '<h2>' + title + '</h2>\n' + body + '\n'
+
+    h = []
+    h.append('<!doctype html>\n<html lang="es"><head><meta charset="utf-8">\n')
+    h.append('<meta name="viewport" content="width=device-width,initial-scale=1">\n')
+    h.append('<title>Recon ' + esc(target) + '</title>\n')
+    h.append('<style>' + css + '</style></head><body>\n')
+    h.append('<header><h1>RECON_REPORT &mdash; ' + esc(target) + '</h1>\n')
+    h.append('<div class="meta">tipo: ' + esc(ttype) + ' &middot; nivel: ' + esc(level) +
+             ' &middot; ' + esc(ver) + ' &middot; inicio ' + esc(start) +
+             ' &middot; duraci&oacute;n ' + esc(elap) + ' s</div>\n</header>\n<main>\n')
+    h.append(section('Conteos', '<div class="cards">' + cards + '</div>'))
+    h.append(section('Distribuci&oacute;n', bars_html))
+    h.append(section('Vulnerabilidades (nuclei)',
+        '<table><thead><tr><th>Severidad</th><th>Hallazgos</th></tr></thead>'
+        '<tbody>' + sev_rows + '</tbody></table>'))
+    h.append(section('Subdominios (' + fmt(len(subdom)) + ')', li(subdom)))
+    h.append(section('URLs vivas (' + fmt(len(live)) + ')', li(live)))
+    h.append(section('Puertos abiertos (' + fmt(len(ports)) + ')', li(ports)))
+    h.append(section('Tecnolog&iacute;as (' + fmt(len(techs)) + ')', li(techs, 200)))
+    h.append(section('Emails (' + fmt(len(emails)) + ')', li(emails)))
+    h.append(section('Secrets (' + fmt(len(secrets)) + ')', li(secrets, 100)))
+    h.append('<details><summary>Informe Markdown completo</summary><pre>' +
+             esc(md_text) + '</pre></details>\n')
+    h.append('</main>\n<footer>Generado por RECON_PRO v' + esc(ver) +
+             ' &middot; ECS Ecosistema de Ciberseguridad &middot; ' + now +
+             ' &middot; offline (sin CDN)</footer>\n</body></html>\n')
+
+    (out / 'RECON_REPORT.html').write_text(''.join(h), encoding='utf-8')
+
+try:
+    build()
+except Exception:
+    traceback.print_exc()
+    raise SystemExit(1)
+PY
+
+    if [[ -f "$outdir/RECON_REPORT.json" ]]; then
+        success "JSON generado: $outdir/RECON_REPORT.json"
+    fi
+    if [[ -f "$outdir/RECON_REPORT.html" ]]; then
+        success "HTML generado: $outdir/RECON_REPORT.html"
+    fi
+    return 0
+}
+
 # FUNCION PRINCIPAL
 # ═══════════════════════════════════════════════════════════════════
 main() {
     parse_args "$@"
+
+    RECON_STARTED_AT="$(date +%Y-%m-%dT%H:%M:%S%z)"
 
     if [[ "$TARGET_TYPE" != "wildcard" && -z "$TARGET" ]]; then
         error "Target no definido."
@@ -1929,6 +2327,11 @@ main() {
     info "Tipo: ${WHITE}$TARGET_TYPE${NC}"
     info "Nivel: ${WHITE}$LEVEL${NC}"
     info "Threads: ${WHITE}$THREADS${NC}"
+
+    # Gate de autorizacion ANTES de tocar el target (sólo con --ecc)
+    if [[ "$ECC_MODE" == "true" ]]; then
+        ecc_gate "$TARGET"
+    fi
 
     if [[ -z "$OUTPUT_DIR" ]]; then
         local safe_target
@@ -1964,6 +2367,10 @@ main() {
 
     generate_report "$TARGET"
 
+    if [[ "$ECC_MODE" == "true" ]]; then
+        ecc_audit "recon end target=$TARGET nivel=$LEVEL dir=$OUTPUT_DIR"
+    fi
+
     section "RESUMEN FINAL"
     local elapsed_time
     elapsed_time=$(elapsed)
@@ -1974,6 +2381,8 @@ main() {
     echo -e "  ${CYAN}Nivel:${NC}        $LEVEL"
     echo -e "  ${CYAN}Salida:${NC}       $OUTPUT_DIR"
     echo -e "  ${CYAN}Informe:${NC}      $OUTPUT_DIR/RECON_REPORT.md"
+    echo -e "  ${CYAN}              ${NC}  $OUTPUT_DIR/RECON_REPORT.html"
+    echo -e "  ${CYAN}              ${NC}  $OUTPUT_DIR/RECON_REPORT.json"
     echo ""
 
     local s=0 l=0 p=0 v=0

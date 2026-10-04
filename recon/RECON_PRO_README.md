@@ -8,7 +8,7 @@ Framework profesional de reconocimiento de dominios con menú interactivo, 3 niv
 
 El script ya está instalado y listo para usar:
 
-- **Archivo:** `/root/Escritorio/recon_pro.sh`
+- **Archivo:** `__LOCAL_BIN__/recon`
 - **Comando:** `recon` (disponible en cualquier terminal)
 
 ---
@@ -102,24 +102,29 @@ recon
 
 | Flag | Descripción |
 |------|-------------|
-| `--ecc` | Activar integración ECC (check-scope, audit-log) |
-| `--quiet` | Modo silencioso (solo output a archivo) |
-| `--resume` | Continuar escaneo interrumpido |
-| `--report-only` | Solo generar informe (sin escanear) |
-| `--threads N` | Hilos para herramientas (default: 50) |
-| `--timeout N` | Timeout por herramienta en segundos (default: 300) |
-| `--wordlist PATH` | Wordlist personalizada |
+| `--ecc` | Integración ECC: gate `check-scope.sh` antes de tocar el target + registro en `audit.log` (inicio y fin) |
+| `--quiet`, `-q` | Modo silencioso (solo output a archivo) |
+| `--threads N`, `-t` | Hilos para herramientas (default: 100) |
+| `--wordlist PATH`, `-w` | Wordlist personalizada |
+| `--force`, `-f` | Sobreescribe el directorio de salida; con `--ecc` además fuerza la autorización si `check-scope` devuelve `1` (queda registrado en `audit.log`) |
 
----
+**Flags documentados antes que NO existen** (retirados de la tabla): `--resume`,
+`--report-only`, `--timeout N`. El informe se genera siempre al final
+(`generate_report`) y el timeout por herramienta no es configurable.
 
-## Integración ECC
+### Integración ECC
 
-Con el flag `--ecc`, el script:
-- Verifica el scope antes de escanear
-- Registra cada herramienta en audit.log
-- Gestiona autorización de targets
+Con el flag `--ecc`, antes de cualquier fase:
 
-Requiere: `/root/.config/opencode/tools/`
+- `bash __OPENCODE_ROOT__/tools/check-scope.sh <target> recon`
+  - `exit 0` → procede.
+  - `exit 1` → si hay terminal, pregunta; si no la hay, **aborta**. Con `-f` fuerza
+    tras confirmación y lo deja registrado.
+  - `exit 2` → **rechazo duro** (target de otro proyecto), siempre aborta.
+- `audit-log.sh "recon start ..."` al empezar y `audit-log.sh "recon end ..."` al terminar.
+
+Sin `--ecc` no se ejecuta el gate (útil sólo para lab propio). Requiere
+`__OPENCODE_ROOT__/tools/`.
 
 ---
 
